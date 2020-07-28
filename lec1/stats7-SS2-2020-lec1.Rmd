@@ -117,12 +117,12 @@ class: title-slide2
 </div>
 
 <div style="position:fixed; right:500px; top:450px">
-<img src="lec1-images/jen.jpg", alt="photo of TA Jenifer Rim drinking iced coffee" width="175"/>
+<img src="lec1-images/jen.jpg" alt="photo of TA Jenifer Rim drinking iced coffee" width="175"/>
 
 </div>
 
 <div style="position:fixed; right:100px; top:500px">
-<img src="lec1-images/jen-stickers.png", alt="photo of 3 stickers. Left: smiling cup of boba tea. center: ping pong paddle, 8 ball, bowling ball, badminton shuttle cock. Right: panda cooking in large soup pot." width="300"/>
+<img src="lec1-images/jen-stickers.png" width="300"/>
 
 </div>
 
