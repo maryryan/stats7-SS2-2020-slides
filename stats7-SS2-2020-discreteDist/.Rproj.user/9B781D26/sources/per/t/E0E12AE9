@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1587335095490.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "55|3|64|0|\n66|3|69|0|\n",
+    "hash" : "812742647",
+    "id" : "E0E12AE9",
+    "lastKnownWriteTime" : 1587346411,
+    "last_content_update" : 1587346411515,
+    "path" : "~/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-discreteDist/stats7-SS2-2020-discreteDist.Rmd",
+    "project_path" : "stats7-SS2-2020-discreteDist.Rmd",
+    "properties" : {
+        "cursorPosition" : "116,27",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Continuous Probability Distributions</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mary Ryan" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/chocolate-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="headerPosition.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+layout: true
+class: 
+
+&lt;!-- Old footer font color: #00A895 --&gt;
+&lt;!-- old footer background color: #383838 --&gt;
+
+&lt;!-- footer --&gt;
+ &lt;div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #17f9b4; background-color: #545454; width:93.5%"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mary Ryan&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; left:500px; font-size: 12pt; color: #17f9b4"&gt;Continuous Distributions&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #17f9b4"&gt;Stats 7&lt;/div&gt;
+
+&lt;!-- Recording Notice Slide --&gt;
+---
+
+&lt;div style="position:fixed; left:50px; right:50px; top:175px; padding:30px; margin:auto; background-color:#C0F3E4; border-radius: 15px"&gt;
+&lt;p&gt;This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.&lt;/p&gt;
+
+&lt;p&gt;If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you.&lt;/p&gt;
+
+&lt;p&gt;The chat box is always open for discussion and questions to the entire class. You may also send messages privately to the instructor or the TAs. Please note that Zoom saves all chat transcripts.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Title Slide --&gt;
+---
+
+class: title-slide2
+
+# &lt;center&gt; Continuous Probability Distributions &lt;/center&gt;
+## &lt;center&gt; Stats 7 &lt;/center&gt;
+### &lt;center&gt; Mary Ryan &lt;/center&gt;
+### .center[Aug. 25, 2020]
+
+&lt;!-- social media info --&gt;
+&lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
+&lt;div&gt;&lt;img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/&gt; &lt;a href="https://github.com/maryryan"&gt; github.com/maryryan &lt;/a&gt; &lt;/div&gt;
+&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href=""&gt; class website here &lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+# Probability Distributions
+
+- Remember from last week: we might want to know the probability of an event, but have no data
+
+   - Might be useful to apply a .alert[**probability model**] or .alert[**probability distribution**]
+
+   - Existing framework with .alert2[**known properties**], given that certain .alert2[**conditions**] apply
+   
+   - Each distribution has formulae for calculating probability
+   
+   - Different types of models for .alert2[**discrete**] and .alert2[**continuous**] variables
+   
+      - Today we'll focus on continuous random variables
+      
+---
+
+# Continuous Random Variables
+
+- Like continuous data types, continuous random variables are variables that take on numerical values that can go out to .alert2[**infinite decimal points**]
+
+- Continuous sample spaces have an .alert2[**infinite number of outcomes**] over an interval of values
+
+   - But the probability over certain segments of those sample spaces are not necessarily constant
+   
+   - We use .alert[**density curves**] to visualize where probability mass lies
+   
+   - The more probability mass an interval has, the more likely it is to happen!
+
+---
+
+# Probability Density Curves
+
+.pull-left[
+- Events are defined over an .alert2[**interval or range of values**]
+
+- Probability is defined as the .alert2[**area under the curve**] of certain portions of the density curve
+
+- The area under the entire curve will be equal to 1 (or 100% of some event in the entire sample space occurring)
+
+- The area under one specific value is 0 -- therefore .alert2[**the probability of an event being exactly a certain value is 0.**]
+]
+
+.pull-right[
+![example of a probability density curve with Event A defined as an interval and the probability of event A defined as an area under the curve within that interval](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-contDist/densityCurve.png)
+]
+
+---
+
+# Density Curves &amp; Probability Density Functions
+
+- The shape of a density curve is defined by something called a .alert[**probability density function**], or pdf
+
+- The pdf is the continuous equivalent of the probability equations we saw for discrete distributions
+
+- The pdf will also help us find the area under the curve for the specific area we want -- just integrate!
+
+   - This might take quite a bit of math, though, so we often just have a computer calculate the probabilities for us
+   
+---
+
+# Continuous Uniform Distribution
+
+- The most simple continuous distribution we might think of is one where all events defined on .alert2[**intervals of equal length**] have an equal probability of happening
+
+--
+
+- Applies to .alert2[**continuous**] random variables
+
+   - Variables can take on values that exist between some number *a* and another number *b*
+   - Intervals of equal length are .alert2[**equally likely**] to happen
+   - Defined by the minimum value the variable can take on (*a*) and the maximum value it can take on (*b*)
+
+.content-box-teal[
+- Some properties:
+   - `\(P(X&lt;x) = \int_a^x \frac{x-a}{b-a}\)`dx
+   - `\(E(X) = \frac{a+b}{2}\)`
+   - `\(Var(X) = \frac{(b-a)^2}{12}\)`
+]
+   
+- Arrival time of a package you're told will be delivered between 3 pm and 5 pm
+
+---
+
+# Example: Waiting for the Bus
+
+&lt;div style="position:relative;float:left; width:75%"&gt;
+We are waiting at a bus stop for a bus that comes once per hour. We do not know what time the bus came last, so we could have just missed it or it might be just about to arrive. The time we will wait for the bus is uniformly distributed, with a minimum wait time of 0 minutes and a maximum wait time of 60 minutes.
+
+&lt;/div&gt;
+
+
+&lt;div style="position:relative; top:-75px; right:-20px;"&gt;
+&lt;img src="https://media.giphy.com/media/xMkWcQ9xTGH8A/giphy.gif", width="250px"/&gt;
+&lt;/div&gt;
+
+
+- What is the probability that you will have to wait between 15 and 20 minutes for the bus?
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+--
+
+- What’s the probability you will have to wait more than 40 minutes for the bus?
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+--
+
+- How long might we expect to wait for the bus?
+
+
+---
+
+# Normal Distribution
+
+- Applies to .alert2[**continuous**] random variables
+
+   - Variables can take on values that exist between `\(\infty\)` and `\(-\infty\)`
+   - Defined by the mean, `\(\mu\)`, and variance, `\(\sigma^2\)`
+   - Intervals near the mean more likely to happen than intervals near "tails"
+
+.content-box-teal[
+- Some properties:
+   - `\(P(X&lt;x) = \int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)`
+   - `\(E(X) = \mu\)`
+   - `\(Var(X) = \sigma^2\)`
+]
+
+&lt;div style="position:absolute; right:-550px; top:0px"&gt;
+&lt;img src="stats7-SS2-2020-contDist_files/figure-html/unnamed-chunk-1-1.png" width="17%" style="display: block; margin: auto;" /&gt;
+
+&lt;/div&gt;
+--
+
+&lt;div style="position:fixed; right:400px; top:300px"&gt;
+&lt;img src="https://media.giphy.com/media/LRVnPYqM8DLag/giphy.gif", width="250px"/&gt;
+&lt;/div&gt;
+
+---
+
+# Normal Distribution
+
+.pull-left[
+- `\(\mu\)` and `\(\sigma\)` affect the shape of the distribution
+
+   - Increasing or decreasing `\(\mu\)` shifts the distribution right to left
+   
+   - Increasing or decreasing `\(\sigma\)` makes the distribution taller/narrower or shorter/fatter
+]
+
+.pull-right[
+&lt;img src="stats7-SS2-2020-contDist_files/figure-html/mu and sigma shift-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Normal probability on a calculator
+
+---
+
+# Normal Example 1
+
+---
+
+# Normal Example 2
+
+---
+
+# Normal Example 3
+
+---
+
+# Standard Normal Distribution
+
+- The .alert[**standard Normal distribution**] is a Normal distribution with a mean of 0 and a variance of 1:
+`$$X \sim N(\mu=0, \sigma^2=1)$$`
+
+- If a random variable *X* follows a different type of Normal distribution, we can always .alert2[**transform**] it so its transformation follows a standard Normal distribution
+
+--
+
+.content-box-teal[
+- We call this transformation a .alert[**Z score**] or .alert[**Z statistic**]:
+`$$Z = \frac{x - \mu}{\sigma}$$`
+`$$Z \sim N(0,1)$$`
+]
+
+---
+
+# Z Scores
+
+- Z scores are nice because we can look at them and approximately know where it sits on its distribution
+
+- If `\(\mu \ne 0\)` or `\(\sigma^2 \ne 1\)` , it's harder to figure out where *X* is
+   
+--
+
+.pull-left[
+- A Z score of 1 means that *X* is 1 standard deviation above its mean
+
+- A Z score of -2 means means that *X* is 2 standard deviations below its mean
+]
+
+
+&lt;div style="position:absolute; right: -450px; top: 180px"&gt;
+&lt;img src="stats7-SS2-2020-contDist_files/figure-html/unnamed-chunk-2-1.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+&lt;/div&gt;
+
+---
+
+# Why Z Scores?
+
+- Before calculators, it was a real pain to find the probability of events with the Normal distribution
+
+   - Integrating this by hand
+   `$$\int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx$$`
+   was gnarly
+   
+- Statisticians came up with Z scores to get out of making those calculations by hand all the time
+
+   - Simply have someone find and write down `\(P(Z&lt;z)\)` for a whole bunch of values of *z* where *Z* follows a N(0,1)
+   
+   - Now by transforming an observation from a different Normal distribution to a Z score, we can just look up the probabilty of the Z score!
+   
+--
+
+- This `\(Z = \frac{x - \mu}{\sigma}\)` was way easier to deal with than this
+`\(\int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)`
+
+---
+
+# Reading a Z Table
+
+---
+
+# Z score example 1
+
+---
+
+# Z score example 2
+
+---
+
+# Z score example 3
+
+---
+
+# Steps for a Normal Probability Problem
+
+1. Draw the distribution
+
+2. Write in the Z scale
+
+3. Mark the probability interval you want to find
+
+4. Calculate the Z-score
+
+5. Use your calculator to find the probability
+
+---
+
+# Example: CD4+ Count
+
+CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
+
+- What is the probability that someone’s CD4+ count is less than 700?
+
+---
+
+# Example: CD4+ Count
+
+CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
+
+- What is the probability that someone’s CD4+ count is between 1,200 and 1,600?
+
+---
+
+# Example: CD4+ Count
+
+CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
+
+- What CD4+ count are 60% of people below?
+
+---
+
+# Example: Hyena Bite Strength
+
+&lt;div style="position:relative;float:left; width:75%"&gt;
+Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
+&lt;/div&gt;
+
+&lt;div style="position:relative; top:-75px; right:-20px;"&gt;
+&lt;img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/&gt;
+&lt;/div&gt;
+
+- What’s the probability that a randomly selected hyena will have a bite strength greater than 852 psi?
+
+---
+
+# Example: Hyena Bite Strength
+
+&lt;div style="position:relative;float:left; width:75%"&gt;
+Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
+&lt;/div&gt;
+
+&lt;div style="position:relative; top:-75px; right:-20px;"&gt;
+&lt;img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/&gt;
+&lt;/div&gt;
+
+- What’s the probability that a hyena will have a bite strength between 910 psi and 1,067 psi?
+
+---
+
+# Example: Hyena Bite Strength
+
+&lt;div style="position:relative;float:left; width:75%"&gt;
+Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
+&lt;/div&gt;
+
+&lt;div style="position:relative; top:-75px; right:-20px;"&gt;
+&lt;img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/&gt;
+&lt;/div&gt;
+
+- The top 15% of hyenas will have a bite strength greater than what?
+
+---
+
+# Example: Hyena Bite Strength
+
+&lt;div style="position:relative;float:left; width:75%"&gt;
+Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
+&lt;/div&gt;
+
+&lt;div style="position:relative; top:-75px; right:-20px;"&gt;
+&lt;img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/&gt;
+&lt;/div&gt;
+
+- The middle 40% of hyneas will have a bite strength between what psi’s?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

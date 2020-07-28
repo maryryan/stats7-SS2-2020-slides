@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Introduction to Statistics</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mary Ryan" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/chocolate-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="headerPosition.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+
+layout: true
+class: 
+
+&lt;!-- Old footer font color: #00A895 --&gt;
+&lt;!-- old footer background color: #383838 --&gt;
+
+&lt;!-- footer --&gt;
+&lt;div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #17f9b4; background-color: #545454; width:93.5%"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mary Ryan&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; left:500px; font-size: 12pt; color: #17f9b4"&gt;Introduction to Statistics&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #17f9b4"&gt;Stats 7&lt;/div&gt;
+
+---
+
+&lt;div style="position:fixed; left:50px; right:50px; top:175px; padding:30px; margin:auto; background-color:#C0F3E4; border-radius:15px"&gt;
+&lt;p&gt;This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.&lt;/p&gt;
+
+&lt;p&gt;If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you.&lt;/p&gt;
+
+&lt;p&gt;The chat box is always open for discussion and questions to the entire class. You may also send messages privately to the instructor or the TAs. Please note that Zoom saves all chat transcripts.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+class: title-slide2
+
+# &lt;center&gt; Introduction to Statistics &lt;/center&gt;
+## &lt;center&gt; Stats 7 &lt;/center&gt;
+### &lt;center&gt; Mary Ryan &lt;/center&gt;
+### .center[Aug. 4, 2020]
+
+&lt;!-- social media info --&gt;
+&lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
+&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href="https://canvas.eee.uci.edu/courses/28451"&gt; https://canvas.eee.uci.edu/courses/28451 &lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+# About the Teaching Team
+
+
+&lt;!-- &lt;img src="lec1-images/maryHeadshot_square_300dpi.jpg", width="200"/&gt; --&gt;
+&lt;div style="position:fixed; right:250px; top:100px"&gt;
+&lt;img src="https://media.giphy.com/media/jpib5qpqYui0PmKxJg/giphy.gif", width="150"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position:fixed; right:170px; top:90px"&gt;
+&lt;img src="https://media.giphy.com/media/WQr8mizd5kDIm40zDs/giphy.gif", width="100"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position:fixed; right:80px; top:120px"&gt;
+&lt;img src="https://media.giphy.com/media/J1dOhswUr3OyNmHTTE/giphy.gif", width="100"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position:fixed; right:370px; top:100px"&gt;
+![:scale 55%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/maryHeadshot_light_square_300dpi.jpg)
+&lt;/div&gt;
+
+&lt;div style="position:fixed; left:925px; top:230px;"&gt;
+![:scale 45%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/kyle.jpg)
+&lt;/div&gt;
+
+&lt;div style="position:fixed; right:300px; top:450px"&gt;
+![:scale 45%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/jen.jpg)
+&lt;/div&gt;
+
+&lt;div style="position:fixed; right:-100px; top:500px"&gt;
+![:scale 50%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/jen-stickers.PNG)
+&lt;/div&gt;
+
+&lt;div style="position:fixed; top:75px;"&gt;
+&lt;ul&gt;
+&lt;li&gt; Instructor: Mary Ryan&lt;/li&gt;
+   &lt;ul&gt;
+   &lt;li&gt; 5th year Statistics PhD student &lt;/li&gt;
+   &lt;li&gt; ![:scale 10%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/e-mail-symbol.png): &lt;a href="mailto:marymr@uci.edu"&gt;marymr@uci.edu&lt;/a&gt; &lt;/li&gt;
+   &lt;li&gt; OH: &lt;/li&gt;
+   &lt;/ul&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;li&gt; TA: Kyle Conniff &lt;/li&gt;
+   &lt;ul&gt;
+   &lt;li&gt; 5th year Statistics PhD student &lt;/li&gt;
+   &lt;li&gt; ![:scale 10%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/e-mail-symbol.png): &lt;a href="mailto:krconnif@uci.edu "&gt;krconnif@uci.edu &lt;/a&gt; &lt;/li&gt;
+   &lt;li&gt; OH: &lt;/li&gt;
+   &lt;/ul&gt;
+   
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+   
+&lt;li&gt; TA: Jenifer Rim
+   &lt;ul&gt;
+   &lt;li&gt; 4th year Statistics PhD student &lt;/li&gt;
+   &lt;li&gt; ![:scale 10%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/e-mail-symbol.png): &lt;a href="mailto:jsrim@uci.edu "&gt;jsrim@uci.edu &lt;/a&gt; &lt;/li&gt;
+   &lt;li&gt; OH: &lt;/li&gt;
+   &lt;/ul&gt;
+
+&lt;/ul&gt;
+&lt;/div&gt;
+
+---
+
+&lt;h1&gt; Tentative Schedule&lt;/h1&gt;
+
+&lt;div style="position:relative; top:-30px; width:1000px;height:90px;padding:2px;background-color:#F5F5F5;"&gt;
+
+&lt;b&gt;Week 1&lt;/b&gt;
+&lt;div style="position:relative; top:-10px;"&gt;
+&lt;ul&gt;
+&lt;li&gt;Descriptive statistics &amp; data visualization&lt;/li&gt;
+&lt;li&gt;Data sampling &amp; bias&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative; width:1000px;height:90px;padding:2px;background-color: #ffff; top:-5px;"&gt;
+&lt;b&gt;Week 2&lt;/b&gt;
+&lt;div style="position:relative; top:-10px;"&gt;
+&lt;ul&gt;
+&lt;li&gt; Regression &lt;/li&gt;
+&lt;li&gt; Basic probability &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="position:relative; width:1000px;height:90px;padding:2px;background-color:#F5F5F5; top:-5px;"&gt;
+
+&lt;b&gt;Week 3&lt;/b&gt;
+&lt;div style="position:relative; top:-10px;"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="color:#d82d47;"&gt;&lt;b&gt;Midterm&lt;/b&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;Discrete probability distributions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="position: relative; width:1000px;height:90px;padding:2px;background-color: #ffff; top:-5px;"&gt;
+
+&lt;b&gt;Week 4&lt;/b&gt;
+&lt;div style="position:relative; top:-10px;"&gt;
+&lt;ul&gt;
+&lt;li&gt; Continuous probability distributions &amp; sampling distributions&lt;/li&gt;
+&lt;li&gt; One-sample inference &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="position:relative; width:1000px;height:90px;padding:2px;background-color:#F5F5F5; top:-5px;"&gt;
+
+&lt;b&gt;Week 5&lt;/b&gt;
+&lt;div style="position:relative; top:-10px;"&gt;
+&lt;ul&gt;
+&lt;li&gt;Two-sample inference&lt;/li&gt;
+&lt;li&gt;Inference for categorical data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="position:relative; width:1000px;height:25px;padding:2px;background-color:#ffff; top:-5px;"&gt;
+&lt;span style="color:#d82d47;"&gt;&lt;b&gt;Final Exam&lt;/b&gt;&lt;/span&gt;
+&lt;/div&gt;
+
+
+---
+
+# Textbook
+
+Recommended text: &lt;a href="https://www.openintro.org/book/os/"&gt;OpenIntro Statistics, 4th Edition&lt;/a&gt;
+
+.pull-left[
+- PDF free to download
+
+&lt;img src="lec1-images/openIntro-purchase-free.png", width="500"/&gt;
+]
+
+.pull-right[
+- Paperback copy $20 from Amazon 
+
+&lt;img src="lec1-images/openIntro-purchase-amazon.png", width="500"/&gt;
+]
+
+---
+
+# Assignments
+
+&lt;div style="position:relative; top:-40px;"&gt;
+&lt;ul&gt;
+&lt;li&gt;Video Quizzes &amp; Surveys: 15%&lt;/li&gt;
+&lt;br&gt;
+   &lt;ul&gt;
+   &lt;li&gt;Short topic videos with embedded quiz questions to be completed before appropriate lecture, found on &lt;a href="https://canvas.eee.uci.edu/courses/28451"&gt;course website&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div style="position:relative; top:-70px;"&gt;
+.pull-left-75[
+- Homework: 25%
+   - Weekly assignments, found on the &lt;a href="https://canvas.eee.uci.edu/courses/28451"&gt;course website&lt;/a&gt;
+   - Open Tuesdays @ 1p
+   - Due .alert2[__following Tuesday @ 12.59p__] (before lecture) via Canvas
+   - For .alert2[__every day__] late, homework grade will suffer a .alert2[__20%__] penalty
+
+- Labs: 15%
+   - Open Thursdays @ 4p, found on the &lt;a href="https://canvas.eee.uci.edu/courses/28451"&gt;course website&lt;/a&gt;
+   - Due .alert2[__following Tuesday @ 12.59p__] (before lecture) via Canvas
+
+- Midterm Exam: 25%
+    - Date: &lt;span style="color:#1f9773;"&gt;&lt;b&gt;Tuesday, Aug. 18 @ 1p&lt;/b&gt;&lt;/span&gt;
+
+- Final Exam: 30%
+   - Date: .alert2[__Tuesday, Sept. 8 @ 1p__]
+   - Cumulative
+]
+&lt;/div&gt;
+
+.pull-right-25[
+&lt;div style="position:relative; top: 225px; right: 100px;"&gt;
+.content-box-pink[
+.center[**If you have issues with either of the exam dates, let me know as soon as possible**]
+]
+&lt;/div&gt;
+]
+
+---
+
+# What is Statistics?
+
+--
+
+&lt;div&gt;&lt;img src="lec1-images/census-logo-sharing-card.jpg", width="300"/&gt;&lt;/div&gt;
+
+&lt;div, style="position:fixed; left:0px; bottom:30px"&gt;&lt;img src="https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/images/open-graph-placeholder-default.png", width="500"/&gt;&lt;/div&gt;
+
+
+&lt;div, style="position:fixed; right:150px; top:100px"&gt;&lt;img src="https://searchengineland.com/figz/wp-content/seloads/2016/03/google-code-seo-algorithm8-ss-1920.jpg", width="300"/&gt;&lt;/div&gt;
+
+&lt;div, style="position:fixed; right:90px; top:250px"&gt;&lt;img src="http://danstrong.tech/blog/assets/BLS-Logo.jpg", width="300"/&gt;&lt;/div&gt;
+
+
+&lt;div, style="position:fixed; right:220px; bottom:100px"&gt;&lt;img src="https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/GFDT/frozvbzp1um8k7ixfzz8ra.png", width="300"/&gt;&lt;/div&gt;
+
+&lt;div, style="position:fixed; left:250px; top:260px"&gt;&lt;img src="https://www.proqr.com/wp-content/uploads/2017/09/Research-process-2.png", width="300"/&gt;&lt;/div&gt;
+
+---
+
+# The Grammar of Science
+
+
+.pull-left[
+Grammar takes a pile of words,
+
+&lt;div&gt;&lt;img src="lec1-images/stat-wordcloud-032420.png", width="400"/&gt;&lt;/div&gt;
+
+and helps turn it into a sentence that makes sense
+
+&lt;div&gt;&lt;img src="lec1-images/stat-sentence-032420.png", width="400"/&gt;&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+.alert[**Statistics**] takes a pile of data,
+
+&lt;div&gt;&lt;img src="https://media.giphy.com/media/1eEDOa5jefAkCclsAG/giphy.gif", width="325"/&gt;&lt;/div&gt;
+&lt;!-- Other possible gif: --&gt;
+&lt;!-- &lt;div&gt;&lt;img src="https://media.giphy.com/media/H0kxiS2RJF2HC/giphy.gif", width="300"/&gt;&lt;/div&gt; --&gt;
+
+and helps turn it into scientific conclusions that we can .alert2[**interpret**]
+
+&lt;!-- &lt;div&gt;&lt;img src="https://media.giphy.com/media/5PhxAUrOowjBrIAWqc/giphy.gif", width="100"/&gt;&lt;/div&gt; --&gt;
+]
+
+---
+
+# What Statistics Isn't
+
+Just like all sentences that are grammatically correct aren't necessarily good at communicating their meaning...
+
+&lt;br&gt;
+
+.center[
+![:scale 60%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/buffalo.png)
+]
+
+&lt;br&gt;
+
+Statistics is not simply a machine where data goes in and truth pops out the other side
+
+&lt;br&gt;
+
+&lt;div style="position:relative; left:175px;"&gt;
+.content-box-pink-short[
+.center[
+We need to use Statistics **conciously** and understand its **limitations**
+]
+]
+&lt;/div&gt;
+
+---
+
+# Types of Data
+
+- A .alert[**variable**] is a measured characteristic of your data
+
+   - A dataset is often made up of many different variables, of many different types
+
+--
+
+- .alert[**Categorical**] (qualitative) variables
+
+   - Ordinal variable: categorical variable whose categories have a .alert2[**specific ordering**]
+   
+   - Nominal variable: categorical variable .alert2[**without any ordering**]
+   
+   - Binary variable: categorical variable with .alert2[**only 2 categories**]
+   
+--
+
+- .alert[**Quantitative**] variables
+
+   - Discrete variable: takes on numerical values in .alert2[**jumps**]
+   
+   - Continuous variable: takes on numerical values that can go out to .alert2[**infinite decimal points**]
+
+---
+
+# Types of Data
+
+.pull-left[
+1) Number of cats at the animal shelter
+
+2) Species of pet
+
+3) Weight
+
+4) Mood
+
+5) Diagnosis
+
+6) Population of Orange County
+
+7) Airplane ticket class
+]
+
+--
+
+.pull-right[
+
+Discrete
+{{content}}
+]
+--
+
+Nominal
+
+{{content}}
+
+--
+
+Continuous
+{{content}}
+
+--
+
+Nominal
+{{content}}
+
+--
+
+Nominal
+{{content}}
+
+--
+
+Discrete
+{{content}}
+
+--
+
+Ordinal
+
+--
+
+.pull-left[
+
+.alert[
+   8) Money you spend to wash 1 load of laundry
+   ]
+]
+
+--
+
+.pull-right[
+
+.alert[
+   &lt;div, style="position:fixed; bottom:185px; left:635px"&gt;Continuous&lt;/div&gt;
+   ]
+
+]
+
+---
+
+# Types of Data
+
+8) Money you spend to wash 1 load of laundry
+
+
+
+- I spend $1.75 per wash cycle
+
+--
+
+   - Looks discrete, right?
+   
+--
+
+   - .alert2[**Converted to Iraqi Dinar: ع.د  2080.75**]
+
+--
+
+   - .alert2[**Converted to Euro: € 1.5596**]
+
+--
+
+   - .alert2[**Converted to Mexican Peso: $ 40.285735**]
+
+--
+
+- While we might think of currency in "discrete" US Dollar (or Dinar, or Euro, or Peso) units, any amount of money can be converted from one currency to another
+   - Currency conversion doesn't respect the fact that you don't carry around `\(1/12^{th}\)` cents
+   - .alert[**So we generally think of currency as a continuous variable**]
+   
+---
+
+# How Do We Describe Our Data?
+
+For categorical data, we might want to:
+   
+- Know how many observations are in each caetgory
+
+   - .alert[**Counts**]
+
+- Know how large a category is compared to all observations
+
+   - .alert[**Percentages**]
+
+   - `\(\frac{\text{# observations in a category}}{\text{Total observations}} \times 100\)`
+      
+---
+
+# How Do We Describe Our Data?
+   
+For quantitative data, we might want to:   
+
+- Know what the smallest value of a variable is
+
+   - .alert[**Minimum**]
+
+- Know what the largest value of a variable is
+
+   - .alert[**Maximum**]
+
+- Know the distance between the maximum and the minimum
+
+   - .alert[**Range**]
+   
+- Know what the center of our data is...
+
+---
+
+# Journey to the Center of the Data
+
+- .alert[**Mean**]
+
+   - The "typical value" of the data
+   
+   - `\(\bar{x}=\frac{\text{sum of data points}}{\text{number of data points}} =\frac{\sum_{i=1}^n X_i}{n}\)`
+
+- .alert[**Median**]
+
+   - The "exact middle" of the data
+   
+   - 50% of data points are below the median, 50% of data points are above the median
+
+- .alert[**Mode**]
+   - The most common value in the data
+   
+--
+
+&lt;div style="position:relative; top:-385px; height:150px; width:450px;border: 2px solid #17f9b4;"&gt;&lt;/div&gt;
+
+---
+
+# Median
+
+&lt;div style="font-size:35px;"&gt;
+2, &amp;nbsp; 5, &amp;nbsp;  6, &amp;nbsp; 8, &amp;nbsp; 8, &amp;nbsp; 8, &amp;nbsp; 10, &amp;nbsp; 13, &amp;nbsp; 14, &amp;nbsp; 16, &amp;nbsp; 16, &amp;nbsp; 19, &amp;nbsp; 20, &amp;nbsp; 21, &amp;nbsp; 25 
+&lt;/div&gt;
+--
+
+&lt;div style="position:relative; top:-410px; left:-140px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:relative; top:-450px; right:-700px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:relative; top:-490px; left:-90px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:relative; top:-535px; right:-630px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:relative; top:-570px; left:-40px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:relative; top:-610px; right:-560px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:relative; top:-650px; left:10px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:relative; top:-690px; right:-490px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:relative; top:-730px; left:60px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:relative; top:-770px; right:-420px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:relative; top:-810px; left:100px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:relative; top:-850px; right:-350px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:relative; top:-890px; left:160px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:relative; top:-930px; right:-300px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:relative; top:-610px; left:350px; height:60px; width:60px;border: 2px solid #d82d47;"&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:fixed; top:300px; font-size:35px;"&gt;
+2, &amp;nbsp; 5, &amp;nbsp;  6, &amp;nbsp; 8, &amp;nbsp; 8, &amp;nbsp; 8, &amp;nbsp; 10, &amp;nbsp; 10, &amp;nbsp; 13, &amp;nbsp; 14, &amp;nbsp; 16, &amp;nbsp; 16, &amp;nbsp; 19, &amp;nbsp; 20, &amp;nbsp; 21, &amp;nbsp; 25 
+&lt;/div&gt;
+
+--
+
+&lt;div style="position:fixed; top:300px; left:100px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:fixed; top:300px; right:200px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+
+&lt;div style="position:fixed; top:300px; left:150px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:fixed; top:300px; right:270px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:fixed; top:300px; left:180px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:fixed; top:300px; right:350px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:fixed; top:300px; left:230px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:fixed; top:300px; right:420px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:fixed; top:300px; left:280px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+
+&lt;div style="position:fixed; top:300px; left:330px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:fixed; top:300px; right:490px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:fixed; top:300px; left:400px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+&lt;div style="position:fixed; top:300px; right:560px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+&lt;div style="position:fixed; top:300px; right:620px; border-left:3px solid #d82d47; height:40px; margin-left:-3px; transform:rotate(315deg);"&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:fixed; top:290px; left:430px; height:60px; width:130px;border: 2px solid #d82d47;"&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:fixed; top:370px; left:400px; font-size:30px; color:#d82d47"&gt;
+(10+13)/2 = 11.5
+&lt;/div&gt;
+
+---
+
+# How Do We Describe Our Data?
+
+- We might also want to know how much our observations .alert2[**vary**]
+
+- Nice to compare how far away observations are from the center of the data (.alert[**deviation**])
+
+`$$x_i - \bar{x}$$`
+--
+
+- But some observations are above the mean and some are below...
+
+   - If we just add the deviations up some of them might cancel out
+
+   - Square the deviations to remove the sign:
+`$$(x_i - \bar{x})^2$$`
+
+--
+
+- But every observation has a different squared deviance. How do we get one metric?
+
+--
+
+   - Take an average!
+   
+   - .alert[**Variance**] ( `\(s^2\)` ) `\(= \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}\)`
+   
+   - .alert[**Standard deviation**] (s) `\(= \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}}\)`
+
+---
+
+# Variance &amp; Standard Deviation
+
+.content-box-teal[Variance ( `\(s^2\)` ) `\(= \frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}\)` &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Standard deviation (s) `\(= \sqrt{s^2} = \sqrt{\frac{\sum_{i=1}^n (x_i - \bar{x})^2}{n-1}}\)`
+]
+
+- When variance/standard deviation is .alert2[**large**], the observations vary from the mean a lot
+
+- When variance/standard deviation is .alert2[**small**], the observations generally stay close to the mean
+
+
+---
+
+# Data Visualization
+
+- Summarizing data with metrics are nice, but people are much better at identifying differences/patterns .alert2[**graphically**]
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+
+.pull-left[
+- .alert[**Bar plot**]
+
+   - Categories on one axis
+   
+   - Counts/percentages on the other axis
+   
+   - AKA: bar graph, bar chart, barplot
+]
+
+.pull-right[
+&lt;div, style="position:relative; left:0px"&gt;
+   &lt;img src="https://www.latimes.com/projects/trump-california-tweets/static/ca_categories_chart.png", width="500"/&gt;
+   
+   &lt;div&gt;&lt;font size="1"&gt;.alert2[The California-related topics the president tweets most frequently about (Sept. 17, 2019), via Priya Krishnakumar at &lt;a href="https://www.latimes.com/projects/trump-california-tweets/"&gt;The LA Times &lt;/a&gt;]&lt;/font&gt;&lt;div&gt;
+   
+&lt;/div&gt;
+]
+
+---
+
+# Data Visualization
+
+.pull-left[
+- .alert[**Stacked bar plot**]
+
+   - Categories on one axis
+   
+   - Percentage on other axis
+   
+   - Bar divided into percentages of how common a 2nd categorical variable is within your axis category
+   
+   - Full bar should add up to 100%
+]
+
+&lt;div, style="position:relative; left:475px; top:-250px"&gt;
+   &lt;img src="https://static01.nyt.com/images/2020/03/11/learning/TeenIssuesGraphLN/TeenIssuesGraphLN-jumbo.png?quality=90&amp;auto=webp", width="600"/&gt;
+   
+   &lt;div style="left:50px"&gt;&lt;font size="1"&gt;.alert2[Teenagers Say Depression and Anxiety Are Major Issues Among Their Peers  (Feb. 29, 2019),
+   
+   via Karen Zraick at &lt;a href="https://www.nytimes.com/2019/02/20/health/teenage-depression-statistics.html"&gt;The New York Times &lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+   
+&lt;/div&gt;
+
+---
+
+# Data Visualization
+
+- Stacked bar chart
+
+   - What's going on here?
+   
+&lt;div, style="position:relative; left:475px; top:-50px"&gt;
+   &lt;img src="https://journals.sagepub.com/na101/home/literatum/publisher/sage/journals/content/gasa/2011/gasa_25_6/0891243211424741/20160825/images/medium/10.1177_0891243211424741-fig2.gif", width="600"/&gt;
+   
+   &lt;div style="left:50px"&gt;&lt;font size="1"&gt;.alert2[Gender Discrimination at Work: Connecting Gender Stereotypes, Institutional Policies, and Gender
+   
+   Composition of Workplace (Dec. 5, 2011), via Donna Bobbitt-Zeher at &lt;a href="https://journals.sagepub.com/doi/full/10.1177/0891243211424741"&gt;Gender &amp; Society&lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+   
+&lt;/div&gt;
+
+---
+
+# Data Visualization
+
+.pull-left[
+- .alert[**Pie chart**]
+
+   - Can also visualize percentages
+   
+   - No real axes
+   
+   - Total circle = 100%
+   
+   - Each wedge corresponds to percentage of total observations correspond to one category
+   
+   - People are much worse at judging volume by circle wedge than volume by box, though
+]
+ 
+.pull-right[  
+&lt;div, style="position:relative; left:0px"&gt;
+   &lt;img src="https://images.squarespace-cdn.com/content/56713bf4dc5cb41142f28d1f/1450306657208-N3NFCZECC1X5Y7LKZXNS/devourThePie3.gif?content-type=image%2Fgif", width="2000"/&gt;
+   
+   &lt;div&gt;&lt;font size="1"&gt;.alert2[Salvaging the Pie (Sept. 26, 2014), via Joey Cherdarchuk  at &lt;a href="https://www.darkhorseanalytics.com/blog/salvaging-the-pie/"&gt;Darkhorse Analytics &lt;/a&gt;]&lt;/font&gt;&lt;div&gt;
+]
+
+---
+
+# Data Visualization
+
+- Pie chart &amp; stacked bar plot
+
+   - What's going on here?
+   
+   - CWS = community water system
+
+&lt;div, style="position:relative; left:700px; top:-225px"&gt;
+   &lt;img src="https://science.sciencemag.org/content/sci/368/6488/274/F2.large.jpg?width=800&amp;height=600&amp;carousel=1", width="275"/&gt;
+   
+   &lt;div style="position:relative; left:-200px; top: -125px"&gt;&lt;font size="1"&gt;.alert2[The effects of drinking water
+   
+   service fragmentation on
+   
+   drought-related water security
+   
+   (April 17, 2020), via Megan Mullin at
+   
+   &lt;a href="https://science.sciencemag.org/content/368/6488/274/tab-figures-data"&gt;Science &lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+   
+   
+
+---
+
+# Data Visualization
+
+.pull-left[
+- .alert[**Scatter plot**]
+
+   - Quantitative variable on one axis
+   
+   - Another quantitative variable on other axis
+   
+   - Observations shown as points
+]
+
+.pull-right[  
+&lt;div, style="position:relative; left:0px"&gt;
+   &lt;img src="https://fivethirtyeight.com/wp-content/uploads/2020/04/paine-jordan-0416-1.png?w=1150", width="500"/&gt;
+   
+   
+   &lt;div&gt;&lt;font size="1"&gt;.alert2[Why Michael Jordan Was The Best (April 17, 2020), via Neil Paine at &lt;a href="https://fivethirtyeight.com/features/why-michael-jordan-was-the-best/"&gt;FiveThirtyEight &lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+]
+
+---
+
+# Data Visualization
+
+- Scatter plot
+
+   - What's going on here?
+   
+.pull-right[  
+&lt;div, style="position:relative; left:0px; top:-200px"&gt;
+   &lt;img src="https://fivethirtyeight.com/wp-content/uploads/2018/04/wezerek-marathon-0416-13.png?w=1150", width="500"/&gt;
+   
+   
+   &lt;div&gt;&lt;font size="1"&gt;.alert2[This Year’s Boston Marathon Was Sloooooowww (April 16, 2018), via Gus Wezerek at &lt;a href="https://fivethirtyeight.com/features/this-was-the-slowest-boston-marathon-since-the-1970s/"&gt;FiveThirtyEight &lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+]
+
+
+---
+
+# Data Visualization
+.pull-left[
+- .alert[**Line plot**]
+
+   - Time on one axis (usually x-axis)
+   
+   - Quantitative variable on other axis
+   
+   - Line connecting each observation
+   (usually the peaks in the line)
+   
+   - Good for observing trends over time
+]
+
+&lt;div, style="position:relative; left:100px; top:-0px"&gt;
+   &lt;img src="https://fivethirtyeight.com/wp-content/uploads/2020/06/SAWCHIK.MLBFans.0611-1.png?w=1150", width="500"/&gt;
+   
+   &lt;div style="position:relative; left:500px;"&gt;&lt;font size="1"&gt;.alert2[Do Baseball’s Labor Fights Drive Fans Away? (June 12, 2020), via Travis Sawchik at &lt;a href="https://fivethirtyeight.com/features/do-baseballs-labor-fights-drive-fans-away/"&gt;FiveThirtyEight &lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+   
+&lt;/div&gt;
+
+---
+
+# Data Visualization
+
+- Line plots
+
+   - What's going on here?
+   
+&lt;div, style="position:relative; left:725px; top:-200px;"&gt;
+   &lt;img src="https://ca-times.brightspotcdn.com/dims4/default/d59c164/2147483647/strip/true/crop/1476x3112+0+0/resize/840x1771!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F9b%2F34%2Fd4628be042b9bcdbb281fb3aeb8d%2Fsd-graphics-474031-sd-me-g-thanksgiving-prices-01.jpg", width="300"/&gt;
+&lt;/div&gt;
+   
+   &lt;div style="position:relative; left:-200px; top: -125px"&gt;&lt;font size="1"&gt;.alert2[Thanksgiving dinner
+   
+   costs remain stable (Nov. 27, 2019),
+   
+   via Daniel Wheaton at
+   
+   &lt;a href="https://www.sandiegouniontribune.com/business/story/2019-11-27/thanksgiving-dinner-costs-remain-stable"&gt;The San Diego Union-Tribune &lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+   
+&lt;/div&gt;
+
+---
+
+# Data Visualization
+
+- Line plots
+
+   - What's going on here (part D)?
+   
+&lt;div, style="position:relative; left:500px; top:-100px"&gt;
+   &lt;img src="https://science.sciencemag.org/content/sci/367/6484/1321/F5.large.jpg?width=800&amp;height=600&amp;carousel=1", width="500"/&gt;
+   
+   &lt;div&gt;&lt;font size="1"&gt;.alert2[History, mass loss, structure, and dynamic behavior of the Antarctic Ice Sheet (March 20, 2020),
+   
+   via Robin E. Bell &amp; Helene Seroussi at &lt;a href="https://science.sciencemag.org/content/367/6484/1321/tab-figures-data"&gt;Science&lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+   
+&lt;/div&gt;
+
+---
+
+# Data Visualization
+
+.pull-left[
+- .alert[**Histogram**]
+
+   - Like a bar plot, but instead of counts of observations in categories we have counts of observations in intervals (bins) of a quantitative variable
+   
+   - You can change the interval width (and the # of bars) for histograms; you can't combine or divide categories for bar plots
+   
+   - Good for figuring out the .alert2[**data's shape**]
+]
+
+.pull-right[
+&lt;div, style="position:relative; left:0px; top:50px"&gt;
+   &lt;img src="https://static01.nyt.com/images/2018/11/27/learning/Mothers2LN/Mothers2LN-jumbo.png?quality=90&amp;auto=webp", width="500"/&gt;
+   
+   &lt;div&gt;&lt;font size="1"&gt;.alert2[The age of first-time mothers in 2016 (Aug. 4, 2018), via Quoctrung Bui at &lt;a href="https://www.nytimes.com/interactive/2018/08/04/upshot/up-birth-age-gap.html?module=inline"&gt;The New York Times &lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+   
+&lt;/div&gt;
+]
+
+---
+
+# Data Visualization
+
+- Histogram
+
+   - What's going on here?
+
+&lt;div, style="position:relative; left:700px; top:-200px;"&gt;
+   &lt;img src="lec1-images/nytimes-unemployment.png", width="350"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position:relative; left:-140px; top: -125px"&gt;&lt;font size="1"&gt;.alert2[Monthly change in jobs
+
+since WWII (May 9, 2020),
+   
+   via Guilbert Gates, Ella Koeze,
+   
+   and Bill Marsh at
+   
+   &lt;a href="https://twitter.com/nytimes/status/1259108392263655424?s=20"&gt;The New York Times &lt;/a&gt;]&lt;/font&gt;&lt;/div&gt;
+
+---
+
+# Data Shapes
+
+.pull-left[
+Uniform 
+- No defined peaks
+
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/unnamed-chunk-1-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+Unimodal
+
+- One defined peak
+
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/unnamed-chunk-2-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+# Data Shapes
+
+Multimodal
+
+- Multiple defined peaks
+
+&lt;div style="position:relative; left:125px; top:-150px;"&gt;
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/unnamed-chunk-3-1.png" width="55%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+
+---
+
+# Data Shapes
+.pull-left[
+
+Symmetrical
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/unnamed-chunk-4-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+.pull-right[
+
+Skewed
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/unnamed-chunk-5-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Skew
+
+- Skew is what happens when the mean and median aren't exactly the same
+
+- Right (positive) skew
+   - Mean to the right .alert[**(greater than)**] median
+
+- Left (negative) skew
+   - Mean to the left .alert[**(less than)**] median
+   
+- When in doubt, look for the "tail"
+
+&lt;div style="position:fixed; bottom:100px; right:200px;"&gt;&lt;img src="lec1-images/august-leftskew-edited.jpg", width="250"/&gt;
+&lt;p&gt;
+Left skew (and good bean)
+&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+
+# Five Number Summary
+
+- Getting a 10,000-foot view of the data's shape
+
+- The five number summary contains:
+
+   - Minimum
+   
+   - .alert[**1st quartile**] ( `\(25^{th}\)` percentile)
+   
+      - 25% of data are below the 1st quartile
+   
+   - Median ( `\(50^{th}\)` percentile)
+   
+   - .alert[**3rd quartile**] ( `\(75^{th}\)` percentile)
+   
+      - 75% of data are below the 3rd quartile
+   
+   - Maximum
+
+
+---
+
+# Data Visualization
+
+.pull-left[
+- .alert[**Boxplot**]
+
+   - Bottom line of box at 1st quartile
+   
+   - Top line of box at 3rd quartile
+   
+   - Line in middle of box at median
+   
+   - Box "whiskers" extend from minimum to maximum, or to "outlier fences"
+   `$$\text{Upper fence:} Q3 + 1.5\times (Q3-Q1)$$`
+   `$$\text{Lower fence:} Q1 - 1.5\times (Q3-Q1)$$`
+
+   - Dots are outliers
+      - Observations above `\(Q3 + 1.5\times IQR\)` or below `\(Q1 - 1.5\times IQR\)`
+]
+
+.pull-right[
+&lt;div style="top:-200px"&gt;
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/boxplot labels-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+---
+
+# Outliers
+
+.pull-left[
+- .alert[**Outliers**] are data points that are strangely far away from the rest of the data
+
+- Could signal that the values of those observations are wrong
+   - Data entry error, recorded in inches instead of centimeters, etc.
+   
+- Could just be strange observations
+
+- Outliers will create skew, pull your mean away from the median
+]
+
+.pull-right[
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/gdp per capita-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+--
+
+&lt;div style="position:relative; top:-200px"&gt;
+&lt;ul&gt;
+   &lt;li&gt; What do we do with them?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+---
+
+# Data Visualization
+
+- Histogram vs. boxplot
+
+   - Histograms give a more detailed view of data shape than boxplots
+   
+   - Because its less detailed, boxplots can be better for comparing the data shapes of multiple groups
+
+
+.pull-left[
+&lt;div style="top:-500px;"&gt;
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/titanic histogram-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+.pull-right[
+&lt;div style="top:-500px;"&gt;
+&lt;img src="stats7-SS2-2020-lec1_files/figure-html/titanic boxplot no labels-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

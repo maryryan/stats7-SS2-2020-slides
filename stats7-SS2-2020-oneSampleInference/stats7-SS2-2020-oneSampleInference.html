@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>One Sample Inference</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mary Ryan" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/chocolate-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="headerPosition.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+
+layout: true
+class: 
+
+&lt;!-- Old footer font color: #00A895 --&gt;
+&lt;!-- old footer background color: #383838 --&gt;
+
+&lt;!-- footer --&gt;
+ &lt;div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #2DD8A5; background-color: #545454; width:93.5%"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mary Ryan&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; left:500px; font-size: 12pt; color: #2DD8A5"&gt;One Sample Inference&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #2DD8A5"&gt;Stats 7&lt;/div&gt;
+
+---
+
+&lt;div style="position:fixed; left:50px; right:50px; top:175px; padding:30px; margin:auto; background-color:#C0F3E4; border-radius:15px"&gt;
+&lt;p&gt;This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.&lt;/p&gt;
+
+&lt;p&gt;If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you.&lt;/p&gt;
+
+&lt;p&gt;The chat box is always open for discussion and questions to the entire class. You may also send messages privately to the instructor or the TAs. Please note that Zoom saves all chat transcripts.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+class: title-slide2
+
+# &lt;center&gt; One Sample Inference &lt;/center&gt;
+## &lt;center&gt; Stats 7 &lt;/center&gt;
+### &lt;center&gt; Mary Ryan &lt;/center&gt;
+### .center[Aug. 27, 2020]
+
+&lt;!-- social media info --&gt;
+&lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
+&lt;div&gt;&lt;img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/&gt; &lt;a href="https://github.com/maryryan"&gt; github.com/maryryan &lt;/a&gt; &lt;/div&gt;
+&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href=""&gt; class website here &lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+# How to Perfom a Hypothesis Test
+
+1. State your hypotheses
+
+2. Calculate your Z-statistic
+
+3. Find your Z-critical ( `\(Z^*\)` ) value
+
+4. Compare your Z-statistic to `\(Z^*\)`
+  
+5. Draw a conclusion
+
+6. Interpret you conclusion in context
+---
+
+# Step 1: State your hypotheses
+
+.alert[Question of Interest Here]
+
+- **Null hypothesis** ( `\(H_0\)` ) represents "status quo", or what we assume to be true without more evidence
+- Question will usually give you the **alternative hypothesis** ( `\(H_A\)` )
+- Two types of tests:
+   - Two-sided test ( `\(H_A: p \ne p_0\)` )
+   - One-sided test ( `\(H_A: p &gt; p_0\)`, or `\(H_A: p &lt; p_0\)` )
+   
+- Always write hypotheses in terms of the parameter of interest (not the sample estimate)
+
+---
+
+# Step 2: Calculate your Z-statistic
+
+`$$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$$`
+
+---
+
+# Step 3: Find `\(Z^*\)`
+
+- For two-sided tests, we split our **error rate** into both the tails
+&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/twoSided-1.png" width="500" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Step 3: Find `\(Z^*\)`
+
+- For one-sided tests, we can keep all of the error rate in the tail we're interested in
+&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/oneSided-1.png" width="450" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Steps 4, 5, 6
+
+---
+
+# Step 5: Draw a conclusion
+
+- For two-sided test:
+   - If |Z| &gt; `\(Z^*\)`, __reject__ the null
+   - If |Z| &lt; `\(Z^*\)`, __fail to reject__ the null
+   
+- For one-sided test:
+   - Greater-than test:
+      - If Z &gt; `\(Z^*\)`, reject the null
+      - If Z &lt; `\(Z^*\)`, fail to reject the null
+      
+   - Less-than test:
+      - If Z &lt; `\(-Z^*\)`, reject the null
+      - If Z &gt; `\(-Z^*\)`, fail to reject the null
+
+---
+
+# Step 6: Interpret your conclusion in context
+
+- For a rejection:
+
+- For a fail-to-reject:
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

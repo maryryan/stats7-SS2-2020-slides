@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Basic Probability</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mary Ryan" />
+    <meta name="date" content="2020-08-13" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/chocolate-fonts.css" rel="stylesheet" />
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link rel="stylesheet" href="headerPosition.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+layout: true
+class: 
+
+&lt;!-- Old footer font color: #00A895 --&gt;
+&lt;!-- old footer background color: #383838 --&gt;
+
+&lt;!-- footer --&gt;
+ &lt;div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #17f9b4; background-color: #545454; width:93.5%"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mary Ryan&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; left:500px; font-size: 12pt; color: #17f9b4"&gt;Probability&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #17f9b4"&gt;Stats 7&lt;/div&gt;
+
+&lt;!-- Recording Notice Slide --&gt;
+---
+
+&lt;div style="position:fixed; left:50px; right:50px; top:175px; padding:30px; margin:auto; background-color:#C0F3E4; border-radius: 15px"&gt;
+&lt;p&gt;This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.&lt;/p&gt;
+
+&lt;p&gt;If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you.&lt;/p&gt;
+
+&lt;p&gt;The chat box is always open for discussion and questions to the entire class. You may also send messages privately to the instructor or the TAs. Please note that Zoom saves all chat transcripts.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Title Slide --&gt;
+---
+
+class: title-slide2
+
+# &lt;center&gt; Basic Probability &lt;/center&gt;
+## &lt;center&gt; Stats 7 &lt;/center&gt;
+### &lt;center&gt; Mary Ryan &lt;/center&gt;
+### .center[Aug. 13, 2020]
+
+&lt;!-- social media info --&gt;
+&lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
+&lt;div&gt;&lt;img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/&gt; &lt;a href="https://github.com/maryryan"&gt; github.com/maryryan &lt;/a&gt; &lt;/div&gt;
+&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href=""&gt; class website here &lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Set Notation
+
+- .alert[**Sample Space**] **(S)**: All of the outcomes that could possibly occur
+
+- .alert[**Union**] **(** `\(\boldsymbol{\cup}\)` **)**: The event where A happens, B happens, .alert2[**or**] both happen
+
+- .alert[**Interscetion**] **(** `\(\boldsymbol{\cap}\)` **)**: The event where A and B .alert2[**both**] happen
+
+- .alert[**Compliment**] **(c or ')**: The event where A .alert2[**doesn't**] happen
+
+--
+
+.center[![:scale 75%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/set-notation-1.png)]
+
+---
+
+# Sample Space Examples
+
+.pull-left[
+- Sample Space if...
+
+   - Roll a die once?
+   
+   - Number of days you go to campus?
+   
+   - Days of the week you go to campus?
+   
+   - Blood type?
+
+]
+
+--
+
+.pull-right[
+
+&lt;br&gt;
+\{1,2,3,4,5,6\}
+{{content}}
+]
+
+--
+
+\{0,1,2,3,4,5,6,7\}
+{{content}}
+
+--
+
+\{Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday\}
+{{content}}
+
+--
+
+\{A+, A-, B+, B-, O+, O-, AB+, AB-\}
+{{content}}
+
+
+---
+
+# Set Notation Example 1
+
+- How would you draw the venn diagram for `\(P(A\cap B^c)\)`?
+
+---
+
+# Set Notation Example 2
+
+- How would you draw the venn diagram for `\(P(\left[A\cap B \right]^c)\)`?
+
+---
+
+# Set Notation Example 3
+
+- How would you draw the venn diagram for `\(P(A\cap B \cap C)\)`?
+
+---
+
+# Set Notation Example 4
+
+- How would you draw the venn diagram for `\(P(A\cup B \cup C)\)`?
+
+---
+
+# Set Notation Example 5
+
+- How would you draw the venn diagram for `\(P([A\cup B] \cap C^c)\)`?
+
+
+---
+
+# Subsets
+
+- There also may be situations where one event is a .alert[**subset**] of another event
+
+- This means that the second event is a .alert2[**more specific**] version of the first event
+
+   - leaving the house and going to campus
+   
+   - getting a pet and getting a dog
+   
+   - passing a class and getting an A
+
+--
+
+- Here, `\(A \cap B = B\)`
+
+- Also, `\(A\cup B = A\)`
+
+&lt;div style="position:fixed; bottom:40px; right: 100px;"&gt;&lt;img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/subset-1.png" style="width: 100%" /&gt;&lt;/div&gt;
+
+---
+
+# Probability
+
+- The .alert[**probability**] of an event is the proportion of times we would see the event if we observed the process an infinite number of times
+
+   - If we were to randomly pick 1 card out of a 52 card deck an infinite number of times, what proportion of the time would we get a heart card?
+
+- Probability exists between 0 and 1
+   
+   - Think: 50%, 3/4, etc.
+   
+- The probability of the complete sample space (all possible outcomes) .alert2[**must equal 1**]
+
+.content-box-teal[
+- `\(P(A)\)` is the probability that event A happens
+
+- `\(P(A \cap B)\)` is the probability that both event A and B happen
+
+- `\(P(A \cup B)\)` is the probability that either event A, event B, or both events A and B happen
+]
+
+---
+
+# Probability
+
+- Sometimes we have probabilities of some events, but not the specific event we want
+
+--
+
+- We can get the probability that A happens if we know the probability that A .alert2[*doesn't*] happen:
+.content-box-teal[
+`$$P(A) = 1 - P(A^c)$$`
+]
+
+--
+
+- We can get the probability that A .alert2[*or*] B happen if we have the general probability of A, the general probability of B, and the probability of A .alert2[*and*] B:
+.content-box-teal[
+`$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$`
+]
+
+---
+&lt;div style="position:relative; top:-15px;"&gt;
+&lt;h2&gt; Anatomy of `\(P(A \cup B)\)`&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div style="position:fixed; bottom:25px; left:50px"&gt;&lt;img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/union-1.png" style="width: 85%"/&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:fixed; bottom:25px; left:50px"&gt;&lt;img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/union-2.png" style="width: 85%"/&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:fixed; bottom:25px; left:50px"&gt;&lt;img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/union-3.png" style="width: 85%"/&gt;&lt;/div&gt;
+
+---
+
+# Example: Lottery Scratchers
+
+.pull-left-66[
+You have a scratch-off lottery card. If you reveal a picture of a stack of money, you win whatever dollar amount it shows underneath ($50 or $100). There are 25 scratch spots. The card tells you that 1 in 9 cards will be a winner. We also know from a database of past tickets sold, that there is an 8% chance that a card will have at least one $50 prize, and a 4% chance a card will have at least one $100 prize.
+]
+
+.pull-right-33[
+.right[
+![photo of scratch-off lottery ticket with 25 scratch places](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/scratcher.png)]
+]
+
+--
+
+- What is the probability of getting at least one $50 prize and at least one $100 prize on the same ticket?
+
+---
+
+# Example: Lottery Scratchers
+
+You have a scratch-off lottery card. If you reveal a picture of a stack of money, you win whatever dollar amount it shows underneath ($50 or $100). There are 25 scratch spots. The card tells you that 1 in 9 cards will be a winner. We also know from a database of past tickets sold, that there is an 8% chance that a card will have at least one $50 prize, and a 4% chance a card will have at least one $100 prize.
+
+- What is the probablity of getting a $100 prize, but no $50 prize?
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+--
+
+- What is the probability of getting no prize?
+
+---
+
+# Example: Lottery Scratchers
+
+.center[![:scale 70%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/lottery-venn.png)]
+
+
+---
+
+# Probability Example 2
+
+---
+
+# Probability Example 3
+
+---
+
+# Mutually Exclusive and Independent
+
+- When comparing two events we’d like to know how they relate to one another...
+
+- Two events are .alert[**mutually exclusive**] if only one or the other can happen at a given time, .alert2[*but not both*]
+   - `\(P(A \cap B)=0\)`
+   - Subsequently, `\(P(A \cup B) = P(A) + P(B)\)`
+   - Also known as .alert[**disjoint**]
+   
+--
+
+- Two events are .alert[**independent**] if the happening of one .alert2[**does not affect**] the happening of another
+   - `\(P(A) \times P(B)=P(A \cap B)\)`
+   - .alert2[**Does not mean they are mutually exclusive!**]
+   - Two events can only be both mutually exclusive and independent if the probability of one event is 0
+   
+---
+
+# Mutally Exclusive and Independent
+
+&lt;br&gt;
+
+.pull-left[
+.center[![mutually exclusive example](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/mutually-exclusive.png)]
+
+]
+
+--
+
+.pull-right[
+
+&lt;br&gt;
+
+.center[![independent example](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/independent.png)]
+]
+---
+
+# Example: Mutually Exclusive or Independent?
+
+- I'm making two decisions today: whether to go to the beach and whether to get In N Out for dinner. There's a 40% chance I'll go to the beach, a 60% chance I'll get In N Out, and a 76% chance I'll go to the beach or get In N Out.
+
+   - Are these decisions, mutually exclusive? Independent?
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+--
+
+- I'm making a presentation for a PowerPoint party. There's a 35% chance my presentation will be on video games, a 15% chance it'll be on music, and a 50% chance it will be on neither video games nor music.
+
+   - Are these decisions, mutually exclusive? Independent?
+
+---
+
+# Conditional Probability
+
+- If we know one event has happened, should that affect the probability of the next event happening?
+
+- P(B|A) reads .alert2[**“probability of event B happening given event A has already occurred”**]
+
+`$$P(B|A) = \frac{P(B \cap A)}{P(A)}$$`
+
+   - Known as .alert[**Bayes Rule**]
+   
+--
+
+- Instead of looking at the probability of event B happening over the .alert2[**entire**] sample space, we are only interested in the probability of even B happening over the .alert2[**portion**] of the sample space where A has already happened
+
+&lt;div style="position:relative; top:50px; left:200px"&gt;
+
+`\(P(B|A) = \frac{P(B \cap A)}{P(A)}\)`
+
+&lt;div style="position:relative; top:-60px; left:200px; font-size:11pt"&gt;&lt;span style="font-size:16pt"&gt;&amp;#8592;&lt;/span&gt; If A already happened, then all the B cases we're interested in are when B happens with A &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="position:relative; top:-10px; left:400px; font-size:11pt"&gt;&lt;span style="font-size:16pt"&gt;&amp;#8592;&lt;/span&gt; Instead of the whole space, we're just looking at the space where A happened&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Conditional Probability
+   
+- Given it rains today, what is the probability of crowd favorite Union Rags winning the Kentucky Derby? (this happened in 2012: I’ll Have Another won)
+   
+--
+   
+   - P(Wins | Rain)
+      
+- What is the probability I’ll study for exams given I just got a cat?
+   
+--
+   
+   - P(Study | Cat)
+      
+- If two events are independent then P(B|A) = P(B)
+   
+   - What about if two events are mutually exclusive?
+
+---
+
+# Conditional Probability
+
+- Sometimes we are given a general/marginal probability and a conditional probability, but we want to know the probability of the 2 events happening
+
+- We can rearrange Bayes theorem:
+
+`$$P(B|A) = \frac{P(B \cap A)}{P(A)} \Rightarrow P(B \cap A) = P(B|A)\times P(A)$$`
+
+---
+
+# Example: Coin flips
+
+Say you flip a fair coin twice. Let event A be the first flip is heads, and event B be the second flip is heads. The coin flips are said to be independent, the first flip has no bearing on what the second flip will be.
+
+- What is P(A)?
+
+&lt;br&gt;
+&lt;br&gt;
+
+--
+
+- What is `\(P(A \cap B)\)`?
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+--
+
+- What is P(B|A)?
+
+
+---
+
+# Probability Trees
+
+&lt;div style="position:fixed; bottom:25px; left:50px"&gt;&lt;img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/cond-prob-1.png" style="width: 90%"/&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:fixed; bottom:25px; left:50px"&gt;&lt;img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/cond-prob-2.png" style="width: 90%"/&gt;&lt;/div&gt;
+
+--
+
+&lt;div style="position:fixed; bottom:25px; left:50px"&gt;&lt;img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/cond-prob-3.png" style="width: 90%"/&gt;&lt;/div&gt;
+
+---
+
+# Example: Mumps
+
+.pull-left-66[In 2015 and 2016, the University of Iowa experienced an outbreak of mumps on its campus. The CDC traditionally recommends 2 doses of the MMR vaccine.Researchers were interested in the effect extra doses of MMR might have on disease contraction.
+
+- If someone has contracted mumps, what's the probability they had fewer than 2 doses?
+
+- What is the probability of getting mumps, regardless of the number of MMR doses you receive?
+
+- What's the probability of getting mumps given you've gotten 3+ doses of MMR?
+
+]
+
+&lt;div style="position:relative; top:-100px"&gt;
+.pull-right-33[
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; # At Risk &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; # Cases &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &amp;lt; 2 doses &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 103 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 doses &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15206 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 221 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3+ doses &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5187 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 34 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 20496 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 259 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+&lt;/div&gt;
+
+
+---
+
+# Example: Airport TSA
+
+.pull-left[
+An airport screens bags for forbidden items, and an alarm is supposed to be triggered when a forbidden item is detected. Suppose that 5% of bags contain forbidden items. If a bag contains a forbidden item, there is a 98% chance that it triggers the alarm. If a bag doesn't contain a forbidden item, there is an 8% chance that it triggers the alarm.
+
+- What is the general probability that the alarm will go off on a randomly chosen bag?
+
+&lt;br&gt;
+&lt;br&gt;
+
+- Given a randomly chosen bag triggers the alarm, what is the probability that it contains a forbidden item?
+]
+
+
+---
+
+# Example: Oil and Gas
+
+Say you are drilling for oil. When you drill a sample well, there is a 60% chance you'll find oil. When you do find oil, there's a 10% chance that it's of a quality that you could sell it commercially.
+
+---
+
+# Probability Tables
+
+- Sometimes it's useful to organize the probabilities of events into a table
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Events &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; A &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; B &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; C &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; D &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Probability &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; P(A) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; P(B) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; P(C) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; P(D) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+- The probability of any one event, P(A) is in the box underneath that value
+
+- We call these tables a .alert[**probability distribution**]
+
+- In order to be a legitimate probability distribution, .alert2[**all the probabilities must add to 1**] 
+   
+   - i.e., the entire sample space must be defined in the table
+   
+   - This is known as .alert[**the law of total probability**]
+   
+   - This means each event must be .alert2[**mutually exclusive **]
+   
+---
+
+# Example: Coin Flips
+
+We have a fair coin. We flip the coin 5 times and count the number of heads we get. Using our knowledge of probability, we can fill in the probability distribution below:
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Number of coins landing on heads &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Probability &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Discrete Random Variables
+
+- A .alert[**random variable**] is a variable that may assume different values as events with certain probabilities
+   - There are two types of random variables: discrete and continuous -- we’ll focus on discrete for now
+
+- .alert[**Discrete random variables**] are ones where you can count all the possible values that the variable might take on
+
+- Examples:
+
+   - The number you get when you roll a single die
+   
+   - The total number you get when you roll 3 dice
+   
+   - The number of cookies left in the box
+
+
+---
+
+# Probabilities of Discrete Random Variables
+
+- Because the events are mutually exclusive, we can compute the probability that random variable X takes on one of several values by adding up the probabilities:
+`$$P(X \in \{a,b,c,d\}) = \sum_{i\in\{a,b,c,d\}}P(X=i)$$`
+
+--
+
+- Similarly, we can also compute the probability of that a random variable X takes on values .alert2[**less than**] a number, denoted as `\(P(X &lt; a)\)`:
+`$$P(X &lt; a) = \sum_{i\text{ where }x&lt; a}P(X=i)$$`
+or .alert2[**greater than**] a number, denoted as `\(P(X&gt;a)\)`:
+`$$P(X &gt; a) = \sum_{i\text{ where }x&gt; a}P(X=i)$$`
+   - Basically, if we want the probability that X is less than/greater than some number a, then we just add up the corresponding probabilities that are associated with `\(X &lt; a\)` or `\(X &gt; a\)`
+
+---
+
+# Probabilities of Discrete Random Variables
+
+- Depending on how many total events you have, `\(P(X&lt;a)\)` or `\(P(X&gt;a)\)` may be easier to calculate than the other
+
+- Using the law of total probability, we can create a shortcut:
+`$$P(X&gt;a) = 1- P(X \le a)$$`
+or,
+`$$P(X&lt;a) = 1 - P(X \ge a)$$`
+
+---
+
+# Example: National Youth Risk Behavior Survey
+
+The 2011 National Youth Risk Behavior Survey provides insight on the physical activity (among other things) of US high school students. Physical activity was defined as any activity that increases heart rate. Here is the probability model obtained by asking, “During the past 7 days, on how many days were you physically active for a total of at least 60 minutes per day?"
+
+.pull-right[
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Days &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Probability &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.15 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.08 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.11 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.12 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.07 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.27 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-left[
+&lt;div style="position:relative; top:-100px;"&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the probability a high schooler is active for exactly 4 days?&lt;/li&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;li&gt;What is the probability a high schooler active for more than 2 days?&lt;/li&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;li&gt;What is the probability a high schooler is active for less than 5 days?&lt;/li&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;li&gt;What is the probability a high schooler is active more than 1 day but less than or equal to 6 days?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+]
+
+---
+
+# Example: Puppies
+
+Below is the distribution of the number of pups in a litter of dogs for a certain breed:
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Number of Puppies &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Probability &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+- In order for the distribution to be legitimate, what must the missing probability be?
+
+&lt;br&gt;
+&lt;br&gt;
+
+- What is the probability of having fewer than 3 pups?
+
+&lt;br&gt;
+&lt;br&gt;
+
+- What is the probability of having more than 2 pups but at most 4 pups?
+
+
+---
+
+# Expected Value
+
+- The .alert[**expected value**], E(X), represents the average outcome or what you would generally expect to happen
+
+   - If you flip a coin 10 times in a row, you would expect to get heads about half the time, or 5 times
+
+- In a discrete setting, the expected value is found by multiplying each value of X by its probability, then adding them all up:
+.content-box-teal[
+`$$E(X) = \sum_{i=1}^n x_i P(X=x_i)$$`
+]
+
+- This can also be thought of a .alert2[**probability weighted average**]
+
+   - i.e., values with a higher probability (are more likely) will be given more weight than rare values
+
+- Expected value only applies to .alert2[**quantitative variables**]
+
+---
+
+# Example: National Youth Risk Behavior Survey
+
+The 2011 National Youth Risk Behavior Survey provides insight on the physical activity (among other things) of US high school students. Physical activity was defined as any activity that increases heart rate. Here is the probability model obtained by asking, “During the past 7 days, on how many days were you physically active for a total of at least 60 minutes per day?"
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Days &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Probability &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.15 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.08 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.11 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.12 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.07 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.27 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+- How many days per week do we expect the average high schooler to be active?
+
+---
+
+# Example: Puppies
+
+Below is the distribution of the number of pups in a litter of dogs for a certain breed:
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Number of Puppies &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Probability &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+- How many puppies do we expect to be in the average litter?
+
+---
+
+# Variance
+
+- Back in Lecture 1 we learned about the concept of .alert[**variance**], Var(X), or how much data points tend to stray from the mean
+
+   - Remember: to calculate those, you subtract the mean from a data point, square this, repeat for all data points, and add them all up and divide by n-1
+   
+- Sometimes, though, you aren't given an entire set of data points, but only the probability distribution table
+
+- To calculate variance for a discrete random variable using only the distribution, you can use the following formula:
+.content-box-teal[
+`$$\text{Var}(X) = \sum_{i=1}^n [x_i - E(X)]^2 P(X=x_i)$$`
+]
+
+---
+
+# Example: National Youth Risk Behavior Survey
+
+The 2011 National Youth Risk Behavior Survey provides insight on the physical activity (among other things) of US high school students. Physical activity was defined as any activity that increases heart rate. Here is the probability model obtained by asking, “During the past 7 days, on how many days were you physically active for a total of at least 60 minutes per day?"
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Days &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Probability &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.15 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.08 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.11 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.12 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.07 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.27 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+- How much do we expect an average high school to vary from the average the number of active days?
+
+---
+
+# Example: Puppies
+
+Below is the distribution of the number of pups in a litter of dogs for a certain breed:
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Number of Puppies &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; Probability &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.3 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.4 &lt;/td&gt;
+   &lt;td style="text-align:left;width: 5em; "&gt; 0.1 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+- On average, how far from the mean do we expect the average litter size to vary?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+"0","vg.p.lab.lm <- vg.p.lab+"
+"0","   geom_smooth(method='lm', se=FALSE)"
+"0","vg.p.lab.lm"

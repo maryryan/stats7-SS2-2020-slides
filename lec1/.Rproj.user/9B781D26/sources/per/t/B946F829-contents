@@ -1,0 +1,478 @@
+---
+title: "Introduction to Statistics"
+subtitle: "Stats 7"
+author: "Mary Ryan"
+date: "Sept. XX, 2020"
+institute: "University of California, Irvine"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "middlebury-fonts", "headerPosition.css"]#like lucy
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+    seal: false
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(fig.align='center', out.width="63%", warning=FALSE)
+```
+
+```{r load libraries, include=FALSE, comment='#'}
+#install.packages( 'tidyverse' )
+#install.packages( 'readxl' )
+
+library( tidyverse, quietly=T, warn.conflicts = F )
+library( knitr, quietly=T, warn.conflicts = F )
+library( readxl, quietly=T, warn.conflicts = F )
+#library( tufte, quietly=T, warn.conflicts = F )
+library( quantmod, quietly=T, warn.conflicts = F )
+
+```
+
+```{r reduce code spacing, include = FALSE}
+hook1 <- function(x){ gsub("```\n*```r*\n*", "", x) }
+hook2 <- function(x){ gsub("```\n+```\n", "", x) }
+knit_hooks$set(document = hook2)
+```
+
+```{r load data, include=F}
+
+#avocado <- read_excel( "avocado.xlsx" )
+
+```
+
+layout: true
+class: 
+
+<!-- Old footer font color: #00A895 -->
+<!-- old footer background color: #383838 -->
+
+<!-- footer -->
+ <div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #2DD8A5; background-color: #545454; width:93.5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mary Ryan</div> <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<div style="position:fixed; bottom:10px; left:350px; font-size: 12pt; color: #2DD8A5">Introduction to Statistics</div> <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #2DD8A5">Stats 7</div>
+
+---
+
+<div style="position:fixed; left:50px; right:50px; top:75px; padding:30px; margin:auto; background-color:#C0F3E4">
+<p>This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.</p>
+
+<p>If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you. If, when you disable live video, you also want to use a profile image (other than a picture of you) instead of your name, please let me know which image you will be using so that I know who you are during the session.</p>
+
+<p>If you would like to ask a question, you may do so privately through the .alert[Zoom chat] by addressing your chat question to me only (and not to “everyone”), or you may contact me by another private method. If you have questions or concerns about this, please contact me.</p>
+</div>
+
+---
+
+class: title-slide2
+
+# <center> Introduction to Statistics </center>
+## <center> Stats 7 </center>
+### <center> Mary Ryan </center>
+
+<!-- social media info -->
+<div style="position:fixed; bottom:40px; left:70px;">
+<div><img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/> <a href="https://github.com/maryryan"> github.com/maryryan </a> </div>
+<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href=""> class website here </a></div>
+</div>
+
+
+---
+
+# About the Teaching Team
+
+<div style="position:fixed; right:100px; top:40px">
+<!-- <img src="lec1-images/maryHeadshot_square_300dpi.jpg", width="200"/> -->
+<img src="https://media.giphy.com/media/jpib5qpqYui0PmKxJg/giphy.gif", width="150"/>
+<img src="https://media.giphy.com/media/WQr8mizd5kDIm40zDs/giphy.gif", width="100"/>
+</div>
+
+
+- Instructor: Mary Ryan
+   - 4th year Statistics PhD candidate
+   
+   - Bachelor's in Statistics & Journalism (2016, University of Missouri)
+   - <img src="https://media.giphy.com/media/5UFMafYafoA7VdLLWO/giphy.gif", width="50", style="position:relative; top:20px"/>: <a href="mailto:marymr@uci.edu">marymr@uci.edu</a>
+
+   - OH: 
+
+
+- TA:
+
+   - <img src="https://media.giphy.com/media/5UFMafYafoA7VdLLWO/giphy.gif", width="50", style="position:relative; top:20px"/>: 
+   
+   - OH: 
+
+---
+
+# Tentative Schedule
+
+- Week 1
+   - Introduction to Statistics
+   - Descriptive Statistics and Data Visualization
+   - Data Sampling & Bias
+   
+- Week 2
+   - Regression
+   - Probability
+   
+- Week 3
+   - Probability
+   - Discrete Probability Distributions
+
+- Week 4
+   - Continuous Probability Distributions
+   
+- Week 5
+   - Hypothesis Testing & Inference
+
+---
+
+# Textbooks and Resources
+
+- Required text: <a href="https://www.openintro.org/">OpenIntro Statistics</a>,
+   
+   - PDF free to download
+   
+<div, style="position:fixed; left:50px; top:150px">
+<img src="lec1-images/openIntro-purchase-donate.png", width="350"/>
+<img src="https://media.giphy.com/media/64a8Nr1Vgg3NPrWv2H/giphy.gif", width="100", class="rotate180", style="position:relative; top:-40px"/>
+<img src="lec1-images/openIntro-purchase-free.png", width="350"/>
+</div>
+   
+   - Paperback copy $20 from Amazon
+
+<div, style="position:fixed; left:100px; top:425px">
+<img src="lec1-images/openIntro-purchase-amazon.png", width="350"/>
+</div>
+
+<div, style="position:fixed; left:260px; top:100px"><a href="https://www.openintro.org/book/os/">4th Edition</a></div>
+
+<!-- <div, style="position:fixed; right:100px; top:60px"><img src="lec1-images/openIntroStatCover.jpg", width="250"/></div> -->
+
+
+   
+---
+
+# Assignments
+
+- Homework: XX%
+   - Weekly assignments, found on the <a href="">class website</a>
+   - Due __Fridays @ 5p__ via Gradescope
+   - For __every hour__ late, homework grade will suffer a __10%__ penalty
+   
+- Labs: XX%
+   - Due at the end of discussion section via Gradescope
+   
+- Midterm Exam: XX%
+    - Date: __Aug. XX__
+
+- Final Exam: XX%
+   - Date: __Sept. XX @ Xp__
+   - Cumulative
+      
+---
+
+# What is Statistics?
+
+   
+---
+
+# What is Statistics?
+
+<div><img src="lec1-images/census-logo-sharing-card.jpg", width="300"/></div>
+
+<div, style="position:fixed; left:50px; bottom:100px"><img src="https://fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/images/open-graph-placeholder-default.png", width="300"/></div>
+
+
+<div, style="position:fixed; right:150px; top:100px"><img src="https://searchengineland.com/figz/wp-content/seloads/2016/03/google-code-seo-algorithm8-ss-1920.jpg", width="300"/></div>
+
+<div, style="position:fixed; right:90px; top:250px"><img src="http://danstrong.tech/blog/assets/BLS-Logo.jpg", width="300"/></div>
+
+
+<div, style="position:fixed; right:220px; bottom:100px"><img src="https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/GFDT/frozvbzp1um8k7ixfzz8ra.png", width="300"/></div>
+
+<div, style="position:fixed; left:150px; top:260px"><img src="https://www.proqr.com/wp-content/uploads/2017/09/Research-process-2.png", width="300"/></div>
+
+---
+
+# The Grammar of Science
+
+
+.pull-left[
+Grammar takes a pile of words,
+
+<div><img src="lec1-images/stat-wordcloud-032420.png", width="300"/></div>
+
+and turns it into a sentence that makes sense
+
+<div><img src="lec1-images/stat-sentence-032420.png", width="400"/></div>
+]
+
+--
+
+.pull-right[
+.alert[Statistics] takes a pile of data,
+
+<div><img src="https://media.giphy.com/media/1eEDOa5jefAkCclsAG/giphy.gif", width="250"/></div>
+<!-- Other possible gif: -->
+<!-- <div><img src="https://media.giphy.com/media/H0kxiS2RJF2HC/giphy.gif", width="300"/></div> -->
+
+and turns it into scientific conclusions that we can .alert2[interpret]
+
+<!-- <div><img src="https://media.giphy.com/media/5PhxAUrOowjBrIAWqc/giphy.gif", width="100"/></div> -->
+]
+
+---
+
+# Types of Data
+
+- A __variable__ is a measured characteristic of your data
+   - A dataset is often made up of many different variables, of many different types
+
+- __Categorical__ (qualitative) variables
+   - Ordinal variable: categorical variable whose categories have a <span, style="color:#d82d47">specific ordering</span>
+   - Nominal variable: categorical variable <span, style="color:#d82d47">without any ordering</span>
+   - Binary variable: categorical variable with <span, style="color:#d82d47">only 2 categories</span>
+   
+- __Quantitative__ variables
+   - Discrete variable: takes on numerical values in <span, style="color:#d82d47">jumps</span>
+   - Continuous variable: takes on numerical values that can go out to <span, style="color:#d82d47">infinite decimal points</span>
+
+---
+
+# Types of Data
+
+.pull-left[
+1) Number of cats at the animal shelter
+
+2) Species of pet
+
+3) Weight
+
+4) Mood
+
+5) Diagnosis
+
+6) Population of Orange County
+
+7) Airplane ticket class
+]
+
+--
+
+.pull-right[
+
+Discrete
+{{content}}
+]
+--
+
+<p style="margin-top:1.25cm">
+Nominal
+</p>
+{{content}}
+
+--
+
+Continuous
+{{content}}
+
+--
+
+Nominal
+{{content}}
+
+--
+
+Nominal
+{{content}}
+
+--
+
+Discrete
+{{content}}
+
+--
+
+Ordinal
+
+--
+
+.pull-left[
+
+.alert[
+   8) Money you spend to wash 1 load of laundry
+   ]
+]
+
+--
+
+.pull-right[
+
+.alert[
+   <div, style="position:fixed; bottom:155px; left:475px">Continuous</div>
+   ]
+
+]
+
+---
+
+# Types of Data
+
+8) Money you spend to wash 1 load of laundry
+
+```{r exchangeRate, echo=FALSE}
+from <- rep("USD", 3)
+to <- c("CNY", "EUR", "MXN")
+
+rate <- getQuote(paste0(from, to, "=X"))$Last
+
+laundryConversion <- 1.75*rate
+
+
+
+```
+
+- I spend $1.75 per wash cycle
+
+--
+
+   - Looks discrete, right?
+   
+--
+
+   - .alert2[Converted to Chinese Renminbi:  ¥ `r laundryConversion[1]`]
+
+--
+
+   - .alert2[Converted to Euro: € `r laundryConversion[2]`]
+
+--
+
+   - .alert2[Converted to Mexican Peso: $ `r laundryConversion[3]`]
+
+--
+
+- While we might think of currency in "discrete" US Dollar (or Renminbi, or Euro, or Peso) units, any amount of money can be converted from one currency to another
+   - Currency conversion doesn't respect the fact that you don't carry around $1/12^{th}$ cents
+   - .alert[So we generally think of currency as a continuous variable]
+   
+---
+
+# How Do We Describe Our Data?
+
+- Counts
+
+- Minimum
+
+- Maximum
+
+---
+
+# Journey to the Center of the Data
+
+- Mean
+
+- Median
+
+- Mode
+   - The most common value in the data
+
+---
+
+# Five Number Summary
+
+- Minimum
+
+- 1st quartile ( $25^{th}$ percentile)
+
+- Median ( $50^{th}$ percentile)
+
+- 3rd quartile ( $75^{th}$ percentile)
+
+- Maximum
+
+---
+
+# Data Visualization
+
+- Summarizing values are nice, but people are much better at identifying differences/patterns .alert[graphically]
+
+
+- Bar plot
+   
+<div, style="position:relative; left:100px">
+   <img src="https://www.latimes.com/projects/trump-california-tweets/static/ca_categories_chart.png", width="400"/>
+   
+   <div><font size="1">.alert2[The California-related topics the president tweets most frequently about (Sept. 17, 2019), via Priya Krishnakumar at <a href="https://www.latimes.com/projects/trump-california-tweets/">The LA Times </a>]</font><div>
+   
+</div>
+ 
+   
+---
+
+# Data Visualization
+
+- Pie chart
+- Histogram
+
+<div, style="position:relative; left:100px">
+   <img src="https://static01.nyt.com/images/2018/11/27/learning/Mothers2LN/Mothers2LN-jumbo.png?quality=90&auto=webp", width="400"/>
+   
+   <div><font size="1">.alert2[The age of first-time mothers in 2016 (Aug. 4, 2018), via Quoctrung Bui at <a href="https://www.nytimes.com/interactive/2018/08/04/upshot/up-birth-age-gap.html?module=inline">The New York Times </a>]</font><div>
+   
+</div>
+
+- Boxplot
+- Scatter plot
+- Line plot
+
+---
+
+# Data Shapes
+.pull-left[
+
+Symmetrical
+```{r, echo=FALSE, out.width="90%"}
+a <- rnorm(1000000, 0, 1)
+par(mar=c(2,2,2,2))
+plot(density(a), main="", xlab="", lwd=2)
+```
+
+]
+
+
+.pull-right[
+
+Skewed
+```{r, echo=FALSE, out.width="90%"}
+b <- rbeta(1000000, 2, 5)
+par(mar=c(2,2,2,2))
+plot(density(b), main="", xlab="", lwd=2)
+```
+
+]
+
+
+---
+
+# Skew
+
+- Right (positive) skew
+   - Mean to the right .alert[(greater than)] median
+
+- Left (negative) skew
+   - Mean to the left .alert[(less than)] median
+   
+- When in doubt, look for the "tail"
+
+<!-- Get photos of August sitting up for skew distribution illustration -->
+<div><img src="lec1-images/august-leftskew-edited.jpg", width="250"/></div>
+Left skew (and good bean)
+---

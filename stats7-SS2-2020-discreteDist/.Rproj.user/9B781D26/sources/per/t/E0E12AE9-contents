@@ -1,0 +1,145 @@
+---
+title: "Discrete Probability Distributions"
+subtitle: "Stats 7"
+author: "Mary Ryan"
+date: "Sept. XX, 2020"
+institute: "University of California, Irvine"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "middlebury-fonts", "headerPosition.css"]#like lucy
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+    seal: false
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(fig.align='center', out.width="63%", warning=FALSE)
+```
+
+```{r load libraries, include=FALSE, comment='#'}
+#install.packages( 'tidyverse' )
+#install.packages( 'readxl' )
+
+library( tidyverse, quietly=T, warn.conflicts = F )
+library( knitr, quietly=T, warn.conflicts = F )
+library( readxl, quietly=T, warn.conflicts = F )
+#library( tufte, quietly=T, warn.conflicts = F )
+library( quantmod, quietly=T, warn.conflicts = F )
+
+```
+
+```{r reduce code spacing, include = FALSE}
+hook1 <- function(x){ gsub("```\n*```r*\n*", "", x) }
+hook2 <- function(x){ gsub("```\n+```\n", "", x) }
+knit_hooks$set(document = hook2)
+```
+
+
+layout: true
+class: 
+
+<!-- Old footer font color: #00A895 -->
+<!-- old footer background color: #383838 -->
+
+<!-- footer -->
+ <div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #2DD8A5; background-color: #545454; width:93.5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mary Ryan</div> <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<div style="position:fixed; bottom:10px; left:350px; font-size: 12pt; color: #2DD8A5">Introduction to Statistics</div> <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #2DD8A5">Stats 7</div>
+
+<!-- Recording Notice Slide -->
+---
+
+<div style="position:fixed; left:50px; right:50px; top:75px; padding:30px; margin:auto; background-color:#C0F3E4; border-radius: 15px">
+<p>This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.</p>
+
+<p>If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you. If, when you disable live video, you also want to use a profile image (other than a picture of you) instead of your name, please let me know which image you will be using so that I know who you are during the session.</p>
+
+<p>If you would like to ask a question, you may do so privately through the .alert[Zoom chat] by addressing your chat question to me only (and not to “everyone”), or you may contact me by another private method. If you have questions or concerns about this, please contact me.</p>
+</div>
+
+<!-- Title Slide -->
+---
+
+class: title-slide2
+
+# <center> Discrete Probability Distributions </center>
+## <center> Stats 7 </center>
+### <center> Mary Ryan </center>
+
+<!-- social media info -->
+<div style="position:fixed; bottom:40px; left:70px;">
+<div><img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/> <a href="https://github.com/maryryan"> github.com/maryryan </a> </div>
+<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href=""> class website here </a></div>
+</div>
+
+
+---
+
+# Probability Models
+
+- Previously, probability for events have been given to us
+
+- What if we want to know the probability of an event, but have no data?
+
+- Might be useful to apply a .alert[probability model] or .alert[probability distribution]
+   - Existing framework with .alert2[known properties], given that certain .alert2[conditions] apply
+   - Each distribution has formulae for calculating probability
+   - Different types of models for .alert2[discrete] and .alert2[continuous] variables
+   - We call these variables, .alert[random variables]
+   - Today, we'll focus on discrete random variables
+   
+- How to pick a probability distribution?
+   - Compare the distribution's conditions and assumptions to your scenario and see if they apply
+
+---
+
+# Discrete Uniform Distribution
+
+<div style="position:fixed; right:125px; top:10px">
+<img src="https://media.giphy.com/media/UvWUKpwmtQ5t3epmAS/giphy.gif", width="150"/>
+</div>
+
+- Applies to .alert2[discrete] random variables
+   - Variables can take on values that exist between some number *a* and another number *b*
+   - Each value is .alert2[equally likely] to happen
+   - Defined by the minimum value the variable can take on (*a*) and the maximum value it can take on (*b*)
+
+.content-box-teal[
+- Some properties:
+   - $P(X=x) = \frac{1}{b-a+1} = \frac{1}{\text{# of total values random variable X can take on}}$
+   - $E(X) = \frac{a+b}{2}$
+   - $Var(X) = \frac{(b-a+1)^2 - 1}{12}$
+]
+   
+- An evenly weighted die
+
+---
+
+# Binomial Distribution
+
+<div style="position:fixed; right:125px; top:10px">
+<img src="https://media.giphy.com/media/QxjapRWD37qqPfI5xy/giphy.gif", width="150"/>
+</div>
+
+- Applies to .alert2[discrete] random variables
+   - Variable can be described as the number of .alert2["successes"] in *n* .alert2[independent trials]
+   - Each trial has a known probability of "success", *p*
+   - Can take on values that exist between 0 (no successes observed) and *n* (all trials were a success)
+
+.content-box-teal[  
+- Some properties:
+   - $P(X=x) = \frac{n!}{x!(n-x)!}p^x(1-p)^{n-x} = {n \choose x}p^x(1-p)^{n-x}$
+   - $E(X) = np$
+   - $Var(X) = np(1-p)$
+]
+
+- Number of heads you get in 10 coin flips
+   - n=10 independent trials
+   - Each head is a "success"
+   - Probability of success = 0.5 for each trial

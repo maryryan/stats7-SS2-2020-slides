@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Collection &amp; Bias</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mary Ryan" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/chocolate-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="headerPosition.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+
+layout: true
+class: 
+
+&lt;!-- Old footer font color: #00A895 --&gt;
+&lt;!-- old footer background color: #383838 --&gt;
+
+&lt;!-- footer --&gt;
+&lt;div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #17f9b4; background-color: #545454; width:93.5%"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mary Ryan&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; left:500px; font-size: 12pt; color: #17f9b4"&gt;Data Collection &amp; Bias&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #17f9b4"&gt;Stats 7&lt;/div&gt;
+
+---
+
+&lt;div style="position:fixed; left:50px; right:50px; top:175px; padding:30px; margin:auto; background-color:#C0F3E4; border-radius:15px"&gt;
+&lt;p&gt;This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.&lt;/p&gt;
+
+&lt;p&gt;If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you.&lt;/p&gt;
+
+&lt;p&gt;The chat box is always open for discussion and questions to the entire class. You may also send messages privately to the instructor or the TAs. Please note that Zoom saves all chat transcripts.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+class: title-slide2
+
+# &lt;center&gt; Sampling &amp; Bias &lt;/center&gt;
+## &lt;center&gt; Stats 7 &lt;/center&gt;
+### &lt;center&gt; Mary Ryan &lt;/center&gt;
+
+&lt;!-- social media info --&gt;
+&lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
+&lt;div&gt;&lt;img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/&gt; &lt;a href="https://github.com/maryryan"&gt; github.com/maryryan &lt;/a&gt; &lt;/div&gt;
+&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href=""&gt; class website here &lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+
+---
+
+# Populations &amp; Samples
+
+- A .alert[**population**] is all of the members of a specific group
+
+   - All the animals at the Irvine animal shelter
+   
+   - All the books in the Orange County Public Library system
+   
+   - All the people living in California
+   
+--
+   
+- A larger population can be made up of several smaller sub-populations
+
+   - All the dogs at the Irvine animal shelter
+   
+   - All the novels in the Orange County Public Library system
+   
+   - All the people living in Orange County
+
+--
+
+- A .alert[**sample**] is a subset of a population
+
+   - Five animals at the Irvine animal shelter
+   
+   - Twenty-five books in the Orange County Public Library system
+   
+   - Fifty-seven people living in California
+
+---
+
+# Why Sample?
+
+- The goal of a .alert[**census**] is to collect information about an entire population
+
+   - We want to know about a population's .alert[**parameters**]
+      
+      - i.e., population's true mean age, true proportion of homeless, true range of yearly incomes, etc.
+
+--
+
+- We want to learn about a population, but populations are often very large
+   
+   - Difficult to observe all populations members
+   
+   - Observing every member may be very expensive or take a very long time
+   
+- By selecting a sample and learning about its members, we assume their characteristics or opinions are representative of the whole population
+
+   - The act of selecting a sample is known as .alert[**sampling**]
+   
+   - An estimate of a population parameter (using sample data) is known as a .alert[**statistic**]
+   
+---
+
+# Why Sample?
+&lt;div style="position:absolute; top:40%; right:7%; width:90%"&gt;
+.content-box-teal[
+.center[
+Parameters come from populations
+
+Statistics come from samples
+]
+]
+&lt;/div&gt;
+
+---
+
+# Population of Interest
+
+![sampling from different populations](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/popOfInterest.png)
+
+- What do we want our .alert[**population of interest**] to be?
+
+- How widely do we want to generalize our results?
+
+---
+
+# Sampling
+
+- We want to make sure our sample is .alert[**unbiased**], or not systematically different from the population
+
+- Whenever possible, we want to ensure that sampling units are taken from the population at .alert2[**random**]
+
+   - This reduces the chance of introducing bias
+   
+--
+
+- Why might there be problems with not selecting sampling units at random?
+
+   - Conducting a survey at Disneyland about guest preferences but only selecting people in high heels
+
+   - Wanting to learn about shopping habits of all people in U.S., and we only talk to our friends
+
+- Want to avoid .alert[**convenience samples**] when possible
+
+   - Easily accessible individuals have a higher probability of being selected
+   
+---
+
+# Types of Random Sampling
+
+- Many types of sampling techniques, each with pros and cons depending on your goal
+
+- .alert[**Simple random sample**]: sampling technique in which each case in a population has an .alert2[**equal chance**] of being included in the final sample and knowing that a particular case is in the sample gives us no knowledge about the other cases in the sample
+
+   - This is the most common type of sampling you will encounter
+   
+   - When we say “randomly assign”, we generally mean simple random sample 
+   
+   
+.center[![:scale 50%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/SRS.png)]
+
+---
+
+# Types of Sampling
+
+- .alert[**Stratified sampling**]: the population are divided into mutually exclusive groups called .alert[**strata**] and then a simple random sample is taken from each strata
+   
+   - Cases within a strata will have something in common like gender, age, or race
+   
+   - Two strata will look different, while the cases within a strata will look similar
+   
+.center[![:scale 65%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/stratSample.png)]
+
+---
+
+# Types of Sampling
+
+- .alert[**Cluster sampling**]: the population is divided into naturally occurring groups called .alert[**clusters**], and then entire clusters are randomly chosen
+
+   - A common clustering is geographical location
+   
+   - Often, there will be differences within a cluster, but two clusters considered as a whole will look similar
+   
+.center[![:scale 65%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/clusterSample.png)]
+   
+---
+
+# Types of Sampling
+
+- .alert[**Multi-stage cluster sampling**]: similar to cluster sampling, entire clusters are chosen at random, then a simple random sample is taken of the individual cases within those selected clusters
+
+.center[![:scale 75%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/multiStageCluster.png)]
+
+---
+
+# Sampling Example 1
+
+---
+
+# Sampling Example 2
+
+---
+
+# Types of Bias
+
+- .alert[**Undercoverage**]: parts of the population will be left out depending on the survey method (i.e., the Census and homeless people)
+
+- .alert[**Nonresponse**]: certain types of people choose not to respond or participate
+
+- .alert[**Wording Effects**]: questions may be leading, biased, or confusing
+
+- .alert[**Response Bias**]: people can lie about their answers to make themselves sound like better people
+
+---
+
+# Bias Example 1
+
+---
+
+# Bias Example 2
+
+---
+
+# Types of Studies: Experiments
+
+- Two types: experimental and observational
+
+- .alert[**Experimental studies**] are those where researchers explicitly administer a treatment
+
+- Researchers randomly assign volunteers to treatment and control groups
+
+- Reducing bias in experiments: blinding
+   
+   - Studies that are .alert[**blinded**] mean that the volunteer doesn’t know whether they’re in a treatment or control group
+   
+   - Studies that are .alert[**double-blind**] mean that neither the volunteer nor the treatment administrator know whether they’re in the treatment or placebo groups
+      - Usually the treatment administrator is a “middle man” who is given a treatment from the researchers to give to the volunteer
+      
+- Blinding helps ensure that subjects or researchers aren’t behaving consciously (or subconsciously) to influence the outcome
+
+---
+
+# Principles of Experimental Design
+
+- Controlling
+
+   - Researchers do their best to reduce the differences between groups to isolate effect of treatment
+   
+   - Done by developing a thorough study design
+   
+   - Can therefore make .alert2[**causal**] conclusions
+   
+- Randomization
+
+   - Researchers randomize volunteers into groups to account for factors that can’t be controlled (often because we can’t think of every little thing to control for)
+   
+---
+
+# Principles of Experimental Design
+
+- Replication
+
+   - The smaller a sample you take, the more likely the effects you’re seeing are specific to that group of people
+   
+   - To make an experiment replicable, a large enough sample must be taken
+   
+   - Entire experiments can also be repeated to double-check results 
+
+- Blocking
+
+   - Sometimes necessary to divide your sampling pool into blocks based on a similar trait, and run the experiment on both blocks
+
+   - After dividing into blocks, each block gets divided into control and treatment groups
+   
+   - Helps make conclusions and results more specific
+
+---
+
+# Completely Randomized vs. Block Design
+
+![comparing randomized experimental design to block design](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/blockDesign.png)
+
+---
+
+# Types of Studies: Observational
+
+- Sometimes it's not possible or ethical to conduct an experiment
+
+- .alert[**Observational studies**] are those where researchers passively observe subjects and record certain variables as time goes on
+
+- Because researchers cannot control outside factors, though, we cannot draw causal conclusions
+
+---
+
+# Types of Studies vs. Types of Conclusions
+
+.center[![:scale 90%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/conclusionType.png)]
+
+---
+
+
+# Experiments vs. Observational Studies: Pros and Cons
+
+.center[![:scale 2.5%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/divider.png)]
+
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

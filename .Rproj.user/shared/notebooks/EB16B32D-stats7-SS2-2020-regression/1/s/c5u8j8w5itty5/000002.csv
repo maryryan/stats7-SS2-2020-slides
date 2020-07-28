@@ -1,0 +1,3 @@
+"0","hook1 <- function(x){ gsub(""```\n*```r*\n*"", """", x) }"
+"0","hook2 <- function(x){ gsub(""```\n+```\n"", """", x) }"
+"0","knit_hooks$set(document = hook2)"

@@ -1,0 +1,214 @@
+---
+title: "Inference of Proportions"
+subtitle: "Stats 7"
+author: "Mary Ryan"
+date: "Sept. XX, 2020"
+institute: "University of California, Irvine"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "middlebury-fonts", "headerPosition.css"]#like lucy
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+    seal: false
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(fig.align='center', out.width="53%", warning=FALSE)
+```
+
+```{r load libraries, include=FALSE, comment='#'}
+#install.packages( 'tidyverse' )
+#install.packages( 'readxl' )
+
+library( tidyverse, quietly=T, warn.conflicts = F )
+library( knitr, quietly=T, warn.conflicts = F )
+library( readxl, quietly=T, warn.conflicts = F )
+#library( tufte, quietly=T, warn.conflicts = F )
+library( quantmod, quietly=T, warn.conflicts = F )
+
+```
+
+```{r reduce code spacing, include = FALSE}
+hook1 <- function(x){ gsub("```\n*```r*\n*", "", x) }
+hook2 <- function(x){ gsub("```\n+```\n", "", x) }
+knit_hooks$set(document = hook2)
+```
+
+```{r load data, include=F}
+
+#avocado <- read_excel( "avocado.xlsx" )
+
+```
+
+layout: true
+class: 
+
+<!-- Old footer font color: #00A895 -->
+<!-- old footer background color: #383838 -->
+
+<!-- footer -->
+ <div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #2DD8A5; background-color: #545454; width:93.5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mary Ryan</div> <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<div style="position:fixed; bottom:10px; left:350px; font-size: 12pt; color: #2DD8A5">Introduction to Statistics</div> <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #2DD8A5">Stats 7</div>
+
+---
+
+<div style="position:fixed; left:50px; right:50px; top:75px; padding:30px; margin:auto; background-color:#C0F3E4">
+<p>This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.</p>
+
+<p>If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you. If, when you disable live video, you also want to use a profile image (other than a picture of you) instead of your name, please let me know which image you will be using so that I know who you are during the session.</p>
+
+<p>If you would like to ask a question, you may do so privately through the .alert[Zoom chat] by addressing your chat question to me only (and not to “everyone”), or you may contact me by another private method. If you have questions or concerns about this, please contact me.</p>
+</div>
+
+---
+
+class: title-slide2
+
+# <center> Inference of Proportions </center>
+## <center> Stats 7 </center>
+### <center> Mary Ryan </center>
+
+<!-- social media info -->
+<div style="position:fixed; bottom:40px; left:70px;">
+<div><img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/> <a href="https://github.com/maryryan"> github.com/maryryan </a> </div>
+<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href=""> class website here </a></div>
+</div>
+
+
+---
+
+# How to Perfom a Hypothesis Test
+
+1. State your hypotheses
+
+2. Calculate your Z-statistic
+
+3. Find your Z-critical ( $Z^*$ ) value
+
+4. Compare your Z-statistic to $Z^*$
+  
+5. Draw a conclusion
+
+6. Interpret you conclusion in context
+---
+
+# Step 1: State your hypotheses
+
+.alert[Question of Interest Here]
+
+- **Null hypothesis** ( $H_0$ ) represents "status quo", or what we assume to be true without more evidence
+- Question will usually give you the **alternative hypothesis** ( $H_A$ )
+- Two types of tests:
+   - Two-sided test ( $H_A: p \ne p_0$ )
+   - One-sided test ( $H_A: p > p_0$, or $H_A: p < p_0$ )
+   
+- Always write hypotheses in terms of the parameter of interest (not the sample estimate)
+
+---
+
+# Step 2: Calculate your Z-statistic
+
+$$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$$
+
+---
+
+# Step 3: Find $Z^*$
+
+- For two-sided tests, we split our **error rate** into both the tails
+```{r twoSided, echo=FALSE, out.width=500, dpi=500}
+par(mar = c(5.1, 0.5, 4.1, 0.5))
+x <- seq(-6,6, length=1000)
+y <- dnorm(x)
+plot(x, y, type="l", lwd=1,
+     xaxt="n", xlab="",
+     yaxt="n", ylab="")
+
+abline(v=1.96)
+abline(v=-1.96)
+
+text(c(-1.96,1.96), rep(-0.04,2), c(expression(-Z^"*"), expression(Z^"*")), xpd=NA)
+
+text(0, 0.1, "Not crazy\n values", col="forest green")
+text(c(-3,3), 0.1, "Woah!", col="red")
+text(c(-2.5, 2.5), 0.0, expression(alpha/2), cex=0.9)
+
+```
+
+---
+
+# Step 3: Find $Z^*$
+
+- For one-sided tests, we can keep all of the error rate in the tail we're interested in
+```{r oneSided, echo=FALSE, out.width=450, dpi=500}
+par(mfrow=c(1,2), mar = c(5.1, 0.5, 4.1, 0.5))
+
+# greater than plot
+plot(x, y, type="l", lwd=1,
+     xaxt="n", xlab="",
+     yaxt="n", ylab="")
+
+abline(v=1.96)
+#abline(v=-1.96)
+
+text(1.96, -0.04, expression(Z^"*"), xpd=NA)
+
+text(0, 0.1, "Not crazy\n values", col="forest green")
+text(3, 0.1, "Woah!", col="red")
+text(2.5, 0.0, expression(alpha), cex=0.9)
+
+text(0, -0.08, expression(H[A]: p > p[0]), xpd=NA, cex=1.2)
+
+# less than plot 
+plot(x, y, type="l", lwd=1,
+     xaxt="n", xlab="",
+     yaxt="n", ylab="")
+
+#abline(v=1.96)
+abline(v=-1.96)
+
+text(-1.96, -0.04, expression(-Z^"*"), xpd=NA)
+
+text(0, 0.1, "Not crazy\n values", col="forest green")
+text(-3, 0.1, "Woah!", col="red")
+text(-2.5, 0.0, expression(alpha), cex=0.9)
+
+text(0, -0.08, expression(H[A]: p < p[0]), xpd=NA, cex=1.2)
+
+
+```
+
+---
+
+# Steps 4, 5, 6
+
+---
+
+# Step 5: Draw a conclusion
+
+- For two-sided test:
+   - If |Z| > $Z^*$, __reject__ the null
+   - If |Z| < $Z^*$, __fail to reject__ the null
+   
+- For one-sided test:
+   - Greater-than test:
+      - If Z > $Z^*$, reject the null
+      - If Z < $Z^*$, fail to reject the null
+      
+   - Less-than test:
+      - If Z < $-Z^*$, reject the null
+      - If Z > $-Z^*$, fail to reject the null
+
+---
+
+# Step 6: Interpret your conclusion in context
+
+- For a rejection:
+
+- For a fail-to-reject:

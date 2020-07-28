@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574232865528.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "18|29|22|0|\n24|49|34|0|\n36|43|40|0|\n42|27|46|0|\n",
+    "hash" : "377718812",
+    "id" : "B946F829",
+    "lastKnownWriteTime" : 1587334740,
+    "last_content_update" : 1587334740622,
+    "path" : "~/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/stats7-SS2-2020-lec1.Rmd",
+    "project_path" : "stats7-SS2-2020-lec1.Rmd",
+    "properties" : {
+        "cursorPosition" : "102,0",
+        "last_setup_crc32" : "",
+        "scrollLine" : "84"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Regression</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mary Ryan" />
+    <meta name="date" content="2020-08-11" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/chocolate-fonts.css" rel="stylesheet" />
+    <link rel="stylesheet" href="headerPosition.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+
+
+
+layout: true
+class: 
+
+&lt;!-- Old footer font color: #00A895 --&gt;
+&lt;!-- old footer background color: #383838 --&gt;
+
+&lt;!-- footer --&gt;
+ &lt;div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #17f9b4; background-color: #545454; width:93.5%"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Mary Ryan&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; left:550px; font-size: 12pt; color: #17f9b4"&gt;Regression&lt;/div&gt; &lt;!--&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; --&gt;
+&lt;div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #17f9b4"&gt;Stats 7&lt;/div&gt;
+
+&lt;!-- Recording Notice Slide --&gt;
+
+---
+
+&lt;div style="position:fixed; left:50px; right:50px; top:175px; padding:30px; margin:auto; background-color:#C0F3E4; border-radius: 15px"&gt;
+&lt;p&gt;This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.&lt;/p&gt;
+
+&lt;p&gt;If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you.&lt;/p&gt;
+
+&lt;p&gt;The chat box is always open for discussion and questions to the entire class. You may also send messages privately to the instructor or the TAs. Please note that Zoom saves all chat transcripts.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Title Slide --&gt;
+---
+
+class: title-slide2
+
+# &lt;center&gt; Regression &lt;/center&gt;
+## &lt;center&gt; Stats 7 &lt;/center&gt;
+### &lt;center&gt; Mary Ryan &lt;/center&gt;
+### .center[Aug. 11, 2020]
+
+&lt;!-- social media info --&gt;
+&lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
+&lt;div&gt;&lt;img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/&gt; &lt;a href="https://github.com/maryryan"&gt; github.com/maryryan &lt;/a&gt; &lt;/div&gt;
+&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href=""&gt; class website here &lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+---
+
+# Studies
+
+- The goal is to explore an association or relationship between two variables
+
+   - There may be a relationship or there may not!
+   
+- How do we assess whether there is a relationship?
+
+---
+
+# Scatterplots
+
+.pull-left[
+- Used to .alert2[**visualize**] relationship between 2 variables
+
+- .alert[**Explanatory/Indendent variable**] goes on x-axis
+
+- .alert[**Dependent variable/response**] goes on y-axis
+
+- .alert2[**Are x and y related?**]
+
+   - Shape (line, curve, mass of points)
+   
+   - Direction (positive, negative, horizontal, vertical)
+   
+   - Strength (defined/tight or scattered)
+   
+   - Outliers?
+
+]
+
+.pull-right[
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/scatterplot exp-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Example: Video Game Ratings
+
+Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/videoGamePlot-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+---
+# Example: MLB 2011
+
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot-1.png" width="43%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Correlation
+
+- .alert[**Correlation, R**], tries to quantify the .alert2[**strength**] and .alert2[**direction**] of a .alert2[**linear**] relationship between two variables
+
+.content-box-gray[
+`$$R = \frac{\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n(x_i - \bar{x})^2 \sum_{i=1}^n(y_i - \bar{y})^2}}$$`
+]
+
+--
+
+- Takes on values from -1 to 1 (unitless)
+   
+   - R = 0 means the variables have no linear relationship
+   
+   - R = 1 means the variables have a perfect, .alert2[**positive**] linear relationship
+   
+      - If X increases by 1 unit, Y increases by 1 unit as well
+   
+   - R = -1 means the variables have a perfect, .alert2[**negative**] linear relationship
+   
+      - If X increases by 1 unit, Y decreases by 1 unit
+      
+---
+
+# Example: Video Game Ratings (pt. 2)
+
+Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/videoGamePlot2-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Example: MLB 2011 (pt. 2)
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot2-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Correlation
+
+- R only measures the .alert2[**linear**] relationship between two variables
+
+   - Two variables could be perfectly related in a non-linear way and have an R near 0
+   
+--
+
+- Just because two variables *seems* related, does not mean changes in one *cause* changes in the other
+   
+.content-box-pink[
+&lt;div style="text-align:center"&gt;Correlation does not equal causation!&lt;/div&gt;
+]
+
+---
+
+# Correlation doesn't equal causation example
+
+---
+
+# Linear Regression
+
+- Knowing there *is* a linear relationship is great, but I want to know *how* two variables are related
+
+--
+
+- .alert[**Linear regression**] is like finding the line of best fit
+
+.content-box-teal[
+`$$y = mx+b$$`
+`$$\Rightarrow y = \beta_0 + \beta_1 x$$`
+]
+
+- `\(\beta_0\)` is the .alert[**intercept**]
+   
+   - What we would expect *y* to be if *x* = 0
+   
+   - Doesn't always have a logical real-world interpretation
+   
+- `\(\beta_1\)` is the .alert[**slope**]
+   
+   - How much we expect *y* to change by if we increase *x* by 1 unit
+   
+   - Usually what we're most intereseted in
+   
+---
+
+# Regression
+
+- What makes our regression line the "best fit"?
+
+   - It's the line that minimizes the .alert2[**sum of squared residuals**]
+   
+- A .alert[**residual**], `\(e_i\)`, is the distance between an observed data point, and what our line would predict it to be
+
+.pull-left[
+.content-box-teal[
+`$$e_i = y_i - \hat{y}_i$$`
+]
+
+- Squaring the residuals makes sure positive and negative residuals don't cancel each other out
+]
+
+.pull-right[
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/residual plot-1.png" width="75%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Regression
+
+.content-box-gray[
+`$$\hat{\beta}_0 = \bar{y} + \hat{\beta_1}\bar{x}$$`
+`$$\hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n(x_i-\bar{x})^2}$$`
+]
+
+---
+
+# Example: Video Game Ratings (pt. 3)
+
+Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgPlot3-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+
+
+
+Review Score = `\(\beta_0 + \beta_1\)` (Median time to completion)
+
+Review Score = 66.2225 + 0.2321(Median time to completion)
+
+{{content}}
+
+]
+
+
+--
+
+&lt;span style="color:#1f9773"&gt;** When a game's median completion time is 0 hours, the game will receive a rating of 66.2225, on average.**&lt;/span&gt;
+
+{{content}}
+
+--
+
+&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
+
+Doesn't make sense
+
+&lt;/div&gt;
+{{content}}
+
+--
+
+&lt;span style="color:#1f9773"&gt;**When the median completion time increases by 1 hour, a game's rating increases by 0.2321, on average.**&lt;/span&gt;
+
+{{content}}
+
+---
+
+# Example: MLB 2011 (pt. 3)
+
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot3-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+
+
+
+Runs = `\(\beta_0 + \beta_1\)` (at-bats)
+
+Runs = -2789.2429 + 0.6305(at-bats)
+
+{{content}}
+
+]
+
+
+--
+
+&lt;span style="color:#1f9773"&gt;**When a team sends no players to bat for an entire season, we would expect their runs for the season to be -2789.2429, on average.**&lt;/span&gt;
+
+{{content}}
+
+--
+
+&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
+
+Doesn't make sense
+
+&lt;/div&gt;
+{{content}}
+
+--
+
+&lt;span style="color:#1f9773"&gt;**For every 1 extra player a team sends to bat during a season, their total runs increase by 0.6305, on average.**&lt;/span&gt;
+
+{{content}}
+
+---
+
+# `\(R^2\)`
+
+- How can we tell whether our regression model is good?
+
+   - Regression gives us the "best fit" line, but is "best" actually good?
+   
+- `\(R^2\)` quantifies how much .alert2[**variation**] in our response is explained by our explanatory variable
+
+   - If our explanatory variable explains most of the variation in our response, then our regression model is probably pretty good at predicting what the response will do
+   
+   - If our explanatory variable explains little of the variation in our response, then it will not do a good job of predicting what the response will do
+
+.content-box-teal[
+"Variable *x* explains `\((R^2 \times 100)\)`% of the variation in response variable *y*"
+]
+
+
+---
+
+# Example: Video Game Ratings (pt. 4)
+
+Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgPlot4-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right[
+
+Review Score = `\(\beta_0 + \beta_1\)` (Median time to completion)
+
+Review Score = 66.2225 + 0.2321(Median time to completion)
+
+&lt;span style="color:#1f9773"&gt;** When a game's median completion time is 0 hours, the game will receive a rating of 66.2225, on average.**&lt;/span&gt;
+
+
+&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
+
+Doesn't make sense
+
+&lt;/div&gt;
+
+&lt;span style="color:#1f9773"&gt;**When the median completion time increases by 1 hour, a game's rating increases by 0.2321, on average.**&lt;/span&gt;
+
+{{content}}
+
+
+]
+
+--
+
+R&lt;sup&gt;2&lt;/sup&gt; = 0.0585
+
+{{content}}
+
+--
+
+&lt;span style="color:#1f9773"&gt;**5.85 % of the variability in rating score is explained by median completion time.**&lt;/span&gt;
+
+{{content}}
+
+---
+
+# Example: MLB 2011 (pt. 4)
+
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot4-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right[
+
+Runs = `\(\beta_0 + \beta_1\)` (at-bats)
+
+Runs = -2789.2429 + 0.6305(at-bats)
+
+&lt;span style="color:#1f9773"&gt;**When a team sends no players to bat for an entire season, we would expect their runs for the season to be -2789.2429, on average.**&lt;/span&gt;
+
+&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
+
+Doesn't make sense
+
+&lt;/div&gt;
+
+&lt;span style="color:#1f9773"&gt;**For every 1 extra player a team sends to bat during a season, their total runs increase by 0.6305, on average.**&lt;/span&gt;
+
+{{content}}
+
+]
+
+--
+
+R&lt;sup&gt;2&lt;/sup&gt; = 0.3729
+
+{{content}}
+
+--
+
+&lt;span style="color:#1f9773"&gt;**37.29 % of the variability in runs is explained by at-bats.**&lt;/span&gt;
+
+{{content}}
+
+---
+
+# Prediction
+
+- We can also use the regression model to .alert2[**predict**] response variables given explanatory variables that aren’t explicitly in our dataset!
+
+.content-box-teal[
+`$$\hat{y}^* = \beta_0 + \beta_1x^*$$`
+]
+
+--
+
+- Must be careful of .alert[**extrapolation**] though
+
+   - Making inference wildly outside of the range of our data
+   
+   - We are only sure of the relationship between explanatory and response variables within the scope of data we have observed
+
+---
+
+# Example: MLB 2011 (pt. 5)
+
+We want to predict the number of runs we can expect to get in a season if our team has 5,650 at-bats.
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot5-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right[
+
+Runs = -2789.2429 + 0.6305(at-bats)
+
+{{content}}
+
+]
+
+--
+
+Runs&lt;sup&gt;*&lt;/sup&gt; = -2789.2429 + 0.6305(5,650)
+
+{{content}}
+
+--
+
+&lt;span style="color:#1f9773; font-weight:bold;"&gt;
+Runs&lt;sup&gt;*&lt;/sup&gt; = 773.0821
+&lt;/span&gt;
+
+
+---
+
+# Example: Video Game Ratings, (pt. 5)
+
+We want to predict the rating score we can expect a game to receive if the median completion time is 250 hours.
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgPlot5-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right[
+
+Review Score = 66.2225 + 0.2321(Median time to completion)
+
+{{content}}
+
+]
+
+--
+
+Review Score&lt;sup&gt;*&lt;/sup&gt; = 66.2225 + 0.2321(250)
+
+{{content}}
+
+--
+
+&lt;span style="color:#d82d47; font-weight:bold;"&gt;
+Review Score&lt;sup&gt;*&lt;/sup&gt; = 124.2475
+&lt;/span&gt;
+
+---
+
+# Example: MLB 2011, (pt. 6)
+
+We want to predict the number of runs we can expect to get in a season if our team has 8,500 at-bats.
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot6-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right[
+
+Runs = -2789.2429 + 0.6305(at-bats)
+
+{{content}}
+
+]
+
+--
+
+Runs&lt;sup&gt;*&lt;/sup&gt; = -2789.2429 + 0.6305(8,500)
+
+{{content}}
+
+--
+
+&lt;span style="color:#d82d47; font-weight:bold;"&gt;
+Runs&lt;sup&gt;*&lt;/sup&gt; = 2570.0071
+&lt;/span&gt;
+
+
+---
+
+# Multiple Regression
+
+- In the real world, one explanatory variable is rarely the sole explanation for how the response variable acts
+
+- .alert[**Multiple regression**] is an extension of simple linear regression, but instead of one explanatory variable we may have two or more
+
+   - Still have one explanatory .alert2[**variable of interest**] that we care most about how it interacts with the response variable
+   
+   - Other explanatory variables in the regression are then known as .alert2[**adjustment variables**], or variables that we know are related to the response variable in some way
+   
+---
+
+# Types of Adjustment Variables
+
+- .alert[**Confounding variables**]
+
+   - Related to both the explanatory variable of interest and the response variable
+   
+   - Including these in the model will adjust for this variable’s confounding effect and .alert2[**isolate**] the effect of the explanatory variable of interest
+   
+![confounding variable diagram](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-regression/confounder.png)
+
+---
+
+# Types of Adjustment Variables
+
+- .alert[**Precision variables**]
+
+   - Just related to the response variable
+   
+   - Including these in a regression will make our model .alert2[**more accurate**] and give us more specific effects of the explanatory variable of interest on the response
+   
+![precision variable diagram](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-regression/precision.png)
+
+---
+
+# Example: MLB 2011 (pt. 7)
+
+What else might be related to the number of runs a team scores as well as the number of players they send to bat?
+
+---
+
+# Example: MLB 2011 (pt. 7)
+
+What else might be related to the number of runs a team scores as well as the number of players they send to bat?
+
+- Batting average?
+   - Teams with a higher batting average will probably score more runs
+   - A low batting average would mean players are frequently struck out, which means less opportunity for players to bat (if 3 players strike out, the teams switch places)
+  
+--
+ 
+- Home runs?
+   - Teams with more home runs score more runs
+   - Teams with more home runs might mean fewer strike outs, which means more opportunities for players to bat
+   
+--
+
+- Wins?
+   - Teams who scored more runs will have more wins
+   - Don't say much about at-bats...
+
+---
+
+# Example: MLB 2011 (pt. 7)
+
+Adjusted Model:
+
+- Runs = `\(\beta_0\)` + `\(\beta_1\)`(at-bats) + `\(\beta_2\)`(batting avg) + `\(\beta_3\)`(homeruns)
+
+
+
+--
+
+- Runs = -293.9292 + -0.0287(at-bats) + 3768.6013(batting avg) + 1.2225(homeruns)
+
+--
+
+
+.alert2[**For every 1 extra player a team sends to bat during a season, their total runs**] .alert[**decrease**] .alert2[**by 0.0287, on average.**]
+
+--
+
+Old Model:
+
+- Runs = -2789.2429 + .alert[0.6305](at-bats) 
+
+---
+
+# Example: Video Game Ratings (pt. 6)
+
+What else might be related to a game's rating score, as well as the completion time?
+
+---
+
+# Example: Video Game Ratings (pt. 6)
+
+What else might be related to a game's rating score, as well as the completion time?
+
+- Genre?
+
+- ESRB Rating?
+
+---
+
+# Example: Video Game Ratings (pt. 6)
+
+Adjusted Model:
+
+- Review Score = `\(\beta_0\)` + `\(\beta_1\)`(Median time to completion) + `\(\beta_2\)`(ESRB rating)
+
+
+
+--
+
+- Review Score = 66.671 + 0.2313(Median time to completiton) -1.8666(ESRB rating = T) -0.1361(ESRB rating = M)
+
+--
+
+
+.alert2[**When the median completion time increases by 1 hour, a game's rating increases by 0.2313, on average.**]
+
+--
+
+Old Model:
+
+- Review Score = 66.2225 + .alert[0.2321](Median time to completion)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
