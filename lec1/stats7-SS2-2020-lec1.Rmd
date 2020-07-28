@@ -143,7 +143,7 @@ class: title-slide2
 <li> TA: Kyle Conniff </li>
    <ul>
    <li> 5th year Statistics PhD student </li>
-   <li> <img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/e-mail-symbol.png" alt="email emoji" width="25"/>: <a href="mailto:krconnif@uci.edu ">krconnif@uci.edu </a> </li>
+   <li> <img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/e-mail-symbol.png" width="25"/>: <a href="mailto:krconnif@uci.edu ">krconnif@uci.edu </a> </li>
    <li> OH: </li>
    </ul>
    
@@ -155,7 +155,7 @@ class: title-slide2
 <li> TA: Jenifer Rim
    <ul>
    <li> 4th year Statistics PhD student </li>
-   <li> <img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/e-mail-symbol.png" alt="email emoji" width="25"/>: <a href="mailto:jsrim@uci.edu ">jsrim@uci.edu </a> </li>
+   <li> <img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/lec1/lec1-images/e-mail-symbol.png" width="25"/>: <a href="mailto:jsrim@uci.edu ">jsrim@uci.edu </a> </li>
    <li> OH: </li>
    </ul>
 
