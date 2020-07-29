@@ -79,8 +79,7 @@ class: title-slide2
 
 <!-- social media info -->
 <div style="position:fixed; bottom:40px; left:70px;">
-<div><img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/> <a href="https://github.com/maryryan"> github.com/maryryan </a> </div>
-<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href=""> class website here </a></div>
+<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href="https://canvas.eee.uci.edu/courses/28451"> https://canvas.eee.uci.edu/courses/28451 </a></div>
 </div>
 
 

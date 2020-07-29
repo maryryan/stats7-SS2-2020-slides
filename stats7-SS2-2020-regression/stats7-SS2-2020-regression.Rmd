@@ -95,8 +95,7 @@ class: title-slide2
 
 <!-- social media info -->
 <div style="position:fixed; bottom:40px; left:70px;">
-<div><img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/> <a href="https://github.com/maryryan"> github.com/maryryan </a> </div>
-<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href=""> class website here </a></div>
+<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href="https://canvas.eee.uci.edu/courses/28451"> https://canvas.eee.uci.edu/courses/28451 </a></div>
 </div>
 
 ---
@@ -756,7 +755,7 @@ Runs<sup>*</sup> = `r round(mlb.lm$coef[1,1], 4) + round(mlb.lm$coef[2,1], 4)*85
    
    - Including these in the model will adjust for this variable’s confounding effect and .alert2[**isolate**] the effect of the explanatory variable of interest
    
-![confounding variable diagram](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-regression/confounder.png)
+![confounding variable diagram](confounder.png)
 
 ---
 
@@ -768,7 +767,7 @@ Runs<sup>*</sup> = `r round(mlb.lm$coef[1,1], 4) + round(mlb.lm$coef[2,1], 4)*85
    
    - Including these in a regression will make our model .alert2[**more accurate**] and give us more specific effects of the explanatory variable of interest on the response
    
-![precision variable diagram](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-regression/precision.png)
+![precision variable diagram](precision.png)
 
 ---
 

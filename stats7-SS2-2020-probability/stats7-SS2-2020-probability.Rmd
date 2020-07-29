@@ -78,8 +78,7 @@ class: title-slide2
 
 <!-- social media info -->
 <div style="position:fixed; bottom:40px; left:70px;">
-<div><img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/> <a href="https://github.com/maryryan"> github.com/maryryan </a> </div>
-<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href=""> class website here </a></div>
+<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href="https://canvas.eee.uci.edu/courses/28451"> https://canvas.eee.uci.edu/courses/28451 </a></div>
 </div>
 
 ---
@@ -96,7 +95,7 @@ class: title-slide2
 
 --
 
-.center[![:scale 75%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/set-notation-1.png)]
+.center[<img src="set-notation-1.png" width="800"/>]
 
 ---
 
@@ -191,7 +190,7 @@ class: title-slide2
 
 - Also, $A\cup B = A$
 
-<div style="position:fixed; bottom:40px; right: 100px;"><img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/subset-1.png" style="width: 100%" /></div>
+<div style="position:fixed; bottom:40px; right: 100px;"><img src="subset-1.png" style="width: 100%" /></div>
 
 ---
 
@@ -240,15 +239,15 @@ $$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
 <h2> Anatomy of $P(A \cup B)$</h2>
 </div>
 
-<div style="position:fixed; bottom:25px; left:50px"><img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/union-1.png" style="width: 85%"/></div>
+<div style="position:fixed; bottom:25px; left:50px"><img src="union-1.png" style="width: 85%"/></div>
 
 --
 
-<div style="position:fixed; bottom:25px; left:50px"><img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/union-2.png" style="width: 85%"/></div>
+<div style="position:fixed; bottom:25px; left:50px"><img src="union-2.png" style="width: 85%"/></div>
 
 --
 
-<div style="position:fixed; bottom:25px; left:50px"><img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/union-3.png" style="width: 85%"/></div>
+<div style="position:fixed; bottom:25px; left:50px"><img src="union-3.png" style="width: 85%"/></div>
 
 ---
 
@@ -260,7 +259,7 @@ You have a scratch-off lottery card. If you reveal a picture of a stack of money
 
 .pull-right-33[
 .right[
-![photo of scratch-off lottery ticket with 25 scratch places](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/scratcher.png)]
+![photo of scratch-off lottery ticket with 25 scratch places](scratcher.png)]
 ]
 
 --
@@ -287,7 +286,7 @@ You have a scratch-off lottery card. If you reveal a picture of a stack of money
 
 # Example: Lottery Scratchers
 
-.center[![:scale 70%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/lottery-venn.png)]
+.center[<img src="lottery-venn.png" width="700"/>]
 
 
 ---
@@ -323,7 +322,7 @@ You have a scratch-off lottery card. If you reveal a picture of a stack of money
 <br>
 
 .pull-left[
-.center[![mutually exclusive example](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/mutually-exclusive.png)]
+.center[![mutually exclusive example](mutually-exclusive.png)]
 
 ]
 
@@ -333,7 +332,7 @@ You have a scratch-off lottery card. If you reveal a picture of a stack of money
 
 <br>
 
-.center[![independent example](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/independent.png)]
+.center[![independent example](independent.png)]
 ]
 ---
 
@@ -438,15 +437,15 @@ Say you flip a fair coin twice. Let event A be the first flip is heads, and even
 
 # Probability Trees
 
-<div style="position:fixed; bottom:25px; left:50px"><img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/cond-prob-1.png" style="width: 90%"/></div>
+<div style="position:fixed; bottom:25px; left:50px"><img src="cond-prob-1.png" style="width: 90%"/></div>
 
 --
 
-<div style="position:fixed; bottom:25px; left:50px"><img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/cond-prob-2.png" style="width: 90%"/></div>
+<div style="position:fixed; bottom:25px; left:50px"><img src="cond-prob-2.png" style="width: 90%"/></div>
 
 --
 
-<div style="position:fixed; bottom:25px; left:50px"><img src="/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-probability/cond-prob-3.png" style="width: 90%"/></div>
+<div style="position:fixed; bottom:25px; left:50px"><img src="cond-prob-3.png" style="width: 90%"/></div>
 
 ---
 

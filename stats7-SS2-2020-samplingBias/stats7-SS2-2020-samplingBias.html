@@ -51,8 +51,7 @@ class: title-slide2
 
 &lt;!-- social media info --&gt;
 &lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
-&lt;div&gt;&lt;img src="libs/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png" width="40"/&gt; &lt;a href="https://github.com/maryryan"&gt; github.com/maryryan &lt;/a&gt; &lt;/div&gt;
-&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href=""&gt; class website here &lt;/a&gt;&lt;/div&gt;
+&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href="https://canvas.eee.uci.edu/courses/28451"&gt; https://canvas.eee.uci.edu/courses/28451 &lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 
@@ -118,9 +117,9 @@ class: title-slide2
 &lt;div style="position:absolute; top:40%; right:7%; width:90%"&gt;
 .content-box-teal[
 .center[
-Parameters come from populations
+**P**arameters come from **p**opulations
 
-Statistics come from samples
+**S**tatistics come from **s**amples
 ]
 ]
 &lt;/div&gt;
@@ -129,7 +128,7 @@ Statistics come from samples
 
 # Population of Interest
 
-![sampling from different populations](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/popOfInterest.png)
+![sampling from different populations](popOfInterest.png)
 
 - What do we want our .alert[**population of interest**] to be?
 
@@ -169,8 +168,10 @@ Statistics come from samples
    
    - When we say “randomly assign”, we generally mean simple random sample 
    
-   
-.center[![:scale 50%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/SRS.png)]
+
+.center[
+&lt;img src="SRS.png" width="600"/&gt;
+]
 
 ---
 
@@ -182,7 +183,7 @@ Statistics come from samples
    
    - Two strata will look different, while the cases within a strata will look similar
    
-.center[![:scale 65%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/stratSample.png)]
+.center[&lt;img src="stratSample.png" width="700"/&gt;]
 
 ---
 
@@ -194,7 +195,7 @@ Statistics come from samples
    
    - Often, there will be differences within a cluster, but two clusters considered as a whole will look similar
    
-.center[![:scale 65%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/clusterSample.png)]
+.center[&lt;img src="clusterSample.png" width="700"/&gt;]
    
 ---
 
@@ -202,15 +203,31 @@ Statistics come from samples
 
 - .alert[**Multi-stage cluster sampling**]: similar to cluster sampling, entire clusters are chosen at random, then a simple random sample is taken of the individual cases within those selected clusters
 
-.center[![:scale 75%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/multiStageCluster.png)]
+.center[&lt;img src="multiStageCluster.png" width="800"/&gt;]
 
 ---
 
 # Sampling Example 1
 
+Suppose we are interested in estimating the malaria rate in a densely tropical portion of rural Indonesia. We learn that there are 30 villages in that part of the Indonesian jungle, each more or less similar to the next. To sample 150 individuals to test for malaria, we randomly select half of the villages, then randomly select 10 people from each village.
+
+- What type of sampling procedure does this describe?
+
 ---
 
 # Sampling Example 2
+
+Consider the salaries of Major League Baseball (MLB) players, where each player is a member of one of the league’s 30 teams. To take a sample of 120 baseball players and their salaries, we could write the names of that season’s several hundreds of players onto slips of paper, drop the slips into a bucket, shake the bucket around until we are sure the names are all mixed up, then draw out slips until we have the sample of 120 players.
+
+- What type of sampling procedure does this describe?
+
+---
+
+# Sampling Example 3
+
+A university wants to determine what fraction of its undergraduate student body support a new $25 annual fee to improve the student union. To obtain a sample of students, administrator break the students by their field of study, then sample 10% of students from each field.
+
+- What type of sampling procedure does this describe?
 
 ---
 
@@ -228,9 +245,31 @@ Statistics come from samples
 
 # Bias Example 1
 
+A statistics student who is curious about the relationship between the amount of time students spend on social networking sites and their performance at school decides to conduct a survey.
+
+.alert2[**They post a link to an online survey on Facebook and asks their friends to fill out the survey.**]
+
+- What bias (if any) might you expect from this method?
+
 ---
 
 # Bias Example 2
+
+A statistics student who is curious about the relationship between the amount of time students spend on social networking sites and their performance at school decides to conduct a survey.
+
+.alert2[**They randomly sample 40 students from the study’s population, gives them the survey, asks them to fill it out and bring it back the next day.**]
+
+- What bias (if any) might you expect from this method?
+
+---
+
+# Bias Example 3
+
+A statistics student who is curious about the relationship between the amount of time students spend on social networking sites and their performance at school decides to conduct a survey.
+
+.alert2[**They randomly sample 5 classes and asks a random sample of students from those classes to fill out the survey.**]
+
+- What bias (if any) might you expect from this method?
 
 ---
 
@@ -307,14 +346,41 @@ Statistics come from samples
 
 # Types of Studies vs. Types of Conclusions
 
-.center[![:scale 90%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/conclusionType.png)]
+.center[&lt;img src="conclusionType.png" width="1000"/&gt;]
 
 ---
 
 
 # Experiments vs. Observational Studies: Pros and Cons
 
-.center[![:scale 2.5%](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/divider.png)]
+
+&lt;div class="verticalLine" style="position:fixed; left:600px"&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;/div&gt;
+
+
+
+
 
 
 ---
