@@ -112,22 +112,30 @@ class: title-slide2
 
 <div style="position:fixed; right:500px; top:100px">
 <img src="lec1-images/maryHeadshot_light_square_300dpi.jpg", alt="headshot photo of instructor Mary Ryan" width="175"/>
-
 </div>
 
-<div style="position:fixed; left:925px; top:230px;">
+<div style="position:fixed; left:1025px; top:250px;">
 <img src="lec1-images/kyle.jpg", alt="photo of TA Kyle Conniff juggling" width="125"/>
+</div>
 
+<div style="position:fixed; left:475px; top:300px">
+<img src="https://media.giphy.com/media/7phyUnuaokiWc/giphy.gif" width="150"/>
+</div>
+
+<div style="position:fixed; left:635px; top:300px">
+<img src="https://media.giphy.com/media/m6Gkz5AVTo7o4/giphy.gif" width="200"/>
+</div>
+
+<div style="position:fixed; left:850px; top:270px">
+<img src="https://media.giphy.com/media/44p2SkY2gC9yg/giphy.gif" width="150"/>
 </div>
 
 <div style="position:fixed; right:500px; top:450px">
 <img src="lec1-images/jen.jpg" alt="photo of TA Jenifer Rim drinking iced coffee" width="175"/>
-
 </div>
 
 <div style="position:fixed; right:100px; top:500px">
 <img src="lec1-images/jen-stickers.PNG" width="300"/>
-
 </div>
 
 <div style="position:fixed; top:75px;">
