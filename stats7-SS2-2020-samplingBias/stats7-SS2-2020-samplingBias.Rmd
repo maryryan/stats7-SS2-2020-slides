@@ -79,8 +79,14 @@ class: title-slide2
 
 <!-- social media info -->
 <div style="position:fixed; bottom:40px; left:70px;">
-<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href="https://canvas.eee.uci.edu/courses/28451"> https://canvas.eee.uci.edu/courses/28451 </a></div>
+<p><img src="https://du11hjcvx0uqb.cloudfront.net/br/dist/images/favicon-e10d657a73.ico" width="35"/> Course website:</p>
+<p><a href="https://canvas.eee.uci.edu/courses/28451"> https://canvas.eee.uci.edu/courses/28451 </a></p>
+
+<p><img src="https://svgsilh.com/svg/1873373.svg" width="35"/> Slides can be found at:</p>
+</p><a href="https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/stats7-SS2-2020-samplingBias"> https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/stats7-SS2-2020-samplingBias </a></p>
 </div>
+
+
 
 
 ---
@@ -145,9 +151,11 @@ class: title-slide2
 <div style="position:absolute; top:40%; right:7%; width:90%">
 .content-box-teal[
 .center[
-**P**arameters come from **p**opulations
+<p style="font-size:20px">
+<span style="font-size:40px"><b>P</b></span>arameters come from <span style="font-size:40px"><b>p</b></span>opulations</p>
 
-**S**tatistics come from **s**amples
+<p style="font-size:20px">
+<span style="font-size:40px"><b>S</b></span>tatistics come from <span style="font-size:40px"><b>s</b></span>amples</p>
 ]
 ]
 </div>
@@ -170,7 +178,7 @@ class: title-slide2
 
 - Whenever possible, we want to ensure that sampling units are taken from the population at .alert2[**random**]
 
-   - This reduces the chance of introducing bias
+   - This reduces the chance of introducing (sampling) bias, like .alert[**self-selection bias**]
    
 --
 
@@ -259,9 +267,146 @@ A university wants to determine what fraction of its undergraduate student body 
 
 ---
 
-# Types of Bias
+# Types of Studies: Experiments
 
-- .alert[**Undercoverage**]: parts of the population will be left out depending on the survey method (i.e., the Census and homeless people)
+- Two types of studies: experimental and observational
+
+- .alert[**Experimental studies**] are those where researchers explicitly administer a treatment
+
+- Researchers randomly assign volunteers to treatment and control groups
+
+- Reducing bias in experiments: blinding
+   
+   - Studies that are .alert[**blinded**] mean that the volunteer doesn’t know whether they’re in a treatment or control group
+   
+   - Studies that are .alert[**double-blind**] mean that neither the volunteer nor the treatment administrator know whether they’re in the treatment or placebo groups
+      - Usually the treatment administrator is a “middle man” who is given a treatment from the researchers to give to the volunteer
+      
+- Blinding helps ensure that subjects or researchers aren’t behaving consciously (or subconsciously) to influence the outcome
+   - AKA: .alert[**placebo effect**] or .alert[**placebo bias**]
+
+---
+
+# Principles of Experimental Design
+
+- .alert[**Controlling**]
+
+   - Researchers do their best to .alert2[**reduce the differences**] between groups to isolate effect of treatment
+   
+   - Done by developing a thorough study design
+   
+   - Can therefore make .alert2[**causal**] conclusions
+   
+- .alert[**Randomization**]
+
+   - Researchers randomize volunteers into groups .alert2[**to account for factors that can’t be controlled**] (often because we can’t think of every little thing to control for)
+   
+---
+
+# Principles of Experimental Design
+
+- .alert[**Replication**]
+
+   - The smaller a sample you take, the more likely the effects you’re seeing are specific to that group of people
+   
+   - To make an experiment replicable, a .alert2[**large**] enough sample must be taken
+   
+   - Entire experiments can also be repeated to double-check results 
+
+- .alert[**Blocking**]
+
+   - Sometimes necessary to divide your sampling pool into blocks based on a similar trait, and run the experiment on both blocks
+
+   - After dividing into blocks, each block gets divided into control and treatment groups
+   
+   - Helps make conclusions and results more specific
+
+---
+
+# Completely Randomized vs. Block Design
+
+.center[
+![comparing randomized experimental design to block design](blockDesign-lowVsHighRisk.png)
+]
+
+---
+
+# Other Types of Experiments: Matched-Pairs & Cross-Over
+
+- .alert[**Matched-Pairs**] experiments are experimental studies where similar study participants are placed into .alert2[**pairs**], and one half of the pair will receive the treatment and other other half will receive the control
+   - Which pair half receives treatment is .alert2[**randomized**]
+   - Making .alert2[**within pair**] comparisons
+   - i.e., Twin studies
+
+- .alert[**Cross-over**] experiments are experimental studies where all study participants will end up .alert2[**receiving both**] the treatment and control, but the order in which they receive them is randomized
+   - Participant becomes their own control
+   - Making .alert2[**within individual**] comparisons
+   - i.e., Take a drug for 2 weeks, wait 4 weeks for effects to "wash out", take placebo for 2 weeks
+
+---
+
+# Types of Studies: Observational
+
+- Sometimes it's not possible or ethical to conduct an experiment
+
+- .alert[**Observational studies**] are those where researchers passively observe subjects and record certain variables as time goes on
+
+- Because researchers cannot control outside factors, though, we cannot draw causal conclusions
+
+---
+
+# Common Types of Observational Studies
+
+- .alert[**Cross-sectional**] studies are when we take one random sample of the population, at one point in time
+   - i.e., Administering a survey on attitudes about the Irvien Company to a random sample of Irvine residents
+
+- .alert[**Longitudinal**] or .alert[**repeated-measures**] studies are when we take a random sample of the population, and observe them over multiple points in time
+   - i.e., Taking a random sample of students at UCI, but recording their GPAs for each quarter
+
+- .alert[**Case-control**] studies are when we take separate random samples from the "case" population and the "control" population
+   - Often used to study rare diseases
+   - Think of "case" as those with a condition, and "control" as those without the condition
+
+---
+
+
+# Types of Studies vs. Types of Conclusions
+
+.center[<img src="conclusionType.png" width="1000"/>]
+
+---
+
+# Experiments vs. Observational Studies: Pros and Cons
+
+<div class="verticalLine" style="position:fixed; left:600px">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+---
+
+# Other Common Types of Study Bias
+
+- .alert[**Undercoverage**]: parts of the population will be left out depending on the sampling method (i.e., the Census and homeless people)
 
 - .alert[**Nonresponse**]: certain types of people choose not to respond or participate
 
@@ -301,114 +446,47 @@ A statistics student who is curious about the relationship between the amount of
 
 ---
 
-# Types of Studies: Experiments
+# Be Your Own Researcher Activity (30 minutes)
 
-- Two types: experimental and observational
-
-- .alert[**Experimental studies**] are those where researchers explicitly administer a treatment
-
-- Researchers randomly assign volunteers to treatment and control groups
-
-- Reducing bias in experiments: blinding
-   
-   - Studies that are .alert[**blinded**] mean that the volunteer doesn’t know whether they’re in a treatment or control group
-   
-   - Studies that are .alert[**double-blind**] mean that neither the volunteer nor the treatment administrator know whether they’re in the treatment or placebo groups
-      - Usually the treatment administrator is a “middle man” who is given a treatment from the researchers to give to the volunteer
-      
-- Blinding helps ensure that subjects or researchers aren’t behaving consciously (or subconsciously) to influence the outcome
-
----
-
-# Principles of Experimental Design
-
-- Controlling
-
-   - Researchers do their best to reduce the differences between groups to isolate effect of treatment
-   
-   - Done by developing a thorough study design
-   
-   - Can therefore make .alert2[**causal**] conclusions
-   
-- Randomization
-
-   - Researchers randomize volunteers into groups to account for factors that can’t be controlled (often because we can’t think of every little thing to control for)
-   
----
-
-# Principles of Experimental Design
-
-- Replication
-
-   - The smaller a sample you take, the more likely the effects you’re seeing are specific to that group of people
-   
-   - To make an experiment replicable, a large enough sample must be taken
-   
-   - Entire experiments can also be repeated to double-check results 
-
-- Blocking
-
-   - Sometimes necessary to divide your sampling pool into blocks based on a similar trait, and run the experiment on both blocks
-
-   - After dividing into blocks, each block gets divided into control and treatment groups
-   
-   - Helps make conclusions and results more specific
-
----
-
-# Completely Randomized vs. Block Design
-
-![comparing randomized experimental design to block design](/Users/maryryan/Desktop/teaching-classes/stats7-SS2-2020/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/blockDesign.png)
-
----
-
-# Types of Studies: Observational
-
-- Sometimes it's not possible or ethical to conduct an experiment
-
-- .alert[**Observational studies**] are those where researchers passively observe subjects and record certain variables as time goes on
-
-- Because researchers cannot control outside factors, though, we cannot draw causal conclusions
-
----
-
-# Types of Studies vs. Types of Conclusions
-
-.center[<img src="conclusionType.png" width="1000"/>]
-
----
-
-
-# Experiments vs. Observational Studies: Pros and Cons
-
-
-<div class="verticalLine" style="position:fixed; left:600px">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div style="position:fixed; right:125px; top:0px">
+<img src="https://media.giphy.com/media/llrFvao0B0jISm6FQD/giphy.gif", width="75"/>
 </div>
 
+.pull-left[
+Split up into breakout room groups & make up your own study
+.content-box-teal[
+**Steps**
+1. Come up with a team name
 
+2. Identify & describe:
+   - Research question
+   - Population of interest
+   - Sampling strategy
+   - Response/dependent variable
+   - Variable of interest/independent variable
+   - Variables to be recorded
+   
+3. Create a short presentation (< 5 slides) on your proposed study
+]
+]
 
+.pull-right[
+.content-box-gray[
+**Roles to be assigned**:
 
+- Spokesperson (will present to rest of class if called on)
 
+- Presentation designer
 
----
+- Note taker
+
+- Time keeper
+]
+
+.content-box-pink[
+**As you present your study, we will try to identify**:
+- Study type
+- Types of data being collected
+- Types of bias your study may suffer from
+]
+]

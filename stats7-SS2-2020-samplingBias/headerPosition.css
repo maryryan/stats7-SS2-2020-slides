@@ -1,3 +1,9 @@
+@media print {
+  .has-continuation {
+    display: block !important;
+  }
+}
+
 .verticalLine {
   border-left: thick solid #000000;
 }
