@@ -842,7 +842,7 @@ starwars.count %>%
    
    - CWS = community water system
 
-<div, style="position:relative; left:700px; top:-225px">
+<div, style="position:fixed; left:700px; top:25px">
    <img src="https://science.sciencemag.org/content/sci/368/6488/274/F2.large.jpg?width=800&height=600&carousel=1", width="275"/>
    
    <div style="position:relative; left:-200px; top: -125px"><font size="1">.alert2[The effects of drinking water
@@ -854,6 +854,7 @@ starwars.count %>%
    (April 17, 2020), via Megan Mullin at
    
    <a href="https://science.sciencemag.org/content/368/6488/274/tab-figures-data">Science </a>]</font></div>
+</div>
    
    
 
@@ -888,11 +889,16 @@ starwars.count %>%
    - What's going on here?
    
 .pull-right[  
-<div, style="position:relative; left:0px; top:-200px">
+<div, style="position:fixed; right:100px; top:25px">
    <img src="https://fivethirtyeight.com/wp-content/uploads/2018/04/wezerek-marathon-0416-13.png?w=1150", width="500"/>
    
    
-   <div><font size="1">.alert2[This Year’s Boston Marathon Was Sloooooowww (April 16, 2018), via Gus Wezerek at <a href="https://fivethirtyeight.com/features/this-was-the-slowest-boston-marathon-since-the-1970s/">FiveThirtyEight </a>]</font></div>
+   <div style="position:relative; left:-200px; top: -125px"><font size="1"><font size="1">.alert2[This Year’s Boston Marathon Was
+   
+   Sloooooowww (April 16, 2018),
+   
+   via Gus Wezerek at <a href="https://fivethirtyeight.com/features/this-was-the-slowest-boston-marathon-since-the-1970s/">FiveThirtyEight </a>]</font></div>
+</div>
 ]
 
 
@@ -927,9 +933,9 @@ starwars.count %>%
 
    - What's going on here?
    
-<div, style="position:relative; left:725px; top:-200px;">
+<div, style="position:fixed; right:100px; top:10px;">
    <img src="https://ca-times.brightspotcdn.com/dims4/default/d59c164/2147483647/strip/true/crop/1476x3112+0+0/resize/840x1771!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F9b%2F34%2Fd4628be042b9bcdbb281fb3aeb8d%2Fsd-graphics-474031-sd-me-g-thanksgiving-prices-01.jpg", width="300"/>
-</div>
+
    
    <div style="position:relative; left:-200px; top: -125px"><font size="1">.alert2[Thanksgiving dinner
    
@@ -989,9 +995,8 @@ starwars.count %>%
 
    - What's going on here?
 
-<div, style="position:relative; left:700px; top:-200px;">
+<div, style="position:fixed; right:100px; top:10px;">
    <img src="lec1-images/nytimes-unemployment.png", width="350"/>
-</div>
 
 <div style="position:relative; left:-140px; top: -125px"><font size="1">.alert2[Monthly change in jobs
 
@@ -1003,6 +1008,7 @@ since WWII (May 9, 2020),
    
    <a href="https://twitter.com/nytimes/status/1259108392263655424?s=20">The New York Times </a>]</font></div>
 
+</div>
 ---
 
 # Data Shapes
@@ -1050,11 +1056,6 @@ b %>%
 
 # Data Shapes
 
-Multimodal
-
-- Multiple defined peaks
-
-<div style="position:relative; left:125px; top:-150px;">
 ```{r, echo=FALSE, out.width="55%"}
 c <- c(rnorm(500000, 10, 5), rnorm(500000, 35, 7))
 #par(mar=c(2,2,2,2))
@@ -1081,6 +1082,9 @@ p2 <- d %>%
 
 p1|p2
 ```
+
+<div style="position:fixed; top:100px;">
+Multimodal: Multiple defined peaks
 </div>
 
 ---
