@@ -1138,11 +1138,18 @@ b %>%
    
 - When in doubt, look for the "tail"
 
-<div style="position:fixed; bottom:100px; right:200px;"><img src="lec1-images/august-leftskew-edited.jpg", width="250"/>
+<div style="position:fixed; bottom:100px; right:425px;"><img src="lec1-images/august-leftskew-edited.jpg", width="250" alt="picture of cat sitting on table with tail going left and body facing right"/>
 <p>
-Left skew (and good bean)
+Left skew
 </p>
 </div>
+
+<div style="position:fixed; bottom:100px; right:80px;"><img src="lec1-images/tina-rightskew.jpg", width="300" alt="picture of cat sitting on flor with tail going right and body facing left"/>
+<p>
+Right skew
+</p>
+</div>
+
 
 
 ---
