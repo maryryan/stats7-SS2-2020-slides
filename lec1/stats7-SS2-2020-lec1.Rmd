@@ -1256,7 +1256,7 @@ wb_dat$indicatorID[wb_dat$indicatorID == "SP.DYN.LE00.IN"] <- "life_expectancy"
 wb_dat$indicatorID[wb_dat$indicatorID == "SP.DYN.IMRT.IN"] <- "infant_mortality"
 
 gdp.2019 <- wb_dat %>% 
-   dplyr::filter(date == "2017") %>% 
+   dplyr::filter(date == "2014") %>% 
    select(-indicator) %>% 
    spread(key="indicatorID", value="value") %>% 
    mutate(outlier=ifelse(GDP > 150000 | (GDP < 25000 & infant_mortality > 63 & GDP > 10000), country, NA))
@@ -1266,8 +1266,8 @@ gdp.2019 %>%
    ggplot(aes(x=GDP, y=infant_mortality))+
    geom_point() +
    theme_minimal() +
-   ylab("Infant Mortality (2017)") +
-   xlab("GDP (2017)") +
+   ylab("Infant Mortality (2014)") +
+   xlab("GDP (2014)") +
    geom_label(aes(x=10000, y=62, label="Equitorial Guinea"), fill="white", vjust=-0.5, hjust=-0.1)+
    geom_label(aes(x=160000, y=5, label="Morrocco"), fill="white", vjust=-0.5, hjust=0.1)
 
@@ -1278,7 +1278,7 @@ gdp.2019 %>%
 
 <div style="position:relative; top:-200px">
 <ul>
-   <li> What do we do with them?</li>
+   <li> <b>What do we do with them?</b></li>
 </ul>
 </div>
 ---
