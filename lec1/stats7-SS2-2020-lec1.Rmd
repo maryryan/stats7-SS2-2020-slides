@@ -281,7 +281,7 @@ Recommended text: <a href="https://www.openintro.org/book/os/">OpenIntro Statist
 
 <div style="position:relative; top:-40px;">
 <ul>
-<li>Video Quizzes & Surveys: 15%</li>
+<li>Video Quizzes & Surveys: 5%</li>
 <br>
    <ul>
    <li>Short topic videos with embedded quiz questions to be completed before appropriate lecture, found on <a href="https://canvas.eee.uci.edu/courses/28451">course website</a></li>
