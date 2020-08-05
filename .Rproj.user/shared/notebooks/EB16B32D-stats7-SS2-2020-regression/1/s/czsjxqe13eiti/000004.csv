@@ -1,4 +1,0 @@
-"0","vg.corr <- cor(video_games$metrics_review_score, video_games$length_all_play_styles_median)"
-"0","vg.p.lab <- video_games.p + "
-"0","   geom_label(aes(x=100, y=30, label=paste(""R="", round(vg.corr, 4))), size=6)"
-"0","vg.p.lab"

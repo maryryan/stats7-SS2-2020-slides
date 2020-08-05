@@ -89,7 +89,19 @@ class: title-slide2
 </div>
 
 
+---
 
+# Learning Objectives
+
+By the end of today's lecture you should:
+
+- understand the difference between a sample and a population
+
+- be able to identify different data sampling techniques
+
+- be able to explain how bias can be introduced into data collection and what we can do to prevent it
+
+- be able to differentiate between experiments and observational studies
 
 ---
 
@@ -170,7 +182,7 @@ class: title-slide2
 
 - What do we want our .alert[**population of interest**] to be?
 
-- How widely do we want to generalize our results?
+- How widely do we want to .alert2[**generalize**] our results?
 
 ---
 
@@ -275,53 +287,71 @@ A university wants to determine what fraction of its undergraduate student body 
 
 - .alert[**Experimental studies**] are those where researchers explicitly administer a treatment
 
-- Researchers randomly assign volunteers to treatment and control groups
+- Researchers .alert2[**randomly**] assign volunteers to treatment and control groups
 
-- Reducing bias in experiments: blinding
+- We can also reduce bias in experiments by blinding
    
    - Studies that are .alert[**blinded**] mean that the volunteer doesn’t know whether they’re in a treatment or control group
    
    - Studies that are .alert[**double-blind**] mean that neither the volunteer nor the treatment administrator know whether they’re in the treatment or placebo groups
       - Usually the treatment administrator is a “middle man” who is given a treatment from the researchers to give to the volunteer
-      
-- Blinding helps ensure that subjects or researchers aren’t behaving consciously (or subconsciously) to influence the outcome
+
+--
+
+- **Why might we do this?**
+
+--
+
+   - Blinding helps ensure that subjects or researchers aren’t behaving consciously (or subconsciously) to .alert2[**influence the outcome**]
    - AKA: .alert[**placebo effect**] or .alert[**placebo bias**]
 
 ---
 
 # Principles of Experimental Design
 
-- .alert[**Controlling**]
+**There are several principles we need to keep in mind when we're designing experiments**
+
+- .alert[**Controlling for Influencing Factors**]
 
    - Researchers do their best to .alert2[**reduce the differences**] between groups to isolate effect of treatment
    
    - Done by developing a thorough study design
+      - Noting factors that may affect response (sex, other health issues, etc.)
+      - Writing into the experiment design ways to reduce their influence on the response (making sure equal numbers of men and women are in each group, excluding people who have had a heart attack in the last 5 years, etc.)
    
-   - Can therefore make .alert2[**causal**] conclusions
+   - If done well, we can therefore make .alert2[**causal**] conclusions: "Treatment X causes Y effect in the response"
    
+--
+
 - .alert[**Randomization**]
 
    - Researchers randomize volunteers into groups .alert2[**to account for factors that can’t be controlled**] (often because we can’t think of every little thing to control for)
    
+   - If factors are seen in equal amounts in both treatment and control groups, they won't unevenly influence the results of one group more than the other
+
 ---
 
 # Principles of Experimental Design
 
-- .alert[**Replication**]
+- .alert[**Replication of Results**]
 
+   - Entire experiments can be repeated to double-check results (though this doesn't happen often)
+   
+   - Writing and publishing clear experimental protocol will help other researchers reproduce your results
+   
    - The smaller a sample you take, the more likely the effects you’re seeing are specific to that group of people
+      - To make an experiment replicable, a .alert2[**large**] enough sample must be taken
    
-   - To make an experiment replicable, a .alert2[**large**] enough sample must be taken
-   
-   - Entire experiments can also be repeated to double-check results 
 
-- .alert[**Blocking**]
+- .alert[**Blocking**] $^*$
 
    - Sometimes necessary to divide your sampling pool into blocks based on a similar trait, and run the experiment on both blocks
 
    - After dividing into blocks, each block gets divided into control and treatment groups
    
    - Helps make conclusions and results more specific
+   
+$^*$ Not always necessary
 
 ---
 
@@ -347,20 +377,30 @@ A university wants to determine what fraction of its undergraduate student body 
 
 ---
 
+# One Minute Reflection
+
+- Take 60 seconds to catch up on notes and reflect what we just went over
+
+- Did you have an "aha!" moment?
+
+- Are there points that are still unclear?
+
+---
+
 # Types of Studies: Observational
 
 - Sometimes it's not possible or ethical to conduct an experiment
 
 - .alert[**Observational studies**] are those where researchers passively observe subjects and record certain variables as time goes on
 
-- Because researchers cannot control outside factors, though, we cannot draw causal conclusions
+- Because researchers cannot control outside factors, though, .alert2[**we cannot draw causal conclusions**]
 
 ---
 
 # Common Types of Observational Studies
 
 - .alert[**Cross-sectional**] studies are when we take one random sample of the population, at one point in time
-   - i.e., Administering a survey on attitudes about the Irvien Company to a random sample of Irvine residents
+   - i.e., Administering a survey on attitudes about the Irvine Company to a random sample of Irvine residents
 
 - .alert[**Longitudinal**] or .alert[**repeated-measures**] studies are when we take a random sample of the population, and observe them over multiple points in time
    - i.e., Taking a random sample of students at UCI, but recording their GPAs for each quarter
@@ -380,7 +420,13 @@ A university wants to determine what fraction of its undergraduate student body 
 
 # Experiments vs. Observational Studies: Pros and Cons
 
-<div class="verticalLine" style="position:fixed; left:600px">
+<div style="position:fixed;left:100px">Pros</div>
+<div style="position:fixed; left:400px;">Cons</div>
+<div style="position:fixed; left:725px;">Pros</div>
+<div style="position:fixed; left:1000px;">Cons</div>
+
+<div class="verticalLine" style="position:fixed; left:600px; top:100px">
+<br>
 <br>
 <br>
 <br>
@@ -448,7 +494,33 @@ A statistics student who is curious about the relationship between the amount of
 
 ---
 
-# Be Your Own Researcher Activity (30 minutes)
+# A Caveat
+
+**But yesterday you sent us an email about a UCI professor asking UCI students to volunteer for brain studies - that's not a random sample!**
+
+--
+
+- Well... yes
+
+- Important to try to get a random sample .alert2[**whenever possible**], but people still need to .alert2[**consent**] to participating (which also introduces bias!)
+
+- Also sometimes not possible to logistically get a random sample
+
+--
+
+- Sometimes best thing you can do is recognize that this will potentially .alert2[**bias**] your results and .alert2[**reduce generalizability**]
+
+- Excerpts from papers I've helped write:
+
+   - "Participants were recruited from a local recruitment registry and may not be representative of the general population."
+   
+   - "The survey was sent to participants of a local recruitment registry. This population may have more favorable attitudes toward research (and potentially genetic testing) than the general public."
+   
+   - "The generalizability of these data is limited by the small sample size and possible sample bias resulting from recruiting from an ongoing research study."
+
+---
+
+# Be Your Own Researcher Activity (20 minutes)
 
 <div style="position:fixed; right:125px; top:0px">
 <img src="https://media.giphy.com/media/llrFvao0B0jISm6FQD/giphy.gif", width="75"/>

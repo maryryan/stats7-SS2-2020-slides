@@ -5,9 +5,51 @@
 "0","library( readxl, quietly=T, warn.conflicts = F )"
 "0","#library( tufte, quietly=T, warn.conflicts = F )"
 "0","library( quantmod, quietly=T, warn.conflicts = F )"
+"2","
+Attaching package: ‘zoo’
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+"
+"2","
+Attaching package: ‘xts’
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+"
+"2","Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+"
+"2","Version 0.4-0 included new data defaults. See ?getSymbols.
+"
 "0","library(kableExtra)"
+"2","
+Attaching package: ‘kableExtra’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    group_rows
+
+"
 "0","#library(gganimate)"
 "0","#library(rvest)"
 "0","#library(jsonlite)"
 "0","#library(listviewer)"
 "0","library(janitor)"
+"2","
+Attaching package: ‘janitor’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    chisq.test, fisher.test
+
+"

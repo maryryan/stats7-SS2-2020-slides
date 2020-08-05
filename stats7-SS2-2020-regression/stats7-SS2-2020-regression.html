@@ -58,8 +58,24 @@ class: title-slide2
 
 &lt;!-- social media info --&gt;
 &lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
-&lt;div&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="40"/&gt;&lt;a href="https://canvas.eee.uci.edu/courses/28451"&gt; https://canvas.eee.uci.edu/courses/28451 &lt;/a&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src="https://du11hjcvx0uqb.cloudfront.net/br/dist/images/favicon-e10d657a73.ico" width="35"/&gt; Course website:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://canvas.eee.uci.edu/courses/28451"&gt; https://canvas.eee.uci.edu/courses/28451 &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="35"/&gt; Slides can be found at:&lt;/p&gt;
+&lt;/p&gt;&lt;a href="https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-regression/stats7-SS2-2020-regression"&gt; https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-regression/stats7-SS2-2020-regression &lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+
+---
+
+# Learning Objectives
+
+By the end of today's lecture you should be able to:
+
+- understand how to describe the relationship between two variables
+
+- interpret the intercept and slope(s) of a regression model
+
+- diagnose the appropriateness of a regression model
 
 ---
 
@@ -100,17 +116,27 @@ class: title-slide2
 
 ---
 
-# Example: Video Game Ratings
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/videoGamePlot-1.png" width="45%" style="display: block; margin: auto;" /&gt;
----
 # Example: MLB 2011
 
 Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
 
 &lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot-1.png" width="43%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Example: Video Game Ratings
+
+Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/videoGamePlot-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Example: Mass and Height of Star Wars Characters
+
+Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/starWars-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -135,7 +161,14 @@ Is the number of times a team has a player go up to bat throughout a season (cal
    - R = -1 means the variables have a perfect, .alert2[**negative**] linear relationship
    
       - If X increases by 1 unit, Y decreases by 1 unit
-      
+     
+---
+
+# Example: MLB 2011 (pt. 2)
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot2-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+ 
 ---
 
 # Example: Video Game Ratings (pt. 2)
@@ -146,10 +179,11 @@ Does the .alert2[**time it takes to complete**] a handheld game affect its .aler
 
 ---
 
-# Example: MLB 2011 (pt. 2)
-Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+# Example: Star Wars (pt. 2)
 
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot2-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/starWarsPlot2-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -231,55 +265,38 @@ Is the number of times a team has a player go up to bat throughout a season (cal
 
 ---
 
-# Example: Video Game Ratings (pt. 3)
+# Conditions for Linear Regression
 
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+**There are 4 conditions we need to meet for linear regression to be appropriate. If we fail to meet one (or multiple) of these conditions, the reported relationship between X and Y from the regression might be biased from the truth** 
 
-.pull-left[
-&lt;div style="top:10px;"&gt;
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgPlot3-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;div style="position:fixed; top:450px; right:400px"&gt;   
+   &lt;img src="./non-constant-variability-reg.png" alt="an example of non-constant variability, where the data points at the left part of the plot fit closely to the regression line, and the data points at the right part of the plot fit less closely to the regression line, creating a "fan" effect." width="200px"/&gt;
 &lt;/div&gt;
-]
 
---
+1. .alert[**Linearity**]
 
-.pull-right[
+   - Linear regression models the linear relationship between variables, so the data should look like some sort of linear relationship exists
 
+2. .alert[**Roughly "bell-curve" residuals**]
 
+   - If you make histogram of the residuals, it should look like a bell curve (symmetric, unimodal)
 
-Review Score = `\(\beta_0 + \beta_1\)` (Median time to completion)
+3. .alert[**Constant variability**]
 
-Review Score = 66.2225 + 0.2321(Median time to completion)
+   - The variability of points around the least squares line remains roughly constant
+      - Example of non-constant variability:
+   &lt;br&gt;
+   &lt;br&gt;
+   &lt;br&gt;
+   &lt;br&gt;
 
-{{content}}
-
-]
-
-
---
-
-&lt;span style="color:#1f9773"&gt;** When a game's median completion time is 0 hours, the game will receive a rating of 66.2225, on average.**&lt;/span&gt;
-
-{{content}}
-
---
-
-&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
-
-Doesn't make sense
-
-&lt;/div&gt;
-{{content}}
-
---
-
-&lt;span style="color:#1f9773"&gt;**When the median completion time increases by 1 hour, a game's rating increases by 0.2321, on average.**&lt;/span&gt;
-
-{{content}}
+4. .alert[**Independent observations**]
+   
+   - No observation should influence the values of other observations
 
 ---
 
-# Example: MLB 2011 (pt. 3)
+# Example: MLB 2011 (pt. 3.1)
 
 Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
 
@@ -327,6 +344,134 @@ Doesn't make sense
 
 ---
 
+# Example: MLB 2011 (pt. 3.2)
+
+- Is linear regression appropriate for this data?
+
+--
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbResid-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Example: Video Game Ratings (pt. 3.1)
+
+Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgPlot3-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+
+
+
+Review Score = `\(\beta_0 + \beta_1\)` (Median time to completion)
+
+Review Score = 66.2225 + 0.2321(Median time to completion)
+
+{{content}}
+
+]
+
+
+--
+
+&lt;span style="color:#1f9773"&gt;** When a game's median completion time is 0 hours, the game will receive a rating of 66.2225, on average.**&lt;/span&gt;
+
+{{content}}
+
+--
+
+&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
+
+Doesn't make sense
+
+&lt;/div&gt;
+{{content}}
+
+--
+
+&lt;span style="color:#1f9773"&gt;**When the median completion time increases by 1 hour, a game's rating increases by 0.2321, on average.**&lt;/span&gt;
+
+{{content}}
+
+---
+
+# Example: Video Game Ratings (pt. 3.2)
+
+- Is linear regression appropriate for this data?
+
+--
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgResid-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Example: Star Wars (pt. 3.1)
+
+Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/starwarsPlot3-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+--
+
+.pull-right[
+
+
+
+Mass = `\(\beta_0 + \beta_1\)` (height)
+
+Mass = -13.8103 + 0.6386(height)
+
+{{content}}
+
+]
+
+
+--
+
+&lt;span style="color:#1f9773"&gt;**When a character is 0 cm tall, we would expect their mass to be -13.8103 kg, on average.**&lt;/span&gt;
+
+{{content}}
+
+--
+
+&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
+
+Doesn't make sense
+
+&lt;/div&gt;
+{{content}}
+
+--
+
+&lt;span style="color:#1f9773"&gt;**For every 1 extra centimeter taller a character is, their mass increases by 0.6386 kg, on average.**&lt;/span&gt;
+
+{{content}}
+
+---
+
+# Example: Star Wars (pt. 3.2)
+
+- Is linear regression appropriate for this data?
+
+--
+
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/swResid-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
 # `\(R^2\)`
 
 - How can we tell whether our regression model is good?
@@ -343,6 +488,50 @@ Doesn't make sense
 "Variable *x* explains `\((R^2 \times 100)\)`% of the variation in response variable *y*"
 ]
 
+---
+
+# Example: MLB 2011 (pt. 4)
+
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+
+.pull-left[
+&lt;div style="top:10px;"&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot4-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;/div&gt;
+]
+
+
+.pull-right[
+
+Runs = `\(\beta_0 + \beta_1\)` (at-bats)
+
+Runs = -2789.2429 + 0.6305(at-bats)
+
+&lt;span style="color:#1f9773"&gt;**When a team sends no players to bat for an entire season, we would expect their runs for the season to be -2789.2429, on average.**&lt;/span&gt;
+
+&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
+
+Doesn't make sense
+
+&lt;/div&gt;
+
+&lt;span style="color:#1f9773"&gt;**For every 1 extra player a team sends to bat during a season, their total runs increase by 0.6305, on average.**&lt;/span&gt;
+
+{{content}}
+
+]
+
+--
+
+R&lt;sup&gt;2&lt;/sup&gt; = 0.3729
+
+{{content}}
+
+--
+
+&lt;span style="color:#1f9773"&gt;**37.29 % of the variability in runs is explained by at-bats.**&lt;/span&gt;
+
+{{content}}
 
 ---
 
@@ -393,24 +582,23 @@ R&lt;sup&gt;2&lt;/sup&gt; = 0.0585
 
 ---
 
-# Example: MLB 2011 (pt. 4)
+# Example: Star Wars (pt. 4)
 
-Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
 
 .pull-left[
 &lt;div style="top:10px;"&gt;
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot4-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+&lt;img src="stats7-SS2-2020-regression_files/figure-html/starwarsPlot4-1.png" width="95%" style="display: block; margin: auto;" /&gt;
 &lt;/div&gt;
 ]
 
-
 .pull-right[
 
-Runs = `\(\beta_0 + \beta_1\)` (at-bats)
+Mass = `\(\beta_0 + \beta_1\)` (height)
 
-Runs = -2789.2429 + 0.6305(at-bats)
+Mass = -13.8103 + 0.6386(height)
 
-&lt;span style="color:#1f9773"&gt;**When a team sends no players to bat for an entire season, we would expect their runs for the season to be -2789.2429, on average.**&lt;/span&gt;
+&lt;span style="color:#1f9773"&gt;**When a character is 0 cm tall, we would expect their mass to be -13.8103 kg, on average.**&lt;/span&gt;
 
 &lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
 
@@ -418,7 +606,7 @@ Doesn't make sense
 
 &lt;/div&gt;
 
-&lt;span style="color:#1f9773"&gt;**For every 1 extra player a team sends to bat during a season, their total runs increase by 0.6305, on average.**&lt;/span&gt;
+&lt;span style="color:#1f9773"&gt;**For every 1 extra centimeter taller a character is, their mass increases by 0.6386 kg, on average.**&lt;/span&gt;
 
 {{content}}
 
@@ -426,15 +614,16 @@ Doesn't make sense
 
 --
 
-R&lt;sup&gt;2&lt;/sup&gt; = 0.3729
+R&lt;sup&gt;2&lt;/sup&gt; = 0.0179
 
 {{content}}
 
 --
 
-&lt;span style="color:#1f9773"&gt;**37.29 % of the variability in runs is explained by at-bats.**&lt;/span&gt;
+&lt;span style="color:#1f9773"&gt;**1.79 % of the variability in mass is explained by character height.**&lt;/span&gt;
 
 {{content}}
+
 
 ---
 

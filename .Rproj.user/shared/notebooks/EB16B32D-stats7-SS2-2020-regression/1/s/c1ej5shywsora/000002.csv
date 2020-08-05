@@ -1,4 +1,0 @@
-"0","mlb.corr <- cor(mlb11$runs, mlb11$at_bats)"
-"0","mlb11.p.lab <- mlb11.p + "
-"0","   geom_label(aes(x=5460, y=825, label=paste(""R="", round(mlb.corr, 4))), size=6)"
-"0","mlb11.p.lab"

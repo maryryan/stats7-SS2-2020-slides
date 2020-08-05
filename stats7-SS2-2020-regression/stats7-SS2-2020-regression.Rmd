@@ -97,8 +97,24 @@ class: title-slide2
 
 <!-- social media info -->
 <div style="position:fixed; bottom:40px; left:70px;">
-<div><img src="https://svgsilh.com/svg/1873373.svg" width="40"/><a href="https://canvas.eee.uci.edu/courses/28451"> https://canvas.eee.uci.edu/courses/28451 </a></div>
+<p><img src="https://du11hjcvx0uqb.cloudfront.net/br/dist/images/favicon-e10d657a73.ico" width="35"/> Course website:</p>
+<p><a href="https://canvas.eee.uci.edu/courses/28451"> https://canvas.eee.uci.edu/courses/28451 </a></p>
+
+<p><img src="https://svgsilh.com/svg/1873373.svg" width="35"/> Slides can be found at:</p>
+</p><a href="https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-regression/stats7-SS2-2020-regression"> https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-regression/stats7-SS2-2020-regression </a></p>
 </div>
+
+---
+
+# Learning Objectives
+
+By the end of today's lecture you should be able to:
+
+- understand how to describe the relationship between two variables
+
+- interpret the intercept and slope(s) of a regression model
+
+- diagnose the appropriateness of a regression model
 
 ---
 
@@ -161,33 +177,6 @@ xy.df %>%
 
 ---
 
-# Example: Video Game Ratings
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-```{r videoGamePlot, echo=FALSE, out.width="45%"}
-video_games <- video_games %>% 
-   drop_na(c("metrics_review_score", "length_all_play_styles_median"))
-
-video_games.p <- video_games %>% 
-   ggplot(aes(x=length_all_play_styles_median,
-              y=metrics_review_score))+
-   geom_point(size=2)+
-   xlab("Median Time to Game Completion (Hours)")+
-   ylab("Rating Score")+
-   ggtitle("Video Game Ratings")+
-   theme_minimal()+
-   theme(
-      title = element_text(size=14),
-      axis.title.x = element_text(size=14),
-      axis.title.y = element_text(size=14),
-      axis.text.x = element_text(size=14),
-      axis.text.y = element_text(size=14)
-   )
-
-video_games.p
-```
----
 # Example: MLB 2011
 
 Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
@@ -215,6 +204,66 @@ mlb11.p
 
 ---
 
+# Example: Video Game Ratings
+
+Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+
+```{r videoGamePlot, echo=FALSE, out.width="45%"}
+video_games <- video_games %>% 
+   drop_na(c("metrics_review_score", "length_all_play_styles_median"))
+
+video_games.p <- video_games %>% 
+   ggplot(aes(x=length_all_play_styles_median,
+              y=metrics_review_score))+
+   geom_point(size=2)+
+   xlab("Median Time to Game Completion (Hours)")+
+   ylab("Rating Score")+
+   ggtitle("Video Game Ratings")+
+   theme_minimal()+
+   theme(
+      title = element_text(size=14),
+      axis.title.x = element_text(size=14),
+      axis.title.y = element_text(size=14),
+      axis.text.x = element_text(size=14),
+      axis.text.y = element_text(size=14)
+   )
+
+video_games.p
+```
+
+---
+
+# Example: Mass and Height of Star Wars Characters
+
+Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
+
+```{r starWars, echo=FALSE, out.width="45%"}
+data(starwars)
+
+starwars <- starwars %>% 
+   dplyr::filter(!(is.na(mass)), !(is.na(height)))
+
+starwars.p <- starwars %>% 
+   ggplot(aes(x=height,
+              y=mass))+
+   geom_point(size=2)+
+   xlab("Height (cm)")+
+   ylab("Mass (kg)")+
+   ggtitle("Star Wars Characters")+
+   theme_minimal()+
+   theme(
+      title = element_text(size=14),
+      axis.title.x = element_text(size=14),
+      axis.title.y = element_text(size=14),
+      axis.text.x = element_text(size=14),
+      axis.text.y = element_text(size=14)
+   )
+
+starwars.p
+```
+
+---
+
 # Correlation
 
 - .alert[**Correlation, R**], tries to quantify the .alert2[**strength**] and .alert2[**direction**] of a .alert2[**linear**] relationship between two variables
@@ -236,7 +285,21 @@ $$R = \frac{\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n(x_i -
    - R = -1 means the variables have a perfect, .alert2[**negative**] linear relationship
    
       - If X increases by 1 unit, Y decreases by 1 unit
-      
+     
+---
+
+# Example: MLB 2011 (pt. 2)
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+
+```{r mlbPlot2, echo=FALSE, out.width="45%"}
+mlb.corr <- cor(mlb11$runs, mlb11$at_bats)
+
+mlb11.p.lab <- mlb11.p + 
+   geom_label(aes(x=5460, y=825, label=paste("R=", round(mlb.corr, 4))), size=6)
+
+mlb11.p.lab
+```
+ 
 ---
 
 # Example: Video Game Ratings (pt. 2)
@@ -254,16 +317,17 @@ vg.p.lab
 
 ---
 
-# Example: MLB 2011 (pt. 2)
-Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+# Example: Star Wars (pt. 2)
 
-```{r mlbPlot2, echo=FALSE, out.width="45%"}
-mlb.corr <- cor(mlb11$runs, mlb11$at_bats)
+Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
 
-mlb11.p.lab <- mlb11.p + 
-   geom_label(aes(x=5460, y=825, label=paste("R=", round(mlb.corr, 4))), size=6)
+```{r starWarsPlot2, echo=FALSE, out.width="45%"}
+sw.corr <- cor(starwars$mass, starwars$height)
+starwars.p.lab <- starwars.p + 
+   geom_label(aes(x=100, y=1000, label=paste("R=", round(sw.corr, 4))), size=6)
 
-mlb11.p.lab
+starwars.p.lab
+
 ```
 
 ---
@@ -332,7 +396,7 @@ $$e_i = y_i - \hat{y}_i$$
 ]
 
 .pull-right[
-```{r residual plot, echo=FALSE, out.width="75%"}
+```{r residual plot, echo=FALSE, out.width="75%", message=FALSE}
 xy.lm <- lm(y~x, data=xy.df)
 xy.df <- xy.df %>% 
    mutate(fitted = fitted(xy.lm),
@@ -347,7 +411,7 @@ xy.df %>%
    geom_smooth(method="lm", se=FALSE)+
    geom_segment(aes(x = x, y = y,
                    xend = x, yend = fitted, color="red"))+
-   geom_label(aes(label=residual, x=x, y=fitted + 0.5*residual, color="red"))+
+   #geom_label(aes(label=residual, x=x, y=fitted + 0.5*residual, color="red"))+
    theme(axis.title = element_text(size=18),
          axis.text = element_text(size=14),
          title = element_text(size=20),
@@ -366,63 +430,38 @@ $$\hat{\beta}_1 = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^
 
 ---
 
-# Example: Video Game Ratings (pt. 3)
+# Conditions for Linear Regression
 
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+**There are 4 conditions we need to meet for linear regression to be appropriate. If we fail to meet one (or multiple) of these conditions, the reported relationship between X and Y from the regression might be biased from the truth** 
 
-.pull-left[
-<div style="top:10px;">
-```{r vgPlot3, echo=FALSE, out.width="95%"}
-
-vg.p.lab.lm <- vg.p.lab +
-   geom_smooth(method='lm', se=FALSE)
-
-vg.p.lab.lm
-```
+<div style="position:fixed; top:450px; right:400px">   
+   <img src="./non-constant-variability-reg.png" alt="an example of non-constant variability, where the data points at the left part of the plot fit closely to the regression line, and the data points at the right part of the plot fit less closely to the regression line, creating a "fan" effect." width="200px"/>
 </div>
-]
 
---
+1. .alert[**Linearity**]
 
-.pull-right[
+   - Linear regression models the linear relationship between variables, so the data should look like some sort of linear relationship exists
 
-```{r vgReg, echo=FALSE}
-vg.lm <- summary(lm(metrics_review_score ~ length_all_play_styles_median, data=video_games))
-```
+2. .alert[**Roughly "bell-curve" residuals**]
 
-Review Score = $\beta_0 + \beta_1$ (Median time to completion)
+   - If you make histogram of the residuals, it should look like a bell curve (symmetric, unimodal)
 
-Review Score = `r round(vg.lm$coef[1,1], 4)` + `r round(vg.lm$coef[2,1], 4)`(Median time to completion)
+3. .alert[**Constant variability**]
 
-{{content}}
+   - The variability of points around the least squares line remains roughly constant
+      - Example of non-constant variability:
+   <br>
+   <br>
+   <br>
+   <br>
 
-]
-
-
---
-
-<span style="color:#1f9773">** When a game's median completion time is 0 hours, the game will receive a rating of `r round(vg.lm$coef[1,1], 4)`, on average.**</span>
-
-{{content}}
-
---
-
-<div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;">
-
-Doesn't make sense
-
-</div>
-{{content}}
-
---
-
-<span style="color:#1f9773">**When the median completion time increases by 1 hour, a game's rating increases by `r round(vg.lm$coef[2,1], 4)`, on average.**</span>
-
-{{content}}
+4. .alert[**Independent observations**]
+   
+   - No observation should influence the values of other observations
 
 ---
 
-# Example: MLB 2011 (pt. 3)
+# Example: MLB 2011 (pt. 3.1)
 
 Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
 
@@ -478,6 +517,174 @@ Doesn't make sense
 
 ---
 
+# Example: MLB 2011 (pt. 3.2)
+
+- Is linear regression appropriate for this data?
+
+--
+
+```{r mlbResid, echo=FALSE, out.width="45%", message=FALSE}
+
+mlb.lm$residuals %>% 
+   as.data.frame() %>% 
+   ggplot(aes(x=.), bins=25)+
+   geom_histogram()+
+   theme_minimal()
+
+```
+
+
+---
+
+# Example: Video Game Ratings (pt. 3.1)
+
+Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
+
+.pull-left[
+<div style="top:10px;">
+```{r vgPlot3, echo=FALSE, out.width="95%", message=FALSE}
+
+vg.p.lab.lm <- vg.p.lab +
+   geom_smooth(method='lm', se=FALSE)
+
+vg.p.lab.lm
+```
+</div>
+]
+
+--
+
+.pull-right[
+
+```{r vgReg, echo=FALSE}
+vg.lm <- summary(lm(metrics_review_score ~ length_all_play_styles_median, data=video_games))
+```
+
+Review Score = $\beta_0 + \beta_1$ (Median time to completion)
+
+Review Score = `r round(vg.lm$coef[1,1], 4)` + `r round(vg.lm$coef[2,1], 4)`(Median time to completion)
+
+{{content}}
+
+]
+
+
+--
+
+<span style="color:#1f9773">** When a game's median completion time is 0 hours, the game will receive a rating of `r round(vg.lm$coef[1,1], 4)`, on average.**</span>
+
+{{content}}
+
+--
+
+<div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;">
+
+Doesn't make sense
+
+</div>
+{{content}}
+
+--
+
+<span style="color:#1f9773">**When the median completion time increases by 1 hour, a game's rating increases by `r round(vg.lm$coef[2,1], 4)`, on average.**</span>
+
+{{content}}
+
+---
+
+# Example: Video Game Ratings (pt. 3.2)
+
+- Is linear regression appropriate for this data?
+
+--
+
+```{r vgResid, echo=FALSE, out.width="45%", message=FALSE}
+
+vg.lm$residuals %>% 
+   as.data.frame() %>% 
+   ggplot(aes(x=.), bins=45)+
+   geom_histogram()+
+   theme_minimal()
+
+```
+
+---
+
+# Example: Star Wars (pt. 3.1)
+
+Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
+
+.pull-left[
+<div style="top:10px;">
+```{r starwarsPlot3, echo=FALSE, out.width="95%", message=FALSE}
+
+starwars.p.lab.lm <- starwars.p.lab+
+   geom_smooth(method='lm', se=FALSE)
+
+starwars.p.lab.lm
+```
+</div>
+]
+
+--
+
+.pull-right[
+
+```{r swReg, echo=FALSE}
+sw.lm <- summary(lm(mass ~ height, data=starwars))
+```
+
+Mass = $\beta_0 + \beta_1$ (height)
+
+Mass = `r round(sw.lm$coef[1,1], 4)` + `r round(sw.lm$coef[2,1], 4)`(height)
+
+{{content}}
+
+]
+
+
+--
+
+<span style="color:#1f9773">**When a character is 0 cm tall, we would expect their mass to be `r round(sw.lm$coef[1,1], 4)` kg, on average.**</span>
+
+{{content}}
+
+--
+
+<div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;">
+
+Doesn't make sense
+
+</div>
+{{content}}
+
+--
+
+<span style="color:#1f9773">**For every 1 extra centimeter taller a character is, their mass increases by `r round(sw.lm$coef[2,1], 4)` kg, on average.**</span>
+
+{{content}}
+
+---
+
+# Example: Star Wars (pt. 3.2)
+
+- Is linear regression appropriate for this data?
+
+--
+
+```{r swResid, echo=FALSE, out.width="45%", message=FALSE}
+
+sw.lm$residuals %>% 
+   as.data.frame() %>% 
+   ggplot(aes(x=.), bins=45)+
+   geom_histogram()+
+   theme_minimal()
+
+```
+
+
+---
+
 # $R^2$
 
 - How can we tell whether our regression model is good?
@@ -494,6 +701,53 @@ Doesn't make sense
 "Variable *x* explains $(R^2 \times 100)$% of the variation in response variable *y*"
 ]
 
+---
+
+# Example: MLB 2011 (pt. 4)
+
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+
+.pull-left[
+<div style="top:10px;">
+```{r mlbPlot4, echo=FALSE, out.width="95%"}
+
+mlb11.p.lab.lm
+```
+</div>
+]
+
+
+.pull-right[
+
+Runs = $\beta_0 + \beta_1$ (at-bats)
+
+Runs = `r round(mlb.lm$coef[1,1], 4)` + `r round(mlb.lm$coef[2,1], 4)`(at-bats)
+
+<span style="color:#1f9773">**When a team sends no players to bat for an entire season, we would expect their runs for the season to be `r round(mlb.lm$coef[1,1], 4)`, on average.**</span>
+
+<div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;">
+
+Doesn't make sense
+
+</div>
+
+<span style="color:#1f9773">**For every 1 extra player a team sends to bat during a season, their total runs increase by `r round(mlb.lm$coef[2,1], 4)`, on average.**</span>
+
+{{content}}
+
+]
+
+--
+
+R<sup>2</sup> = `r round(mlb.lm$r.squared, 4)`
+
+{{content}}
+
+--
+
+<span style="color:#1f9773">**`r round(mlb.lm$r.squared, 4)*100` % of the variability in runs is explained by at-bats.**</span>
+
+{{content}}
 
 ---
 
@@ -546,27 +800,26 @@ R<sup>2</sup> = `r round(vg.lm$r.squared, 4)`
 
 ---
 
-# Example: MLB 2011 (pt. 4)
+# Example: Star Wars (pt. 4)
 
-Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
+Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
 
 .pull-left[
 <div style="top:10px;">
-```{r mlbPlot4, echo=FALSE, out.width="95%"}
+```{r starwarsPlot4, echo=FALSE, out.width="95%", message=FALSE}
 
-mlb11.p.lab.lm
+starwars.p.lab.lm
 ```
 </div>
 ]
 
-
 .pull-right[
 
-Runs = $\beta_0 + \beta_1$ (at-bats)
+Mass = $\beta_0 + \beta_1$ (height)
 
-Runs = `r round(mlb.lm$coef[1,1], 4)` + `r round(mlb.lm$coef[2,1], 4)`(at-bats)
+Mass = `r round(sw.lm$coef[1,1], 4)` + `r round(sw.lm$coef[2,1], 4)`(height)
 
-<span style="color:#1f9773">**When a team sends no players to bat for an entire season, we would expect their runs for the season to be `r round(mlb.lm$coef[1,1], 4)`, on average.**</span>
+<span style="color:#1f9773">**When a character is 0 cm tall, we would expect their mass to be `r round(sw.lm$coef[1,1], 4)` kg, on average.**</span>
 
 <div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;">
 
@@ -574,7 +827,7 @@ Doesn't make sense
 
 </div>
 
-<span style="color:#1f9773">**For every 1 extra player a team sends to bat during a season, their total runs increase by `r round(mlb.lm$coef[2,1], 4)`, on average.**</span>
+<span style="color:#1f9773">**For every 1 extra centimeter taller a character is, their mass increases by `r round(sw.lm$coef[2,1], 4)` kg, on average.**</span>
 
 {{content}}
 
@@ -582,15 +835,16 @@ Doesn't make sense
 
 --
 
-R<sup>2</sup> = `r round(mlb.lm$r.squared, 4)`
+R<sup>2</sup> = `r round(sw.lm$r.squared, 4)`
 
 {{content}}
 
 --
 
-<span style="color:#1f9773">**`r round(mlb.lm$r.squared, 4)*100` % of the variability in runs is explained by at-bats.**</span>
+<span style="color:#1f9773">**`r round(sw.lm$r.squared, 4)*100` % of the variability in mass is explained by character height.**</span>
 
 {{content}}
+
 
 ---
 
