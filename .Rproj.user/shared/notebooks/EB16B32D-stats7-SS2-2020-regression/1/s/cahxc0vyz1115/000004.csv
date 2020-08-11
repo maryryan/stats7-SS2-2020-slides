@@ -1,6 +1,0 @@
-"0","video_games.p+"
-"0","   xlim(0, 300)+"
-"0","   ylim(0, 150)+"
-"0","   geom_smooth(method='lm', se=FALSE, fullrange=TRUE)+"
-"0","   annotate(""text"", x=250, y=0, label=""250"", color=""red"", size=6, vjust=1)+"
-"0","   coord_cartesian(expand=F, clip = ""off"")"

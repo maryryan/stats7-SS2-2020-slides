@@ -340,7 +340,7 @@ A university wants to determine what fraction of its undergraduate student body 
    - Writing and publishing clear experimental protocol will help other researchers reproduce your results
    
    - The smaller a sample you take, the more likely the effects you’re seeing are specific to that group of people
-      - To make an experiment replicable, a .alert2[**large**] enough sample must be taken
+      - To make an experiment replicable, a .alert[**large**] enough sample must be taken
    
 
 - .alert[**Blocking**] $^*$

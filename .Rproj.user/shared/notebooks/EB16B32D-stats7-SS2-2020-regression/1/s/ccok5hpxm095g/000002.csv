@@ -2,24 +2,3 @@
 "0","load(""mlb11.RData"")"
 "0","#items <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-05/items.csv')"
 "0","#video_games <- readr::read_csv(""https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-30/video_games.csv"")"
-"0","video_games <- read_csv(""video_games.csv"")"
-"2","Parsed with column specification:
-cols(
-  .default = col_double(),
-  Title = [31mcol_character()[39m,
-  `Features.Handheld?` = [33mcol_logical()[39m,
-  `Features.Multiplatform?` = [33mcol_logical()[39m,
-  `Features.Online?` = [33mcol_logical()[39m,
-  Metadata.Genres = [31mcol_character()[39m,
-  `Metadata.Licensed?` = [33mcol_logical()[39m,
-  Metadata.Publishers = [31mcol_character()[39m,
-  `Metadata.Sequel?` = [33mcol_logical()[39m,
-  Release.Console = [31mcol_character()[39m,
-  Release.Rating = [31mcol_character()[39m,
-  `Release.Re-release?` = [33mcol_logical()[39m
-)
-"
-"2","See spec(...) for full column specifications.
-"
-"0","video_games <- video_games %>% "
-"0","   clean_names()"

@@ -79,7 +79,7 @@ By the end of today's lecture you should be able to:
 
 ---
 
-# Studies
+# Why Do We Perform Studies?
 
 - The goal is to explore an association or relationship between two variables
 
@@ -89,7 +89,7 @@ By the end of today's lecture you should be able to:
 
 ---
 
-# Scatterplots
+# Review: Scatterplots
 
 .pull-left[
 - Used to .alert2[**visualize**] relationship between 2 variables
@@ -124,19 +124,17 @@ Is the number of times a team has a player go up to bat throughout a season (cal
 
 ---
 
-# Example: Video Game Ratings
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/videoGamePlot-1.png" width="45%" style="display: block; margin: auto;" /&gt;
-
----
-
 # Example: Mass and Height of Star Wars Characters
 
 Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
 
 &lt;img src="stats7-SS2-2020-regression_files/figure-html/starWars-1.png" width="45%" style="display: block; margin: auto;" /&gt;
+
+--
+
+&lt;div style="position:fixed; top:200px; left:750px"&gt;
+&lt;img src="https://media.giphy.com/media/3oeSAK2k0zDaQCbqJG/giphy.gif", width=200 alt="GIF of Jabba the Hutt laughing"/&gt;
+&lt;/div&gt;
 
 ---
 
@@ -168,14 +166,6 @@ Is the .alert2[**height**] of a character related to that character's .alert2[**
 Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores?
 
 &lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbPlot2-1.png" width="45%" style="display: block; margin: auto;" /&gt;
- 
----
-
-# Example: Video Game Ratings (pt. 2)
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/videoGamePlot2-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -203,7 +193,11 @@ Is the .alert2[**height**] of a character related to that character's .alert2[**
 
 ---
 
-# Correlation doesn't equal causation example
+# Sunglasses and Ice Cream
+
+.center[
+&lt;img src="https://miro.medium.com/max/1094/1*JLYI5eCVEN7ZUWXBIrrapw.png" width=800/&gt;
+]
 
 ---
 
@@ -257,6 +251,8 @@ Is the .alert2[**height**] of a character related to that character's .alert2[**
 ---
 
 # Regression
+
+In this class we won't be calculating the intercept and slope by hand, but it's important to know these values don't come out of thin air: we estimate them through the data.
 
 .content-box-gray[
 `$$\hat{\beta}_0 = \bar{y} + \hat{\beta_1}\bar{x}$$`
@@ -338,7 +334,7 @@ Doesn't make sense
 
 --
 
-&lt;span style="color:#1f9773"&gt;**For every 1 extra player a team sends to bat during a season, their total runs increase by 0.6305, on average.**&lt;/span&gt;
+&lt;span style="color:#1f9773"&gt;**For every extra at bat during a season, the team's total runs increase by 0.6305, on average.**&lt;/span&gt;
 
 {{content}}
 
@@ -351,65 +347,6 @@ Doesn't make sense
 --
 
 &lt;img src="stats7-SS2-2020-regression_files/figure-html/mlbResid-1.png" width="45%" style="display: block; margin: auto;" /&gt;
-
-
----
-
-# Example: Video Game Ratings (pt. 3.1)
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-.pull-left[
-&lt;div style="top:10px;"&gt;
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgPlot3-1.png" width="95%" style="display: block; margin: auto;" /&gt;
-&lt;/div&gt;
-]
-
---
-
-.pull-right[
-
-
-
-Review Score = `\(\beta_0 + \beta_1\)` (Median time to completion)
-
-Review Score = 66.2225 + 0.2321(Median time to completion)
-
-{{content}}
-
-]
-
-
---
-
-&lt;span style="color:#1f9773"&gt;** When a game's median completion time is 0 hours, the game will receive a rating of 66.2225, on average.**&lt;/span&gt;
-
-{{content}}
-
---
-
-&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
-
-Doesn't make sense
-
-&lt;/div&gt;
-{{content}}
-
---
-
-&lt;span style="color:#1f9773"&gt;**When the median completion time increases by 1 hour, a game's rating increases by 0.2321, on average.**&lt;/span&gt;
-
-{{content}}
-
----
-
-# Example: Video Game Ratings (pt. 3.2)
-
-- Is linear regression appropriate for this data?
-
---
-
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgResid-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -469,7 +406,11 @@ Doesn't make sense
 
 &lt;img src="stats7-SS2-2020-regression_files/figure-html/swResid-1.png" width="45%" style="display: block; margin: auto;" /&gt;
 
+--
 
+&lt;div style="position:fixed; bottom:150px; left:750px"&gt;
+&lt;img src="https://media.giphy.com/media/3oeSAK2k0zDaQCbqJG/giphy.gif", width=200 alt="GIF of Jabba the Hutt laughing"/&gt;
+&lt;/div&gt;
 ---
 
 # `\(R^2\)`
@@ -485,7 +426,9 @@ Doesn't make sense
    - If our explanatory variable explains little of the variation in our response, then it will not do a good job of predicting what the response will do
 
 .content-box-teal[
+.center[
 "Variable *x* explains `\((R^2 \times 100)\)`% of the variation in response variable *y*"
+]
 ]
 
 ---
@@ -530,53 +473,6 @@ R&lt;sup&gt;2&lt;/sup&gt; = 0.3729
 --
 
 &lt;span style="color:#1f9773"&gt;**37.29 % of the variability in runs is explained by at-bats.**&lt;/span&gt;
-
-{{content}}
-
----
-
-# Example: Video Game Ratings (pt. 4)
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-.pull-left[
-&lt;div style="top:10px;"&gt;
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgPlot4-1.png" width="95%" style="display: block; margin: auto;" /&gt;
-&lt;/div&gt;
-]
-
-
-.pull-right[
-
-Review Score = `\(\beta_0 + \beta_1\)` (Median time to completion)
-
-Review Score = 66.2225 + 0.2321(Median time to completion)
-
-&lt;span style="color:#1f9773"&gt;** When a game's median completion time is 0 hours, the game will receive a rating of 66.2225, on average.**&lt;/span&gt;
-
-
-&lt;div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;"&gt;
-
-Doesn't make sense
-
-&lt;/div&gt;
-
-&lt;span style="color:#1f9773"&gt;**When the median completion time increases by 1 hour, a game's rating increases by 0.2321, on average.**&lt;/span&gt;
-
-{{content}}
-
-
-]
-
---
-
-R&lt;sup&gt;2&lt;/sup&gt; = 0.0585
-
-{{content}}
-
---
-
-&lt;span style="color:#1f9773"&gt;**5.85 % of the variability in rating score is explained by median completion time.**&lt;/span&gt;
 
 {{content}}
 
@@ -674,40 +570,6 @@ Runs&lt;sup&gt;*&lt;/sup&gt; = -2789.2429 + 0.6305(5,650)
 
 &lt;span style="color:#1f9773; font-weight:bold;"&gt;
 Runs&lt;sup&gt;*&lt;/sup&gt; = 773.0821
-&lt;/span&gt;
-
-
----
-
-# Example: Video Game Ratings, (pt. 5)
-
-We want to predict the rating score we can expect a game to receive if the median completion time is 250 hours.
-
-.pull-left[
-&lt;div style="top:10px;"&gt;
-&lt;img src="stats7-SS2-2020-regression_files/figure-html/vgPlot5-1.png" width="95%" style="display: block; margin: auto;" /&gt;
-&lt;/div&gt;
-]
-
-
-.pull-right[
-
-Review Score = 66.2225 + 0.2321(Median time to completion)
-
-{{content}}
-
-]
-
---
-
-Review Score&lt;sup&gt;*&lt;/sup&gt; = 66.2225 + 0.2321(250)
-
-{{content}}
-
---
-
-&lt;span style="color:#d82d47; font-weight:bold;"&gt;
-Review Score&lt;sup&gt;*&lt;/sup&gt; = 124.2475
 &lt;/span&gt;
 
 ---
@@ -810,7 +672,7 @@ What else might be related to the number of runs a team scores as well as the nu
 
 ---
 
-# Example: MLB 2011 (pt. 7)
+# Example: MLB 2011 (pt. 7.1)
 
 Adjusted Model:
 
@@ -825,7 +687,7 @@ Adjusted Model:
 --
 
 
-.alert2[**For every 1 extra player a team sends to bat during a season, their total runs**] .alert[**decrease**] .alert2[**by 0.0287, on average.**]
+.alert2[**For every extra at bat during a season, keeping batting average and number of home runs constant, a team's total runs**] .alert[**decrease**] .alert2[**by 0.0287, on average.**]
 
 --
 
@@ -835,44 +697,43 @@ Old Model:
 
 ---
 
-# Example: Video Game Ratings (pt. 6)
+# Adjusted `\(R^2\)`
 
-What else might be related to a game's rating score, as well as the completion time?
+- With simple regression, we assessed how good our model was with `\(R^2\)`.
+
+- In multiple regression, we use .alert[**adjusted `\(R^2\)`**]
+   
+   - Adjusted `\(R^2\)` adds an extra term that helps adjust it for multiple variables being in the model
+   
+- We interpret it in a similar way:
+   
+.content-box-teal[
+.center[
+"All the variables in the model explain `\((R^2 \times 100)\)`% of the variation in response variable *y*"
+]
+]
 
 ---
 
-# Example: Video Game Ratings (pt. 6)
-
-What else might be related to a game's rating score, as well as the completion time?
-
-- Genre?
-
-- ESRB Rating?
-
----
-
-# Example: Video Game Ratings (pt. 6)
+# Example: MLB 2011 (pt. 7.2)
 
 Adjusted Model:
 
-- Review Score = `\(\beta_0\)` + `\(\beta_1\)`(Median time to completion) + `\(\beta_2\)`(ESRB rating)
+- Runs = `\(\beta_0\)` + `\(\beta_1\)`(at-bats) + `\(\beta_2\)`(batting avg) + `\(\beta_3\)`(homeruns)
+
+- Runs = -293.9292 + -0.0287(at-bats) + 3768.6013(batting avg) + 1.2225(homeruns)
 
 
+.alert2[**For every extra at bat during a season, keeping batting average and number of homeruns constant, a team's total runs**] .alert[**decrease**] .alert2[**by 0.0287, on average.**]
 
---
+R&lt;sup&gt;2&lt;/sup&gt; = 0.8574
 
-- Review Score = 66.671 + 0.2313(Median time to completiton) -1.8666(ESRB rating = T) -0.1361(ESRB rating = M)
+&lt;span style="color:#1f9773"&gt;**85.74 % of the variability in runs is explained by at-bats, batting average, and homeruns.**&lt;/span&gt;
 
---
-
-
-.alert2[**When the median completion time increases by 1 hour, a game's rating increases by 0.2313, on average.**]
-
---
 
 Old Model:
 
-- Review Score = 66.2225 + .alert[0.2321](Median time to completion)
+- Runs = -2789.2429 + .alert[0.6305](at-bats)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

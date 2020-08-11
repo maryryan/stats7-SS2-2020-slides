@@ -55,9 +55,7 @@ load("mlb11.RData")
 #items <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-05/items.csv')
 
 #video_games <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-07-30/video_games.csv")
-video_games <- read_csv("video_games.csv")
-video_games <- video_games %>% 
-   clean_names()
+
 ```
 
 layout: true
@@ -118,7 +116,7 @@ By the end of today's lecture you should be able to:
 
 ---
 
-# Studies
+# Why Do We Perform Studies?
 
 - The goal is to explore an association or relationship between two variables
 
@@ -128,7 +126,7 @@ By the end of today's lecture you should be able to:
 
 ---
 
-# Scatterplots
+# Review: Scatterplots
 
 .pull-left[
 - Used to .alert2[**visualize**] relationship between 2 variables
@@ -168,9 +166,10 @@ xy.df %>%
    xlab("Explanatory (Independent) Variable")+
    ylab("Dependent Variable (Response)")+
    #theme_bw()+
-   theme(axis.title = element_text(size=18),
-         axis.text = element_text(size=14),
-         title = element_text(size=20))
+   theme(axis.title = element_text(size=24),
+         axis.text = element_text(size=18),
+         title = element_text(size=24))+
+   theme_minimal()
 
 ```
 ]
@@ -204,35 +203,6 @@ mlb11.p
 
 ---
 
-# Example: Video Game Ratings
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-```{r videoGamePlot, echo=FALSE, out.width="45%"}
-video_games <- video_games %>% 
-   drop_na(c("metrics_review_score", "length_all_play_styles_median"))
-
-video_games.p <- video_games %>% 
-   ggplot(aes(x=length_all_play_styles_median,
-              y=metrics_review_score))+
-   geom_point(size=2)+
-   xlab("Median Time to Game Completion (Hours)")+
-   ylab("Rating Score")+
-   ggtitle("Video Game Ratings")+
-   theme_minimal()+
-   theme(
-      title = element_text(size=14),
-      axis.title.x = element_text(size=14),
-      axis.title.y = element_text(size=14),
-      axis.text.x = element_text(size=14),
-      axis.text.y = element_text(size=14)
-   )
-
-video_games.p
-```
-
----
-
 # Example: Mass and Height of Star Wars Characters
 
 Is the .alert2[**height**] of a character related to that character's .alert2[**mass**]?
@@ -261,6 +231,12 @@ starwars.p <- starwars %>%
 
 starwars.p
 ```
+
+--
+
+<div style="position:fixed; top:200px; left:750px">
+<img src="https://media.giphy.com/media/3oeSAK2k0zDaQCbqJG/giphy.gif", width=200 alt="GIF of Jabba the Hutt laughing"/>
+</div>
 
 ---
 
@@ -299,21 +275,6 @@ mlb11.p.lab <- mlb11.p +
 
 mlb11.p.lab
 ```
- 
----
-
-# Example: Video Game Ratings (pt. 2)
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-```{r videoGamePlot2, echo=FALSE, out.width="45%"}
-vg.corr <- cor(video_games$metrics_review_score, video_games$length_all_play_styles_median)
-
-vg.p.lab <- video_games.p + 
-   geom_label(aes(x=100, y=30, label=paste("R=", round(vg.corr, 4))), size=6)
-
-vg.p.lab
-```
 
 ---
 
@@ -348,7 +309,11 @@ starwars.p.lab
 
 ---
 
-# Correlation doesn't equal causation example
+# Sunglasses and Ice Cream
+
+.center[
+<img src="https://miro.medium.com/max/1094/1*JLYI5eCVEN7ZUWXBIrrapw.png" width=800/>
+]
 
 ---
 
@@ -422,6 +387,8 @@ xy.df %>%
 ---
 
 # Regression
+
+In this class we won't be calculating the intercept and slope by hand, but it's important to know these values don't come out of thin air: we estimate them through the data.
 
 .content-box-gray[
 $$\hat{\beta}_0 = \bar{y} + \hat{\beta_1}\bar{x}$$
@@ -511,7 +478,7 @@ Doesn't make sense
 
 --
 
-<span style="color:#1f9773">**For every 1 extra player a team sends to bat during a season, their total runs increase by `r round(mlb.lm$coef[2,1], 4)`, on average.**</span>
+<span style="color:#1f9773">**For every extra at bat during a season, the team's total runs increase by `r round(mlb.lm$coef[2,1], 4)`, on average.**</span>
 
 {{content}}
 
@@ -529,81 +496,7 @@ mlb.lm$residuals %>%
    as.data.frame() %>% 
    ggplot(aes(x=.), bins=25)+
    geom_histogram()+
-   theme_minimal()
-
-```
-
-
----
-
-# Example: Video Game Ratings (pt. 3.1)
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-.pull-left[
-<div style="top:10px;">
-```{r vgPlot3, echo=FALSE, out.width="95%", message=FALSE}
-
-vg.p.lab.lm <- vg.p.lab +
-   geom_smooth(method='lm', se=FALSE)
-
-vg.p.lab.lm
-```
-</div>
-]
-
---
-
-.pull-right[
-
-```{r vgReg, echo=FALSE}
-vg.lm <- summary(lm(metrics_review_score ~ length_all_play_styles_median, data=video_games))
-```
-
-Review Score = $\beta_0 + \beta_1$ (Median time to completion)
-
-Review Score = `r round(vg.lm$coef[1,1], 4)` + `r round(vg.lm$coef[2,1], 4)`(Median time to completion)
-
-{{content}}
-
-]
-
-
---
-
-<span style="color:#1f9773">** When a game's median completion time is 0 hours, the game will receive a rating of `r round(vg.lm$coef[1,1], 4)`, on average.**</span>
-
-{{content}}
-
---
-
-<div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;">
-
-Doesn't make sense
-
-</div>
-{{content}}
-
---
-
-<span style="color:#1f9773">**When the median completion time increases by 1 hour, a game's rating increases by `r round(vg.lm$coef[2,1], 4)`, on average.**</span>
-
-{{content}}
-
----
-
-# Example: Video Game Ratings (pt. 3.2)
-
-- Is linear regression appropriate for this data?
-
---
-
-```{r vgResid, echo=FALSE, out.width="45%", message=FALSE}
-
-vg.lm$residuals %>% 
-   as.data.frame() %>% 
-   ggplot(aes(x=.), bins=45)+
-   geom_histogram()+
+   ggtitle("Histogram of Regression Residuals")+
    theme_minimal()
 
 ```
@@ -678,11 +571,16 @@ sw.lm$residuals %>%
    as.data.frame() %>% 
    ggplot(aes(x=.), bins=45)+
    geom_histogram()+
+   ggtitle("Histogram of Regression Residuals")+
    theme_minimal()
 
 ```
 
+--
 
+<div style="position:fixed; bottom:150px; left:750px">
+<img src="https://media.giphy.com/media/3oeSAK2k0zDaQCbqJG/giphy.gif", width=200 alt="GIF of Jabba the Hutt laughing"/>
+</div>
 ---
 
 # $R^2$
@@ -698,7 +596,9 @@ sw.lm$residuals %>%
    - If our explanatory variable explains little of the variation in our response, then it will not do a good job of predicting what the response will do
 
 .content-box-teal[
+.center[
 "Variable *x* explains $(R^2 \times 100)$% of the variation in response variable *y*"
+]
 ]
 
 ---
@@ -746,55 +646,6 @@ R<sup>2</sup> = `r round(mlb.lm$r.squared, 4)`
 --
 
 <span style="color:#1f9773">**`r round(mlb.lm$r.squared, 4)*100` % of the variability in runs is explained by at-bats.**</span>
-
-{{content}}
-
----
-
-# Example: Video Game Ratings (pt. 4)
-
-Does the .alert2[**time it takes to complete**] a handheld game affect its .alert2[**ratings**]?
-
-.pull-left[
-<div style="top:10px;">
-```{r vgPlot4, echo=FALSE, out.width="95%"}
-vg.p.lab.lm
-```
-</div>
-]
-
-
-.pull-right[
-
-Review Score = $\beta_0 + \beta_1$ (Median time to completion)
-
-Review Score = `r round(vg.lm$coef[1,1], 4)` + `r round(vg.lm$coef[2,1], 4)`(Median time to completion)
-
-<span style="color:#1f9773">** When a game's median completion time is 0 hours, the game will receive a rating of `r round(vg.lm$coef[1,1], 4)`, on average.**</span>
-
-
-<div style="color:#d82d47; font-weight:bold; position:relative; right:-50px;">
-
-Doesn't make sense
-
-</div>
-
-<span style="color:#1f9773">**When the median completion time increases by 1 hour, a game's rating increases by `r round(vg.lm$coef[2,1], 4)`, on average.**</span>
-
-{{content}}
-
-
-]
-
---
-
-R<sup>2</sup> = `r round(vg.lm$r.squared, 4)`
-
-{{content}}
-
---
-
-<span style="color:#1f9773">**`r round(vg.lm$r.squared, 4)*100` % of the variability in rating score is explained by median completion time.**</span>
 
 {{content}}
 
@@ -901,49 +752,6 @@ Runs<sup>*</sup> = `r round(mlb.lm$coef[1,1], 4)` + `r round(mlb.lm$coef[2,1], 4
 
 <span style="color:#1f9773; font-weight:bold;">
 Runs<sup>*</sup> = `r round(mlb.lm$coef[1,1], 4) + round(mlb.lm$coef[2,1], 4)*5650`
-</span>
-
-
----
-
-# Example: Video Game Ratings, (pt. 5)
-
-We want to predict the rating score we can expect a game to receive if the median completion time is 250 hours.
-
-.pull-left[
-<div style="top:10px;">
-```{r vgPlot5, echo=FALSE, out.width="95%"}
-
-video_games.p+
-   xlim(0, 300)+
-   ylim(0, 150)+
-   geom_smooth(method='lm', se=FALSE, fullrange=TRUE)+
-   annotate("text", x=250, y=0, label="250", color="red", size=6, vjust=1)+
-   coord_cartesian(expand=F, clip = "off")
-
-```
-</div>
-]
-
-
-.pull-right[
-
-Review Score = `r round(vg.lm$coef[1,1], 4)` + `r round(vg.lm$coef[2,1], 4)`(Median time to completion)
-
-{{content}}
-
-]
-
---
-
-Review Score<sup>*</sup> = `r round(vg.lm$coef[1,1], 4)` + `r round(vg.lm$coef[2,1], 4)`(250)
-
-{{content}}
-
---
-
-<span style="color:#d82d47; font-weight:bold;">
-Review Score<sup>*</sup> = `r round(vg.lm$coef[1,1], 4) + round(vg.lm$coef[2,1], 4)*250`
 </span>
 
 ---
@@ -1055,7 +863,7 @@ What else might be related to the number of runs a team scores as well as the nu
 
 ---
 
-# Example: MLB 2011 (pt. 7)
+# Example: MLB 2011 (pt. 7.1)
 
 Adjusted Model:
 
@@ -1073,7 +881,7 @@ mlb.lm.multi <- summary(lm(runs ~ at_bats + bat_avg + homeruns, data=mlb11))
 --
 
 
-.alert2[**For every 1 extra player a team sends to bat during a season, their total runs**] .alert[**decrease**] .alert2[**by `r -round(mlb.lm.multi$coef[2,1], 4)`, on average.**]
+.alert2[**For every extra at bat during a season, keeping batting average and number of home runs constant, a team's total runs**] .alert[**decrease**] .alert2[**by `r -round(mlb.lm.multi$coef[2,1], 4)`, on average.**]
 
 --
 
@@ -1083,44 +891,41 @@ Old Model:
 
 ---
 
-# Example: Video Game Ratings (pt. 6)
+# Adjusted $R^2$
 
-What else might be related to a game's rating score, as well as the completion time?
+- With simple regression, we assessed how good our model was with $R^2$.
+
+- In multiple regression, we use .alert[**adjusted $R^2$**]
+   
+   - Adjusted $R^2$ adds an extra term that helps adjust it for multiple variables being in the model
+   
+- We interpret it in a similar way:
+   
+.content-box-teal[
+.center[
+"All the variables in the model explain $(R^2 \times 100)$% of the variation in response variable *y*"
+]
+]
 
 ---
 
-# Example: Video Game Ratings (pt. 6)
-
-What else might be related to a game's rating score, as well as the completion time?
-
-- Genre?
-
-- ESRB Rating?
-
----
-
-# Example: Video Game Ratings (pt. 6)
+# Example: MLB 2011 (pt. 7.2)
 
 Adjusted Model:
 
-- Review Score = $\beta_0$ + $\beta_1$(Median time to completion) + $\beta_2$(ESRB rating)
+- Runs = $\beta_0$ + $\beta_1$(at-bats) + $\beta_2$(batting avg) + $\beta_3$(homeruns)
 
-```{r VGmulti, echo=FALSE}
-vg.lm.multi <- summary(lm(metrics_review_score ~ length_all_play_styles_median + release_rating, data=video_games))
-
-```
-
---
-
-- Review Score = `r round(vg.lm.multi$coef[1,1],4)` + `r round(vg.lm.multi$coef[2,1],4)`(Median time to completiton) `r round(vg.lm.multi$coef[3,1],4)`(ESRB rating = T) `r round(vg.lm.multi$coef[4,1],4)`(ESRB rating = M)
-
---
+- Runs = `r round(mlb.lm.multi$coef[1,1],4)` + `r round(mlb.lm.multi$coef[2,1],4)`(at-bats) + `r round(mlb.lm.multi$coef[3,1],4)`(batting avg) + `r round(mlb.lm.multi$coef[4,1],4)`(homeruns)
 
 
-.alert2[**When the median completion time increases by 1 hour, a game's rating increases by `r round(vg.lm.multi$coef[2,1], 4)`, on average.**]
+.alert2[**For every extra at bat during a season, keeping batting average and number of homeruns constant, a team's total runs**] .alert[**decrease**] .alert2[**by `r -round(mlb.lm.multi$coef[2,1], 4)`, on average.**]
 
---
+R<sup>2</sup> = `r round(mlb.lm.multi$adj.r.squared, 4)`
+
+<span style="color:#1f9773">**`r round(mlb.lm.multi$adj.r.squared, 4)*100` % of the variability in runs is explained by at-bats, batting average, and homeruns.**</span>
+
 
 Old Model:
 
-- Review Score = `r round(vg.lm$coef[1,1],4)` + .alert[`r round(vg.lm$coef[2,1],4)`](Median time to completion) 
+- Runs = `r round(mlb.lm$coef[1,1],4)` + .alert[`r round(mlb.lm$coef[2,1],4)`](at-bats) 
+
