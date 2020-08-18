@@ -89,6 +89,20 @@ class: title-slide2
 
 ---
 
+# Learning Objectives
+
+By the end of today's lecture, you should be able to:
+
+- identify whether a probability distribution is discrete
+
+- differentiate  between 4 major types of discrete probability distributions: Uniform, Binomial, Geometric, and Poisson
+
+- calculate probabilities, expected values, and variances for the 4 major types of discrete probability distributions
+
+- understand how to model real-world events with discrete probability distributions
+
+---
+
 # Probability Distributions
 
 - Previously, probability for events have been given to us
@@ -170,7 +184,7 @@ class: title-slide2
 .pull-left[
 - We do the same with probability distributions:
 
-   - We can rarely know the function that truly generates probabilities for a scenario
+   - We can .alert2[**rarely**] know the function that .alert2[**truly**] generates probabilities for a scenario
    
    - To give it our best guess, we see which probability distribution our scenario meets most of the conditions for, and use those functions and known properties
 ]
@@ -184,7 +198,7 @@ class: title-slide2
 <img src="https://media.giphy.com/media/UvWUKpwmtQ5t3epmAS/giphy.gif", width="125"/>
 </div>
 
-- The most simple probability distribution we might think of is one where all events have an equal probability of happening
+- The most simple probability distribution we might think of is one where all events have an .alert2[**equal**] probability of happening
 
 --
 
@@ -204,15 +218,15 @@ class: title-slide2
 
 ---
 
-# Dice Activity
+# Dice Activity (10 minutes)
 
 <div style="position:fixed; right:125px; top:10px">
 <img src="https://media.giphy.com/media/drx7LzoilPgJwOI44r/giphy.gif", width="150"/>
 </div>
 
-- Split up into breakout room groups
+- Split up into breakout room groups of 3 (1 spokesperson, 1 drawer, 1 recorder)
 
-- Each group is assigned a die:
+- Each group is assigned a die: d4 (groups 1, 6, 11, 16), d6 (groups 2, 7, 12, 17), d8 (groups 3, 8, 13, 18), d10 (groups 4, 9, 14, 19), d20 (groups 5, 10, 15, 20)
 
 - Go to Google and search "roll ___", with your type of die in the blank
    - What value did you get? Record it
@@ -254,6 +268,8 @@ class: title-slide2
 
 - The last example shows that sometimes we aren't really interested in the probability of *any* event happening, but just a particular (set of) event(s)
 
+- We can split up all the events into two mutually exclusive groups: "events we're interested in" and "events we're not interested in"
+
    - We can still describe this as a Uniform distribution if the event(s) we're interested in have the same probability those event(s) not happening
 
 --
@@ -280,7 +296,7 @@ class: title-slide2
    - $Var(X) = p(1-p)$
 ]
 
-- Number of heads you get in a coin flip
+- Number of heads you get in a single coin flip
    - Each head is a "success"
    - Probability of success = 0.5 for each trial
 
@@ -373,7 +389,7 @@ To see if this holds true at UCI, we provide the same question to 30 UCI student
 <br>
 <br>
 
---
+
 
 - What can we think of as a "success"? What is the probability of success?
 
@@ -392,9 +408,6 @@ To see if this holds true at UCI, we provide the same question to 30 UCI student
 <br>
 <br>
 <br>
-
---
-   
    - 5 of our UCI students are able to correctly identify two-factor authentication?
 
 ---
@@ -412,9 +425,6 @@ To see if this holds true at UCI, we provide the same question to 30 UCI student
 <br>
 <br>
 <br>
-
---
-
    - At least 28 UCI students are able to correctly identify two-factor authentication?
 
 ---
@@ -422,14 +432,6 @@ To see if this holds true at UCI, we provide the same question to 30 UCI student
 # Example 2: Data Breach
 
 A [June 2019 survey](https://www.pewresearch.org/fact-tank/2020/04/14/half-of-americans-have-decided-not-to-use-a-product-or-service-because-of-privacy-concerns/) by Pew Research Center found that 52% of U.S. adults recently decided not to use a product or service because they were worried about how much personal information would be collected about them.
-
-- How would you conduct a similar study?
-<br>
-<br>
-<br>
-<br>
-
---
 
 - Let's say that we enroll 50 Orange County residents in our study. Based on our prior knowledge from Pew Research, how many might we expect to say decided not to use a product or service because because of personal information collection?
 
@@ -447,8 +449,6 @@ A [June 2019 survey](https://www.pewresearch.org/fact-tank/2020/04/14/half-of-am
 <br>
 <br>
 <br>
-
---
    - More than 20, but fewer than 27 decided not to use a product or service because because of personal information collection?
 
 ---
@@ -464,75 +464,7 @@ According to the [2018 American Community Survey](https://data.census.gov/cedsci
 <br>
 <br>
 
---
-
 - Do we have independent trials here? What issues may put this independence into jeopardy?
-
----
-
-# Example 4: Playlists vs. Albums
-
-In a [2018 survey](https://dima.org/) by the Digital Music Alliance, 54% of surveyed consumers said that playlists are replacing albums in their listening habits.
-
-The Digital Music Alliance represents Amazon, Apple, Google, Microsoft, Napster, Pandora, Spotify, and YouTube.
-
-- If we asked 10 random people if they were replacing albums with playlists in their music listening habits, what is the probability that a majority would say yes?
-
----
-
-# Example 5: Stardew Valley
-
-In the game Stardew Valley, you play as a farmer/adventurer making a life for yourself. One activity you can do is pan the stream for different kinds of minerals, though you have no control over what mineral you will get. According to game statistics, each time you pan there is a 23.1% probability you will get gold ore.
-
-We will pan the stream 15 times.
-
-- What is the total number of independent trials? What are we considering a "success"? What is the probability of success?
-<br>
-<br>
-<br>
-<br>
-
---
-
-- How many gold ores can we expect to get?
-
----
-
-# Example 5: Stardew Valley
-
-In the game Stardew Valley, you play as a farmer/adventurer making a life for yourself. One activity you can do is pan the stream for different kinds of minerals, though you have no control over what mineral you will get. According to game statistics, each time you pan there is a 23.1% probability you will get gold ore.
-
-We will pan the stream 15 times.
-
-- What is the probability we will get 7 gold ores?
-<br>
-<br>
-<br>
-<br>
-<br>
-
---
-
-- What is the probability we will get no more than 4 gold ores?
-
----
-
-# Example 5: Stardew Valley
-
-In the game Stardew Valley, you play as a farmer/adventurer making a life for yourself. One activity you can do is pan the stream for different kinds of minerals, though you have no control over what mineral you will get. According to game statistics, each time you pan there is a 23.1% probability you will get gold ore.
-
-We will pan the stream 15 times.
-
-- What is the probability we will get more than 6 gold ores, but less than 10 gold ores?
-<br>
-<br>
-<br>
-<br>
-<br>
-
---
-
-- The probability of getting an iron ore in a pan is 35.9%. How would our binomial distribution change if we reclassified our definition of "success" as getting either a gold or iron ore?
 
 ---
 
@@ -553,7 +485,6 @@ We will pan the stream 15 times.
 <br>
 <br>
 
---
 
 - What if we say we're going to keep playing until we win?
 
@@ -622,7 +553,7 @@ According to [U.S. News & World Report](https://www.usnews.com/best-colleges/uni
 
 ---
 
-# Example 3: Minecraft Creepers
+# Example 2: Minecraft Creepers
 
 In the game Minecraft, [creepers](https://minecraft.fandom.com/wiki/Creeper) are green monsters that will explode when close to a player. When you kill this monster, it will sometimes drop items like gunpowder or music discs. There is a 67% chance that the creeper will [drop at least one unit of gunpowder](https://minecraft.gamepedia.com/Drops#Common_drops) when you kill it.
 
@@ -637,7 +568,7 @@ In the game Minecraft, [creepers](https://minecraft.fandom.com/wiki/Creeper) are
 
 ---
 
-# Example 3: Minecraft Creepers
+# Example 2: Minecraft Creepers
 
 In the game Minecraft, [creepers](https://minecraft.fandom.com/wiki/Creeper) are green monsters that will explode when close to a player. When you kill this monster, it will sometimes drop items like gunpowder or music discs. There is a 67% chance that the creeper will [drop at least one unit of gunpowder](https://minecraft.gamepedia.com/Drops#Common_drops) when you kill it.
 
@@ -652,18 +583,10 @@ In the game Minecraft, [creepers](https://minecraft.fandom.com/wiki/Creeper) are
 
 ---
 
-# Example 5: Booker Prize
-
-The [Booker Prize](https://en.wikipedia.org/wiki/Booker_Prize#Winners) is a literary award given to the best English-language novel published in the U.K. Out of the 55 prizes awarded since 1969, 20 winners have been women.
-
-- We want to use a Geometric distribution to estimate how many more award cycles we need to go through to get to our next female prize winner. Explain whether or not using this distribution would be a good idea.
-
----
-
 # Poisson Distribution
 
 - Applies to .alert2[**discrete**] random variables
-   - Variable can be described the number of events that occur in a defined period of time
+   - Variable can be described the number of events that occur in a .alert2[**defined period of time**]
    - The rate at which events happen is known as $\lambda = \frac{\text{# events}}{\text{amount of time}}$
    - Can take on values that exist between 0 and $\infty$
    
@@ -679,27 +602,11 @@ The [Booker Prize](https://en.wikipedia.org/wiki/Booker_Prize#Winners) is a lite
 
 ---
 
-# Poisson Distribution
-
-- Two cool videos about how the Poisson and Binomial distributions are related:
-
-<br>
-
-.pull-left[
-<iframe width="400" height="225" src="https://www.youtube.com/embed/3z-M6sbGIZ0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-]
-
-.pull-right[
-<iframe width="400" height="225" src="https://www.youtube.com/embed/Jkr4FSrNEVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-]
-
----
-
 # Example 1: UCI Libraries
 
 According to [UCI](https://www.lib.uci.edu/facts-and-figures), about 4,505 people visit UCI libraries every day, on average.
 
-- What is $\lambda$?
+- What is $\lambda$? What are our time units?
 
 <br>
 <br>
