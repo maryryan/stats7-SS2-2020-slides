@@ -99,6 +99,7 @@ class: title-slide2
 
 .pull-left[
 - Events are defined over an .alert2[**interval or range of values**]
+   - `\(a \le X &lt; b\)` , `\(X \ge a\)` , `\(X &lt; b\)`
 
 - Probability is defined as the .alert2[**area under the curve**] of certain portions of the density curve
 
@@ -146,6 +147,11 @@ class: title-slide2
    
 - Arrival time of a package you're told will be delivered between 3 pm and 5 pm
 
+&lt;div style="position:fixed; bottom:50px; right:-550px;"&gt;
+&lt;img src="stats7-SS2-2020-contDist_files/figure-html/uniform-1.png" width="20%" style="display: block; margin: auto;" /&gt;
+
+&lt;/div&gt;
+
 ---
 
 # Example: Waiting for the Bus
@@ -168,15 +174,11 @@ We are waiting at a bus stop for a bus that comes once per hour. We do not know 
 &lt;br&gt;
 
 
---
-
 - What’s the probability you will have to wait more than 40 minutes for the bus?
 
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-
---
 
 - How long might we expect to wait for the bus?
 
@@ -187,13 +189,13 @@ We are waiting at a bus stop for a bus that comes once per hour. We do not know 
 
 - Applies to .alert2[**continuous**] random variables
 
-   - Variables can take on values that exist between `\(\infty\)` and `\(-\infty\)`
+   - Variables can take on values that exist between `\(\infty\)` and `\(-\infty\)` (we fudge this condition a lot in real life)
    - Defined by the mean, `\(\mu\)`, and variance, `\(\sigma^2\)`
-   - Intervals near the mean more likely to happen than intervals near "tails"
+   - Intervals .alert2[**near the mean more likely**] to happen than intervals near "tails"
 
 .content-box-teal[
 - Some properties:
-   - `\(P(X&lt;x) = \int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)`
+   - `\(P(X&lt;u) = \int_{-\infty}^u \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx\)`
    - `\(E(X) = \mu\)`
    - `\(Var(X) = \sigma^2\)`
 ]
@@ -227,133 +229,65 @@ We are waiting at a bus stop for a bus that comes once per hour. We do not know 
 
 ---
 
-# Normal probability on a calculator
+# Calculator: normalcdf()
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR &gt; 2: normalcdf(
+
+To calculate P(X `\(\le\)` a):
+- normalcdf( `\(\mu\)` , `\(\sigma\)` , -1E99,a)
+
+To calculate P(X `\(\ge\)` a):
+- normalcdf( `\(\mu\)` , `\(\sigma\)` , a, 1E99)
+
+To calculate P(a `\(\le\)` X `\(\le\)` b):
+- normalcdf( `\(\mu\)` , `\(\sigma\)` , a, b)
 
 ---
 
-# Normal Example 1
+# Example 1: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a mean of 1,100 and a standard deviation of 200.
+
+- What is the probability someones scores at least a 1,300?
 
 ---
 
-# Normal Example 2
+# Example 1: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a mean of 1,100 and a standard deviation of 200.
+
+- What is the probability someones scores lower than an 800?
 
 ---
 
-# Normal Example 3
+# Example 1: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a mean of 1,100 and a standard deviation of 200.
+
+- What is the probability someones scores between a 900 and a 1,200?
+
 
 ---
 
-# Standard Normal Distribution
+# Calculator: invNorm()
 
-- The .alert[**standard Normal distribution**] is a Normal distribution with a mean of 0 and a variance of 1:
-`$$X \sim N(\mu=0, \sigma^2=1)$$`
+If we have a .alert2[**percentile**], and want to find the cut off value corresponding to that percentile, we use invNorm().
 
-- If a random variable *X* follows a different type of Normal distribution, we can always .alert2[**transform**] it so its transformation follows a standard Normal distribution
+To get to the calculator function on a TI-84:
+- 2nd DISTR &gt; 3: invNorm(
 
---
-
-.content-box-teal[
-- We call this transformation a .alert[**Z score**] or .alert[**Z statistic**]:
-`$$Z = \frac{x - \mu}{\sigma}$$`
-`$$Z \sim N(0,1)$$`
-]
+To calculate the cut off value for the a$^{th}$ percentile (a% of the data is smaller than the cutoff):
+- invNorm( `\(\frac{a}{100}\)` , `\(\mu\)` , `\(\sigma\)` )
 
 ---
 
-# Z Scores
+# Example 1: SAT
 
-- Z scores are nice because we can look at them and approximately know where it sits on its distribution
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a mean of 1,100 and a standard deviation of 200.
 
-- If `\(\mu \ne 0\)` or `\(\sigma^2 \ne 1\)` , it's harder to figure out where *X* is
-   
---
+- For what score are 90% of all other scores below?
 
-.pull-left[
-- A Z score of 1 means that *X* is 1 standard deviation above its mean
-
-- A Z score of -2 means means that *X* is 2 standard deviations below its mean
-]
-
-
-&lt;div style="position:absolute; right: -450px; top: 180px"&gt;
-&lt;img src="stats7-SS2-2020-contDist_files/figure-html/unnamed-chunk-2-1.png" width="30%" style="display: block; margin: auto;" /&gt;
-
-&lt;/div&gt;
-
----
-
-# Why Z Scores?
-
-- Before calculators, it was a real pain to find the probability of events with the Normal distribution
-
-   - Integrating this by hand
-   `$$\int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx$$`
-   was gnarly
-   
-- Statisticians came up with Z scores to get out of making those calculations by hand all the time
-
-   - Simply have someone find and write down `\(P(Z&lt;z)\)` for a whole bunch of values of *z* where *Z* follows a N(0,1)
-   
-   - Now by transforming an observation from a different Normal distribution to a Z score, we can just look up the probabilty of the Z score!
-   
---
-
-- This `\(Z = \frac{x - \mu}{\sigma}\)` was way easier to deal with than this
-`\(\int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}\)`
-
----
-
-# Reading a Z Table
-
----
-
-# Z score example 1
-
----
-
-# Z score example 2
-
----
-
-# Z score example 3
-
----
-
-# Steps for a Normal Probability Problem
-
-1. Draw the distribution
-
-2. Write in the Z scale
-
-3. Mark the probability interval you want to find
-
-4. Calculate the Z-score
-
-5. Use your calculator to find the probability
-
----
-
-# Example: CD4+ Count
-
-CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
-
-- What is the probability that someone’s CD4+ count is less than 700?
-
----
-
-# Example: CD4+ Count
-
-CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
-
-- What is the probability that someone’s CD4+ count is between 1,200 and 1,600?
-
----
-
-# Example: CD4+ Count
-
-CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
-
-- What CD4+ count are 60% of people below?
 
 ---
 
@@ -410,6 +344,351 @@ Hyena bite strength is thought to follow a normal distribution, with a mean of 1
 &lt;/div&gt;
 
 - The middle 40% of hyneas will have a bite strength between what psi’s?
+
+---
+
+# Standard Normal Distribution
+
+- The .alert[**standard Normal distribution**] is a Normal distribution with a mean of 0 and a variance of 1:
+`$$X \sim N(\mu=0, \sigma^2=1)$$`
+
+- If a random variable *X* follows a different type of Normal distribution, we can always .alert2[**transform**] it so its transformation follows a standard Normal distribution
+
+--
+
+.content-box-teal[
+- We call this transformation a .alert[**Z score**] or .alert[**Z statistic**]:
+`$$Z = \frac{x - \mu}{\sigma}$$`
+`$$Z \sim N(0,1)$$`
+]
+
+---
+
+# Z Scores
+
+- Z scores are nice because we can look at them and approximately know where it sits on its distribution
+
+- If `\(\mu \ne 0\)` or `\(\sigma^2 \ne 1\)` , it's harder to figure out where *X* is
+   
+--
+
+.pull-left[
+- A Z score of 1 means that *X* is 1 standard deviation above its mean
+
+- A Z score of -2 means means that *X* is 2 standard deviations below its mean
+]
+
+
+&lt;div style="position:absolute; right: -450px; top: 180px"&gt;
+&lt;img src="stats7-SS2-2020-contDist_files/figure-html/unnamed-chunk-2-1.png" width="30%" style="display: block; margin: auto;" /&gt;
+
+&lt;/div&gt;
+
+---
+
+# Why Z Scores?
+
+- Before calculators, it was a real pain to find the probability of events with the Normal distribution
+
+   - Integrating this by hand
+   `$$\int_{-\infty}^u \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx$$`
+   was gnarly
+   
+- Statisticians came up with Z scores to get out of making those calculations by hand all the time
+
+   - Simply have someone find and write down `\(P(Z&lt;z)\)` for a whole bunch of values of *z* where *Z* follows a N(0,1)
+   
+   - Now by transforming an observation from a different Normal distribution to a Z score, we can just look up the probabilty of the Z score!
+   
+--
+
+- This `\(Z = \frac{x - \mu}{\sigma}\)` was way easier to deal with than this
+`\(\int_{-\infty}^u \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx\)`
+
+---
+
+# Reading a Z Table
+
+---
+
+# Example 1
+
+What is the Z-score for a random variable coming from a Normal distribution with a mean of 18 and standard deviation of 3, which takes on a value of 13?
+
+---
+
+# Example 2
+
+What is the Z-score for a random variable coming from a Normal distribution with a mean of -32 and standard deviation of 6.8, which takes on a value of -46?
+
+---
+
+# Example 3
+
+What is the Z-score for a random variable coming from a Normal distribution with a mean of 248 and standard deviation of 57, which takes on a value of 689?
+
+---
+
+# Steps for a Normal Probability Problem
+
+1. Draw the distribution
+
+2. Write in the Z scale
+
+3. Mark the probability interval you want to find
+
+4. Calculate the Z-score
+
+5. Use your calculator/Z-table to find the probability
+
+---
+
+# Example: CD4+ Count
+
+CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
+
+- What is the probability that someone’s CD4+ count is less than 700?
+
+---
+
+# Example: CD4+ Count
+
+CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
+
+- What is the probability that someone's CD4+ count is greater than 1,400?
+
+---
+
+# Example: CD4+ Count
+
+CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
+
+- What is the probability that someone’s CD4+ count is between 1,200 and 1,600?
+
+---
+
+# Variability in Sampling
+
+- Two research groups are interested in the mean height of giraffes
+
+--
+
+- Both groups go out independently and gather a simple random sample of 200 giraffes and measure them
+
+--
+
+.pull-left[
+.content-box-teal[
+Group 1 gets an sample mean of 17.32 feet.
+]
+]
+
+.pull-right[
+.content-box-pink[
+ Group 2 gets a sample mean of 18.75 feet
+]
+]
+
+--
+
+.center[
+**Who is correct?**
+]
+
+---
+
+# Sampling Distributions
+
+- Because samples do not include every member of the population, there will be some .alert2[**variation**] in the value a sample's mean will take on
+
+- As your sample size gets .alert2[**bigger**], there should be .alert2[**less variation**] because you are included a larger portion of the population
+
+   - When your sample includes the whole population, there should be .alert2[**no variation**] at all
+
+--
+
+- In a way, your sample mean follows a distribution...
+
+   - We call this a .alert[**sampling distribution**]
+   
+--
+
+- But what distribution does your sample mean follow?
+
+---
+
+# Central Limit Theorem
+
+.content-box-teal[
+When
+
+1) observations are .alert[**independent**], and 
+
+2) the sample size is .alert[**sufficiently large**],
+
+the sample mean `\(\bar{x}\)` will follow a .alert[**Normal distribution**] with mean `\(\mu\)` and standard deviation `\(\frac{\sigma}{\sqrt{n}}\)`:
+
+`$$\bar{x} \sim N \left(\mu, \frac{\sigma^2}{n}\right)$$`
+]
+
+--
+
+- Notice that the variance depends on your sample size, n
+   
+   - As .alert2[**n increases**], the variance of the sampling distribution of `\(\bar{x}\)` .alert2[**decreases**]
+
+---
+
+# Example 1: SAT
+
+Remember that SAT scores are Normally distributed with a population mean score of 1,100 and a population standard deviation of 200.
+
+- If we gather a random sample of .alert2[**40**] scores, what distribution would the sample mean of those scores follow?
+
+
+---
+
+
+# Example 1: SAT
+
+Remember that SAT scores are Normally distributed with a population mean score of 1,100 and a population standard deviation of 200.
+
+- If we gather a random sample of .alert2[**100**] scores, what distribution would the sample mean of those scores follow?
+
+---
+
+# Example 1: SAT
+
+Remember that SAT scores are Normally distributed with a population mean score of 1,100 and a population standard deviation of 200.
+
+- If we gather a random sample of .alert2[**500**] scores, what distribution would the sample mean of those scores follow?
+
+---
+
+# How Big Is Big Enough?
+
+Well, it depends on your data...
+
+- Nearly normal data, no clear outliers: `\(n \ge 10\)`
+
+- Not sure what distributions the observations come from, no clear outliers: `\(n \ge 30\)`
+
+---
+
+# CLT with Proportions
+
+- One of the greatest things about CLT is that .alert2[**we don't have to know what distribution our observations come from**] in order to apply it
+
+   - As long as the observations are independent and our sample size is large enough, we're good!
+   
+- Particularly, if we are dealing with count data to get proportions, this "large enough" means:
+
+`$$np \ge 10 \text{ and } n(1-p) \ge 10$$`
+
+- If we have binomial data and we want to estimate the sample proportion of successes, `\(\hat{p}\)`, we simply need to remember what the mean and variance of a binomial distribution is to find the sampling distribution.
+
+--
+
+   - Remember: E(X) = p, Var(X) = p(1-p)
+   
+--
+
+.content-box-teal[
+`$$\hat{p} \sim N \left(p, \frac{p(1-p)}{n} \right)$$`
+]
+
+---
+
+# Binomial CLT example 1
+
+---
+
+# Binomial CLT example 2
+
+---
+
+# Estimating Variance
+
+- All the distributions we've talked about so far have assumed we know what the population variance is
+
+--
+
+   - You're telling me we're estimating the population mean with a sample mean, but we always know the population variance?
+   
+--
+  
+.center[&lt;img src="redX.png" width="250"/&gt;]
+
+--
+
+- Then do we get a Z score if we replace `\(\sigma\)` with *s*?
+
+`$$\frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} = ?$$`
+
+
+---
+
+# The T Distribution
+
+.pull-left[
+- When we replace `\(\sigma\)` with *s*, we get a .alert[**T score**]:
+`$$T = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}$$`
+
+- The T score follows the .alert[**T distribution**]:
+`$$t \sim T(df=n-1)$$`
+   
+- Always centered with a mean of 0 (like a standard Normal)
+   
+- Shape defined by .alert[**degrees of freedom**] (df) = n-1
+   
+   - The more degrees of freedom, the more the distribution looks like a standard Normal
+   
+- Designed to give you a little more wiggle room than a regular Normal distribution, to account for you also estimating the standard deviation
+   
+]
+
+&lt;img src="tDist.png" width="500"/&gt;
+
+---
+
+# Calculator: tcdf()
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR &gt; 6: tcdf(
+
+To calculate P(X `\(\le\)` a):
+- tcdf(-1E99,a,df)
+
+To calculate P(X `\(\ge\)` a):
+- tcdf(a,1E99,df)
+
+To calculate P(a `\(\le\)` X `\(\le\)` b):
+- tcdf(a,b,df)
+
+---
+
+# Calculator: invT()
+
+If we have a .alert2[**percentile**], and want to find the cut off value corresponding to that percentile, we use invT().
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR &gt; 4: invT(
+
+To calculate the cut off value for the a$^{th}$ percentile (a% of the data is smaller than the cutoff):
+- invT( `\(\frac{a}{100}\)` , df )
+
+
+---
+
+# T score example 1
+
+---
+
+# T score example 2
+
+---
+
+# T score example 3
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

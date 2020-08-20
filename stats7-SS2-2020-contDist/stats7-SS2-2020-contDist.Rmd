@@ -124,6 +124,7 @@ class: title-slide2
 
 .pull-left[
 - Events are defined over an .alert2[**interval or range of values**]
+   - $a \le X < b$ , $X \ge a$ , $X < b$
 
 - Probability is defined as the .alert2[**area under the curve**] of certain portions of the density curve
 
@@ -171,6 +172,22 @@ class: title-slide2
    
 - Arrival time of a package you're told will be delivered between 3 pm and 5 pm
 
+<div style="position:fixed; bottom:50px; right:-550px;">
+```{r uniform, echo=FALSE, message=FALSE, out.width="20%"}
+uni <- runif(1000000,1,10)
+
+uni %>% 
+   as.data.frame() %>% 
+   ggplot(aes(x=.))+
+   geom_histogram(color="white")+
+   theme( axis.text = element_text(size=12),
+          axis.title = element_text(size=16)
+   )+
+   theme_minimal()
+```
+
+</div>
+
 ---
 
 # Example: Waiting for the Bus
@@ -193,15 +210,11 @@ We are waiting at a bus stop for a bus that comes once per hour. We do not know 
 <br>
 
 
---
-
 - What’s the probability you will have to wait more than 40 minutes for the bus?
 
 <br>
 <br>
 <br>
-
---
 
 - How long might we expect to wait for the bus?
 
@@ -212,13 +225,13 @@ We are waiting at a bus stop for a bus that comes once per hour. We do not know 
 
 - Applies to .alert2[**continuous**] random variables
 
-   - Variables can take on values that exist between $\infty$ and $-\infty$
+   - Variables can take on values that exist between $\infty$ and $-\infty$ (we fudge this condition a lot in real life)
    - Defined by the mean, $\mu$, and variance, $\sigma^2$
-   - Intervals near the mean more likely to happen than intervals near "tails"
+   - Intervals .alert2[**near the mean more likely**] to happen than intervals near "tails"
 
 .content-box-teal[
 - Some properties:
-   - $P(X<x) = \int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+   - $P(X<u) = \int_{-\infty}^u \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx$
    - $E(X) = \mu$
    - $Var(X) = \sigma^2$
 ]
@@ -314,19 +327,121 @@ mu.p/sig.p
 
 ---
 
-# Normal probability on a calculator
+# Calculator: normalcdf()
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR > 2: normalcdf(
+
+To calculate P(X $\le$ a):
+- normalcdf( $\mu$ , $\sigma$ , -1E99,a)
+
+To calculate P(X $\ge$ a):
+- normalcdf( $\mu$ , $\sigma$ , a, 1E99)
+
+To calculate P(a $\le$ X $\le$ b):
+- normalcdf( $\mu$ , $\sigma$ , a, b)
 
 ---
 
-# Normal Example 1
+# Example 1: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a mean of 1,100 and a standard deviation of 200.
+
+- What is the probability someones scores at least a 1,300?
 
 ---
 
-# Normal Example 2
+# Example 1: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a mean of 1,100 and a standard deviation of 200.
+
+- What is the probability someones scores lower than an 800?
 
 ---
 
-# Normal Example 3
+# Example 1: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a mean of 1,100 and a standard deviation of 200.
+
+- What is the probability someones scores between a 900 and a 1,200?
+
+
+---
+
+# Calculator: invNorm()
+
+If we have a .alert2[**percentile**], and want to find the cut off value corresponding to that percentile, we use invNorm().
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR > 3: invNorm(
+
+To calculate the cut off value for the a$^{th}$ percentile (a% of the data is smaller than the cutoff):
+- invNorm( $\frac{a}{100}$ , $\mu$ , $\sigma$ )
+
+---
+
+# Example 1: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a mean of 1,100 and a standard deviation of 200.
+
+- For what score are 90% of all other scores below?
+
+
+---
+
+# Example: Hyena Bite Strength
+
+<div style="position:relative;float:left; width:75%">
+Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
+</div>
+
+<div style="position:relative; top:-75px; right:-20px;">
+<img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/>
+</div>
+
+- What’s the probability that a randomly selected hyena will have a bite strength greater than 852 psi?
+
+---
+
+# Example: Hyena Bite Strength
+
+<div style="position:relative;float:left; width:75%">
+Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
+</div>
+
+<div style="position:relative; top:-75px; right:-20px;">
+<img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/>
+</div>
+
+- What’s the probability that a hyena will have a bite strength between 910 psi and 1,067 psi?
+
+---
+
+# Example: Hyena Bite Strength
+
+<div style="position:relative;float:left; width:75%">
+Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
+</div>
+
+<div style="position:relative; top:-75px; right:-20px;">
+<img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/>
+</div>
+
+- The top 15% of hyenas will have a bite strength greater than what?
+
+---
+
+# Example: Hyena Bite Strength
+
+<div style="position:relative;float:left; width:75%">
+Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
+</div>
+
+<div style="position:relative; top:-75px; right:-20px;">
+<img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/>
+</div>
+
+- The middle 40% of hyneas will have a bite strength between what psi’s?
 
 ---
 
@@ -404,7 +519,7 @@ p1|p2
 - Before calculators, it was a real pain to find the probability of events with the Normal distribution
 
    - Integrating this by hand
-   $$\int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx$$
+   $$\int_{-\infty}^u \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx$$
    was gnarly
    
 - Statisticians came up with Z scores to get out of making those calculations by hand all the time
@@ -416,7 +531,7 @@ p1|p2
 --
 
 - This $Z = \frac{x - \mu}{\sigma}$ was way easier to deal with than this
-$\int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+$\int_{-\infty}^u \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx$
 
 ---
 
@@ -424,15 +539,21 @@ $\int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
 
 ---
 
-# Z score example 1
+# Example 1
+
+What is the Z-score for a random variable coming from a Normal distribution with a mean of 18 and standard deviation of 3, which takes on a value of 13?
 
 ---
 
-# Z score example 2
+# Example 2
+
+What is the Z-score for a random variable coming from a Normal distribution with a mean of -32 and standard deviation of 6.8, which takes on a value of -46?
 
 ---
 
-# Z score example 3
+# Example 3
+
+What is the Z-score for a random variable coming from a Normal distribution with a mean of 248 and standard deviation of 57, which takes on a value of 689?
 
 ---
 
@@ -446,7 +567,7 @@ $\int_{-\infty}^x \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
 
 4. Calculate the Z-score
 
-5. Use your calculator to find the probability
+5. Use your calculator/Z-table to find the probability
 
 ---
 
@@ -462,7 +583,7 @@ CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates p
 
 CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
 
-- What is the probability that someone’s CD4+ count is between 1,200 and 1,600?
+- What is the probability that someone's CD4+ count is greater than 1,400?
 
 ---
 
@@ -470,60 +591,229 @@ CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates p
 
 CD4+ count is an indicator of immune function. Decreasing CD4+ count indicates poor immune function. In the 1970s, men at high risk of contracting HIV were enrolled into a study to see if changes in their CD4+ count corresponded with seroconversion (time at which they officially contract HIV). CD4+ count is normally distributed in humans, with a mean of 1,300 and a standard deviation of 400.
 
-- What CD4+ count are 60% of people below?
+- What is the probability that someone’s CD4+ count is between 1,200 and 1,600?
 
 ---
 
-# Example: Hyena Bite Strength
+# Variability in Sampling
 
-<div style="position:relative;float:left; width:75%">
-Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
-</div>
+- Two research groups are interested in the mean height of giraffes
 
-<div style="position:relative; top:-75px; right:-20px;">
-<img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/>
-</div>
+--
 
-- What’s the probability that a randomly selected hyena will have a bite strength greater than 852 psi?
+- Both groups go out independently and gather a simple random sample of 200 giraffes and measure them
 
----
+--
 
-# Example: Hyena Bite Strength
+.pull-left[
+.content-box-teal[
+Group 1 gets an sample mean of 17.32 feet.
+]
+]
 
-<div style="position:relative;float:left; width:75%">
-Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
-</div>
+.pull-right[
+.content-box-pink[
+ Group 2 gets a sample mean of 18.75 feet
+]
+]
 
-<div style="position:relative; top:-75px; right:-20px;">
-<img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/>
-</div>
+--
 
-- What’s the probability that a hyena will have a bite strength between 910 psi and 1,067 psi?
-
----
-
-# Example: Hyena Bite Strength
-
-<div style="position:relative;float:left; width:75%">
-Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
-</div>
-
-<div style="position:relative; top:-75px; right:-20px;">
-<img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/>
-</div>
-
-- The top 15% of hyenas will have a bite strength greater than what?
+.center[
+**Who is correct?**
+]
 
 ---
 
-# Example: Hyena Bite Strength
+# Sampling Distributions
 
-<div style="position:relative;float:left; width:75%">
-Hyena bite strength is thought to follow a normal distribution, with a mean of 1,000 psi and a standard deviation of 300 psi. For comparison, humans have a bite strength of 171 psi when using the molars.
-</div>
+- Because samples do not include every member of the population, there will be some .alert2[**variation**] in the value a sample's mean will take on
 
-<div style="position:relative; top:-75px; right:-20px;">
-<img src="https://media.giphy.com/media/10pj3umzdwDg7C/giphy.gif", width="250px"/>
-</div>
+- As your sample size gets .alert2[**bigger**], there should be .alert2[**less variation**] because you are included a larger portion of the population
 
-- The middle 40% of hyneas will have a bite strength between what psi’s?
+   - When your sample includes the whole population, there should be .alert2[**no variation**] at all
+
+--
+
+- In a way, your sample mean follows a distribution...
+
+   - We call this a .alert[**sampling distribution**]
+   
+--
+
+- But what distribution does your sample mean follow?
+
+---
+
+# Central Limit Theorem
+
+.content-box-teal[
+When
+
+1) observations are .alert[**independent**], and 
+
+2) the sample size is .alert[**sufficiently large**],
+
+the sample mean $\bar{x}$ will follow a .alert[**Normal distribution**] with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt{n}}$:
+
+$$\bar{x} \sim N \left(\mu, \frac{\sigma^2}{n}\right)$$
+]
+
+--
+
+- Notice that the variance depends on your sample size, n
+   
+   - As .alert2[**n increases**], the variance of the sampling distribution of $\bar{x}$ .alert2[**decreases**]
+
+---
+
+# Example 1: SAT
+
+Remember that SAT scores are Normally distributed with a population mean score of 1,100 and a population standard deviation of 200.
+
+- If we gather a random sample of .alert2[**40**] scores, what distribution would the sample mean of those scores follow?
+
+
+---
+
+
+# Example 1: SAT
+
+Remember that SAT scores are Normally distributed with a population mean score of 1,100 and a population standard deviation of 200.
+
+- If we gather a random sample of .alert2[**100**] scores, what distribution would the sample mean of those scores follow?
+
+---
+
+# Example 1: SAT
+
+Remember that SAT scores are Normally distributed with a population mean score of 1,100 and a population standard deviation of 200.
+
+- If we gather a random sample of .alert2[**500**] scores, what distribution would the sample mean of those scores follow?
+
+---
+
+# How Big Is Big Enough?
+
+Well, it depends on your data...
+
+- Nearly normal data, no clear outliers: $n \ge 10$
+
+- Not sure what distributions the observations come from, no clear outliers: $n \ge 30$
+
+---
+
+# CLT with Proportions
+
+- One of the greatest things about CLT is that .alert2[**we don't have to know what distribution our observations come from**] in order to apply it
+
+   - As long as the observations are independent and our sample size is large enough, we're good!
+   
+- Particularly, if we are dealing with count data to get proportions, this "large enough" means:
+
+$$np \ge 10 \text{ and } n(1-p) \ge 10$$
+
+- If we have binomial data and we want to estimate the sample proportion of successes, $\hat{p}$, we simply need to remember what the mean and variance of a binomial distribution is to find the sampling distribution.
+
+--
+
+   - Remember: E(X) = p, Var(X) = p(1-p)
+   
+--
+
+.content-box-teal[
+$$\hat{p} \sim N \left(p, \frac{p(1-p)}{n} \right)$$
+]
+
+---
+
+# Binomial CLT example 1
+
+---
+
+# Binomial CLT example 2
+
+---
+
+# Estimating Variance
+
+- All the distributions we've talked about so far have assumed we know what the population variance is
+
+--
+
+   - You're telling me we're estimating the population mean with a sample mean, but we always know the population variance?
+   
+--
+  
+.center[<img src="redX.png" width="250"/>]
+
+--
+
+- Then do we get a Z score if we replace $\sigma$ with *s*?
+
+$$\frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} = ?$$
+
+
+---
+
+# The T Distribution
+
+.pull-left[
+- When we replace $\sigma$ with *s*, we get a .alert[**T score**]:
+$$T = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}$$
+
+- The T score follows the .alert[**T distribution**]:
+$$t \sim T(df=n-1)$$
+   
+- Always centered with a mean of 0 (like a standard Normal)
+   
+- Shape defined by .alert[**degrees of freedom**] (df) = n-1
+   
+   - The more degrees of freedom, the more the distribution looks like a standard Normal
+   
+- Designed to give you a little more wiggle room than a regular Normal distribution, to account for you also estimating the standard deviation
+   
+]
+
+<img src="tDist.png" width="500"/>
+
+---
+
+# Calculator: tcdf()
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR > 6: tcdf(
+
+To calculate P(X $\le$ a):
+- tcdf(-1E99,a,df)
+
+To calculate P(X $\ge$ a):
+- tcdf(a,1E99,df)
+
+To calculate P(a $\le$ X $\le$ b):
+- tcdf(a,b,df)
+
+---
+
+# Calculator: invT()
+
+If we have a .alert2[**percentile**], and want to find the cut off value corresponding to that percentile, we use invT().
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR > 4: invT(
+
+To calculate the cut off value for the a$^{th}$ percentile (a% of the data is smaller than the cutoff):
+- invT( $\frac{a}{100}$ , df )
+
+
+---
+
+# T score example 1
+
+---
+
+# T score example 2
+
+---
+
+# T score example 3
