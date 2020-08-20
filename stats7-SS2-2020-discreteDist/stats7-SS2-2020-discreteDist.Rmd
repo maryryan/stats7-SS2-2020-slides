@@ -368,7 +368,7 @@ $$P(Event) = (\text{# scenarios event can occur})P(\text{Single scenario})$$
 
 --
 
-- The .alert[**choose function**], ${n \choose x}$, gives us the total number of ways of selecting *x* distinct combinations of *n* trials, irrespective of order
+- The .alert[**choose function**], ${n \choose x}$, gives us the total number of ways of selecting *x* distinct combinations of *n* trials
 
 
 - Since all the trials are .alert2[**independent**], we can use the independence property $P(\text{A and B}) = P(A)P(B)$:
