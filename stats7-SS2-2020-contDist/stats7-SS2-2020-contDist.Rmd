@@ -239,8 +239,8 @@ a %>%
    theme_minimal()+
    theme(axis.text.x=element_blank(),
         axis.ticks.x=element_blank())+
-   annotate("text", x=0, y=0, label=expression(mu), vjust=1, size=10)+
-   annotate("text", x=0.5, y=0.26, label=expression(sigma), size=10)+
+   annotate("text", x=0, y=0, label=expression(mu), vjust=1, size=8)+
+   annotate("text", x=0.5, y=0.27, label=expression(sigma), size=8)+
    coord_cartesian(expand=F, clip = "off") # added clip = "off"
 
 ```
@@ -376,7 +376,7 @@ p1 <- a %>%
    xlab("") +
    ylab("") +
    theme_minimal()+
-   annotate("text", x=1, y=0, label="Z = 1", vjust=2, size=6)+
+   annotate("text", x=1, y=0, label="X = 1", vjust=2, size=6)+
    coord_cartesian(expand=F, clip = "off")
 
 p2 <- a %>% 

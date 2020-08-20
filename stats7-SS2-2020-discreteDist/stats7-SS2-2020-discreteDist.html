@@ -162,7 +162,7 @@ By the end of today's lecture, you should be able to:
 
    - We can .alert2[**rarely**] know the function that .alert2[**truly**] generates probabilities for a scenario
    
-   - To give it our best guess, we see which probability distribution our scenario meets most of the conditions for, and use those functions and known properties
+   - To give it our .alert2[**best guess**], we see which probability distribution our scenario meets most of the conditions for, and use those functions and known properties
 ]
 &lt;/div&gt;
 
@@ -356,7 +356,7 @@ By the end of today's lecture, you should be able to:
 
 A [June 2019 survey](https://www.pewresearch.org/internet/2019/10/09/americans-and-digital-knowledge/) by Pew Research Center found that only 28% of U.S. adults were able to correctly identify an example of [two-factor authentication](https://www.cnet.com/news/two-factor-authentication-what-you-need-to-know-faq/).
 
-To see if this holds true at UCI, we provide the same question to 30 UCI students.
+To see if this holds true at UCI, we provide the same question to 20 UCI students.
 
 - To think of this scenario in terms of the Binomial distribution, what are the trials we are performing? Are they independent?
 
@@ -375,7 +375,7 @@ To see if this holds true at UCI, we provide the same question to 30 UCI student
 
 A [June 2019 survey](https://www.pewresearch.org/internet/2019/10/09/americans-and-digital-knowledge/) by Pew Research Center found that only 28% of U.S. adults were able to correctly identify an example of [two-factor authentication](https://www.cnet.com/news/two-factor-authentication-what-you-need-to-know-faq/).
 
-To see if this holds true at UCI, we provide the same question to 30 UCI students.
+To see if this holds true at UCI, we provide the same question to 20 UCI students.
 
 - If the Pew Research Center proportion is true for the general population, what can we expect the probability to be that:
 
@@ -388,11 +388,21 @@ To see if this holds true at UCI, we provide the same question to 30 UCI student
 
 ---
 
+# Calculator: binompdf()
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR &gt; A: binompdf(
+
+To calculate P(X=a):
+binompdf(n,p,a)
+
+---
+
 # Example 1: Two-Factor Authentication
 
 A [June 2019 survey](https://www.pewresearch.org/internet/2019/10/09/americans-and-digital-knowledge/) by Pew Research Center found that only 28% of U.S. adults were able to correctly identify an example of [two-factor authentication](https://www.cnet.com/news/two-factor-authentication-what-you-need-to-know-faq/).
 
-To see if this holds true at UCI, we provide the same question to 30 UCI students.
+To see if this holds true at UCI, we provide the same question to 20 UCI students.
 
 - If the Pew Research Center proportion is true for the general population, what can we expect the probability to be that:
 
@@ -401,7 +411,17 @@ To see if this holds true at UCI, we provide the same question to 30 UCI student
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-   - At least 28 UCI students are able to correctly identify two-factor authentication?
+   - At least 18 UCI students are able to correctly identify two-factor authentication?
+
+---
+
+# Calculator: binomcdf()
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR &gt; B: binomcdf(
+
+To calculate P(X `\(\le\)` a):
+- binomcdf(n,p,a)
 
 ---
 
@@ -529,6 +549,20 @@ According to [U.S. News &amp; World Report](https://www.usnews.com/best-colleges
 
 ---
 
+# Calculator: geometpdf() &amp; geometcdf()
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR &gt; E: geometpdf(
+- 2nd DISTR &gt; F: geometcdf()
+
+To calculate P(X=a):
+- geometpdf(p,a)
+
+To calculate P(X `\(\le\)` a):
+- geometcdf(p,a)
+
+---
+
 # Example 2: Minecraft Creepers
 
 In the game Minecraft, [creepers](https://minecraft.fandom.com/wiki/Creeper) are green monsters that will explode when close to a player. When you kill this monster, it will sometimes drop items like gunpowder or music discs. There is a 67% chance that the creeper will [drop at least one unit of gunpowder](https://minecraft.gamepedia.com/Drops#Common_drops) when you kill it.
@@ -578,39 +612,52 @@ In the game Minecraft, [creepers](https://minecraft.fandom.com/wiki/Creeper) are
 
 ---
 
-# Example 1: UCI Libraries
+# Example 1: Nuclear Plant
 
-According to [UCI](https://www.lib.uci.edu/facts-and-figures), about 4,505 people visit UCI libraries every day, on average.
+Say a particular nuclear plant releases a detectable amount of radioactive gases twice a month, on average.
 
 - What is `\(\lambda\)`? What are our time units?
 
 &lt;br&gt;
 &lt;br&gt;
 
-- How many people can we expect UCI Libraries to see in a typical 5 day school week?
+- How many times can we expect the plant to release a detectable amount of gas in a typical 6-month span?
 
 ---
 
-# Example 1: UCI Libraries
+# Example 1: Nuclear Plant
 
-According to [UCI](https://www.lib.uci.edu/facts-and-figures), about 4,505 people visit UCI libraries every day, on average.
+Say a particular nuclear plant releases a detectable amount of radioactive gases twice a month, on average.
 
-- What is the probability that UCI Libraries will see exactly 3,000 people on a typical day?
+- What is the probability that the plant will release a detectable amount of gas 4 times in a typical month?
 
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
 
-- What is the probability that UCI Libraries will see fewer than 6,000 on a typical day?
+- What is the probability that the plant will release a detectable amount of gas fewer than 3 times in a typical month?
+---
+
+# Calculator: poissonpdf() &amp; poissoncdf()
+
+To get to the calculator function on a TI-84:
+- 2nd DISTR &gt; C: poissonpdf(
+- 2nd DISTR &gt; D: poissoncdf()
+
+To calculate P(X=a):
+- poissonpdf(lambda,a)
+
+To calculate P(X `\(\le\)` a):
+- poissoncdf(lambda,a)
 
 ---
 
-# Example 1: UCI Libraries
+# Example 1: Nuclear Plant
 
-According to [UCI](https://www.lib.uci.edu/facts-and-figures), about 4,505 people visit UCI libraries every day, on average.
+Say a particular nuclear plant releases a detectable amount of radioactive gases twice a month, on average.
 
-- What is the probability that UCI Libraries will see between 2,500 and 5,000 people in a typical 12-hour period?
+- What is the probability that the plant will release a detectable amount of gas more than once but no more than 5 times in a typical month?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
