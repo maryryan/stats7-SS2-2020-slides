@@ -148,76 +148,6 @@ class: title-slide2
 - The pdf will also help us find the area under the curve for the specific area we want -- just integrate!
 
    - This might take quite a bit of math, though, so we often just have a computer calculate the probabilities for us
-   
----
-
-# Continuous Uniform Distribution
-
-- The most simple continuous distribution we might think of is one where all events defined on .alert2[**intervals of equal length**] have an equal probability of happening
-
---
-
-- Applies to .alert2[**continuous**] random variables
-
-   - Variables can take on values that exist between some number *a* and another number *b*
-   - Intervals of equal length are .alert2[**equally likely**] to happen
-   - Defined by the minimum value the variable can take on (*a*) and the maximum value it can take on (*b*)
-
-.content-box-teal[
-- Some properties:
-   - $P(X<x) = \int_a^x \frac{x-a}{b-a}$dx
-   - $E(X) = \frac{a+b}{2}$
-   - $Var(X) = \frac{(b-a)^2}{12}$
-]
-   
-- Arrival time of a package you're told will be delivered between 3 pm and 5 pm
-
-<div style="position:fixed; bottom:50px; right:-550px;">
-```{r uniform, echo=FALSE, message=FALSE, out.width="20%"}
-uni <- runif(1000000,1,10)
-
-uni %>% 
-   as.data.frame() %>% 
-   ggplot(aes(x=.))+
-   geom_histogram(color="white")+
-   theme( axis.text = element_text(size=12),
-          axis.title = element_text(size=16)
-   )+
-   theme_minimal()
-```
-
-</div>
-
----
-
-# Example: Waiting for the Bus
-
-<div style="position:relative;float:left; width:75%">
-We are waiting at a bus stop for a bus that comes once per hour. We do not know what time the bus came last, so we could have just missed it or it might be just about to arrive. The time we will wait for the bus is uniformly distributed, with a minimum wait time of 0 minutes and a maximum wait time of 60 minutes.
-
-</div>
-
-
-<div style="position:relative; top:-75px; right:-20px;">
-<img src="https://media.giphy.com/media/xMkWcQ9xTGH8A/giphy.gif", width="250px"/>
-</div>
-
-
-- What is the probability that you will have to wait between 15 and 20 minutes for the bus?
-
-<br>
-<br>
-<br>
-
-
-- What’s the probability you will have to wait more than 40 minutes for the bus?
-
-<br>
-<br>
-<br>
-
-- How long might we expect to wait for the bus?
-
 
 ---
 
@@ -257,6 +187,7 @@ a %>%
    coord_cartesian(expand=F, clip = "off") # added clip = "off"
 
 ```
+
 
 </div>
 --
@@ -333,13 +264,13 @@ To get to the calculator function on a TI-84:
 - 2nd DISTR > 2: normalcdf(
 
 To calculate P(X $\le$ a):
-- normalcdf( $\mu$ , $\sigma$ , -1E99,a)
+- normalcdf( -1E99, a, $\mu$ , $\sigma$ )
 
 To calculate P(X $\ge$ a):
-- normalcdf( $\mu$ , $\sigma$ , a, 1E99)
+- normalcdf( a, 1E99, $\mu$ , $\sigma$ )
 
 To calculate P(a $\le$ X $\le$ b):
-- normalcdf( $\mu$ , $\sigma$ , a, b)
+- normalcdf( a, b, $\mu$ , $\sigma$ )
 
 ---
 
@@ -375,7 +306,7 @@ If we have a .alert2[**percentile**], and want to find the cut off value corresp
 To get to the calculator function on a TI-84:
 - 2nd DISTR > 3: invNorm(
 
-To calculate the cut off value for the a$^{th}$ percentile (a% of the data is smaller than the cutoff):
+To calculate the cut off value for the a-th percentile (a percent of the data is smaller than the cutoff):
 - invNorm( $\frac{a}{100}$ , $\mu$ , $\sigma$ )
 
 ---
@@ -491,7 +422,7 @@ p1 <- a %>%
    xlab("") +
    ylab("") +
    theme_minimal()+
-   annotate("text", x=1, y=0, label="X = 1", vjust=2, size=6)+
+   annotate("text", x=1, y=0, label="Z = 1", vjust=2, size=6)+
    coord_cartesian(expand=F, clip = "off")
 
 p2 <- a %>% 
@@ -536,6 +467,10 @@ $\int_{-\infty}^u \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx
 ---
 
 # Reading a Z Table
+
+
+.center[<img src="z-table-annotated.png" width="500"/>]
+
 
 ---
 
@@ -727,11 +662,30 @@ $$\hat{p} \sim N \left(p, \frac{p(1-p)}{n} \right)$$
 
 ---
 
-# Binomial CLT example 1
+# Example 1: Solar Energy
+
+Suppose the proportion of American adults who support the expansion of solar energy is p = 0.88. 
+
+- If we get a random sample of 100 American adults, what distribution would the sample proportion follow?
 
 ---
 
-# Binomial CLT example 2
+# Example 1: Solar Energy
+
+Suppose the proportion of American adults who support the expansion of solar energy is p = 0.88. 
+
+- If we get a random sample of 1,000 American adults, what distribution would the sample proportion follow?
+
+---
+
+# Z-Scores with CLT
+
+- We can also calculate Z-scores to see where a particular sample mean (or sample proportion) lies on its sampling distribution:
+
+$$Z = \frac{\bar{x} - \mu}{\frac{\sigma}{\sqrt{n}}}$$
+
+$$Z = \frac{\hat{p} - p}{\sqrt{\frac{p(1-p)}{n}}}$$
+
 
 ---
 
@@ -742,17 +696,16 @@ $$\hat{p} \sim N \left(p, \frac{p(1-p)}{n} \right)$$
 --
 
    - You're telling me we're estimating the population mean with a sample mean, but we always know the population variance?
-   
+
 --
-  
+
 .center[<img src="redX.png" width="250"/>]
 
 --
 
 - Then do we get a Z score if we replace $\sigma$ with *s*?
 
-$$\frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} = ?$$
-
+$$\frac{x - \mu}{s} = ?  \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} = ?$$
 
 ---
 
@@ -760,7 +713,7 @@ $$\frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}} = ?$$
 
 .pull-left[
 - When we replace $\sigma$ with *s*, we get a .alert[**T score**]:
-$$T = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}$$
+$$T = \frac{x - \mu}{s}, T = \frac{\bar{x} - \mu}{\frac{s}{\sqrt{n}}}$$
 
 - The T score follows the .alert[**T distribution**]:
 $$t \sim T(df=n-1)$$
@@ -808,12 +761,40 @@ To calculate the cut off value for the $a^{th}$ per entile (a% of the data is sm
 
 ---
 
-# T score example 1
+# Example 1: Mercury in Dolphins
+
+Elevated mercury concentrations are an important problem for both dolphins and other animals. Say that we know the population mean mercury level in dolphin tissue is 5 micrograms of mercury per wet gram of muscle. We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- Say one dolphin in our sample has a mercury level of 3. What is the T-score for this data point?
 
 ---
 
-# T score example 2
+# Example 1: Mercury in Dolphins
+
+Elevated mercury concentrations are an important problem for both dolphins and other animals. Say that we know the population mean mercury level in dolphin tissue is 5 micrograms of mercury per wet gram of muscle. We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- What is the probability that a dolphin will have a mercury level below 3?
 
 ---
 
-# T score example 3
+# Example 1: Mercury in Dolphins
+
+Elevated mercury concentrations are an important problem for both dolphins and other animals. Say that we know the population mean mercury level in dolphin tissue is 5 micrograms of mercury per wet gram of muscle. We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- What is the probability that a dolphin will have a mercury level between 3.5 and 5?
+
+---
+
+# Example 1: Mercury in Dolphins
+
+Elevated mercury concentrations are an important problem for both dolphins and other animals. Say that we know the population mean mercury level in dolphin tissue is 5 micrograms of mercury per wet gram of muscle. We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- What is the T-score for our sample mean?
+
+---
+
+# Example 1: Mercury in Dolphins
+
+Elevated mercury concentrations are an important problem for both dolphins and other animals. Say that we know the population mean mercury level in dolphin tissue is 5 micrograms of mercury per wet gram of muscle. We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- What is the probability that, if we took another sample like this one, we would get a sample mean above 4.4?
