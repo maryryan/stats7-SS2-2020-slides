@@ -18,8 +18,6 @@
 
 
 
-
-
 layout: true
 class: 
 
@@ -58,9 +56,244 @@ class: title-slide2
 &lt;p&gt;&lt;a href="https://canvas.eee.uci.edu/courses/28451"&gt; https://canvas.eee.uci.edu/courses/28451 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="35"/&gt; Slides can be found at:&lt;/p&gt;
-&lt;/p&gt;&lt;a href="https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/stats7-SS2-2020-samplingBias"&gt; https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-samplingBias/stats7-SS2-2020-samplingBias &lt;/a&gt;&lt;/p&gt;
+&lt;/p&gt;&lt;a href="https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-oneSampleInference/stats7-SS2-2020-oneSampleInference"&gt; https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-oneSampleInference/stats7-SS2-2020-oneSampleInference &lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
+
+
+---
+
+# Learning Objectives
+
+By the end of today's lecture, you should be able to:
+
+- calculate confidence intervals and test statistics
+
+- understand testing error
+
+- interpret what confidence intervals tell us about our estimate of the population parameter
+
+- draw an appropriate conclusion from a hypothesis test in the context of our question of interest
+
+---
+
+# What is One-Sample Inference?
+
+- When we perform .alert[**one-sample inference**], we are using our sample data to infer or make assumptions about one population of interest
+
+   - What does our sample mean tell us about the population?
+   
+- One-sample inference is how we turn data into knowledge we can use
+
+- Several ways to perform inference...
+
+
+---
+
+# Capturing the Population Mean
+
+- Recall: our sample mean is only one estimate of the population mean
+
+   - If we took other samples, we would get other sample means with different values
+
+   - We can throw a spear where we see a fish but we will probably miss
+
+--
+
+- It would be nicer if there were a .alert2[**range of plausible values**] between which we might think the true population mean might lie, with a  certain degree of certainty
+
+   - If we toss a net in the general area we saw a fish, we have a good chance of catching it
+   
+---
+
+# 95% Confidence Intervals
+
+- Maybe we would think a plausible range of values might be the middle 95% of the sampling distribution of the sample mean `\(\bar{x}\)`
+
+`$$P(a &lt; \bar{X} &lt; b) = 0.95$$`
+
+- But what are *a* and *b*?
+
+--
+
+.pull-left-66[
+
+- We know that the middle 95% of a sampling distribution is the range of values within 1.96 standard deviations above and below the mean
+
+   - Standard deviation for the sampling distribution is `\(\frac{\sigma}{\sqrt{n}}\)` -- here we call it the .alert[**standard error**]
+]
+
+.pull-right-33[
+
+&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/sample dist-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# 95% Confidence Intervals
+
+- So:
+
+`$$P \left(-1.96\frac{\sigma}{\sqrt{n}} &lt; \bar{X} &lt; 1.96\frac{\sigma}{\sqrt{n}} \right) = 0.95$$`
+
+--
+
+.content-box-teal[
+.center[
+**We call this a 95% confidence interval**
+
+`$$\left( \bar{x} - 1.96 \frac{\sigma}{\sqrt{n}}, \bar{x} + 1.96 \frac{\sigma}{\sqrt{n}} \right)$$`
+
+]
+]
+
+- We can shorthand the math to:
+`$$\bar{x} \pm \color{red}{1.96 \frac{\sigma}{\sqrt{n}}}$$`
+
+   - We call the red portion of the equation the .alert[**margin of error**]
+
+---
+
+# 95% Confidence Intervals
+
+.content-box-teal[
+.center[
+**"We are 95% confident that the interval**
+
+`$$\left( \bar{x} - 1.96 \frac{\sigma}{\sqrt{n}}, \bar{x} + 1.96 \frac{\sigma}{\sqrt{n}} \right)$$`
+
+**captures/contains the true population mean."**
+]
+]
+
+- We call 95% the .alert[**confidence level**]
+
+- Helps tell us how certain we are of our estimate of the mean
+
+- The true population mean is .alert2[**constant**]
+
+   - The confidence interval is .alert2[**random**]: it changes every time we take a new sample (because it's centered over the sample mean)
+
+---
+
+# General Confidence Intervals
+
+- What if we think an interval other than the middle 95% is appropriate?
+   
+   - We change the number of standard errors we're adding and subtracting to `\(\bar{x}\)`
+
+
+&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/99 sample dist-1.png" width="65%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# General Confidence Intervals
+
+- Can write confidence interval formula generally as:
+
+`$$\bar{x} \pm Z^*_{1-\frac{1}{2}\text{confidence}} \frac{\sigma}{\sqrt{n}}$$`
+--
+
+- Width of confidence interval depends on:
+
+   - confidence level
+   
+   - variance of observations in population
+   
+   - sample size
+   
+--
+
+.pull-left[
+- .alert[**Wider**] confidence interval:
+   
+   - .alert[**increase**] confidence
+   
+   - .alert[**increase**] population variance
+   
+   - .alert[**decrease**] sample size
+]
+
+.pull-right[
+- .alert2[**Narrower**] confidence interval:
+   
+   - .alert2[**decrease**] confidence
+   
+   - .alert2[**decrease**] population variance
+   
+   - .alert2[**increase**] sample size
+]
+   
+---
+
+# Example: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a population standard deviation of 200. We take a sample of 100 scores and get an average of 956.
+
+- Calculate a 95% confidence interval.
+
+---
+
+# Example: SAT
+
+The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a population standard deviation of 200. We take a sample of 100 scores and get an average of 956.
+
+- Calculate a 90% confidence interval.
+
+
+
+---
+
+# Example: Solar Energy
+
+A Pew Research poll found that 88.7% of a random sample of 1000 American adults supported expanding the role of solar power.
+
+- Calculate a 95% confidence interval.
+
+---
+
+# Example: Solar Energy
+
+A Pew Research poll found that 88.7% of a random sample of 1000 American adults supported expanding the role of solar power.
+
+- Calculate a 99% confidence interval.
+
+
+---
+
+# Confidence Intervals with Sample Standard Deviation
+
+- We can also create confidence intervals if we're estimating the population standard deviation with the sample standard deviation
+
+   - Instead of using the Normal distribution to figur out how many standard deviations above and below the mean, .alert2[**we use the T distribution**]
+   
+`$$\bar{x} \pm T^*_{1-\frac{1}{2}\text{confidence, } df=n-1} \frac{s}{\sqrt{n}}$$`
+
+---
+
+# Example: Mercury in Dolphins
+
+Elevated mercury concentrations are an important problem for both dolphins and other animals. We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- Calculate a 95% confidence interval.
+
+---
+
+# Example: Mercury in Dolphins
+
+Elevated mercury concentrations are an important problem for both dolphins and other animals. We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- Calculate a 99% confidence interval.
+   
+
+---
+
+# Testing our Notions of the Population
+
+- We might be gathering our sample because we want to see if a .alert2[**preconceived notion**] we have about the population is true
+
+- If we believe the population mean is one value and the data gives us an estimate, how can we tell if the sample mean is .alert2[**confirming or challenging**] our assumption?
 
 
 ---
@@ -76,17 +309,23 @@ class: title-slide2
 4. Draw a conclusion
 
 5. Interpret you conclusion in context
+
 ---
 
 # Step 1: State your hypotheses
 
-.alert[Question of Interest Here]
+- .alert[**Null hypothesis**] ( `\(H_0\)` ) represents "status quo", or what we assume to be true without more evidence
+- Question will usually give you the .alert[**alternative hypothesis**] ( `\(H_A\)` )
 
-- **Null hypothesis** ( `\(H_0\)` ) represents "status quo", or what we assume to be true without more evidence
-- Question will usually give you the **alternative hypothesis** ( `\(H_A\)` )
 - Two types of tests:
-   - Two-sided test ( `\(H_A: p \ne p_0\)` )
-   - One-sided test ( `\(H_A: p &gt; p_0\)`, or `\(H_A: p &lt; p_0\)` )
+   - Two-sided test:
+   
+      - `\(H_0\)`: We assume the population mean is `\(= \mu_0\)`
+      - `\(H_A\)`: We assume the population mean is `\(\ne \mu_0\)`
+      
+   - One-sided test:
+      - `\(H_0\)`: We assume the population mean is `\(\ge/\le \mu_0\)`
+      - `\(H_A\)`: We assume the population mean is `\(&gt;/&lt; \mu_0\)`
    
 - Always write hypotheses in terms of the parameter of interest (not the sample estimate)
 
@@ -94,30 +333,97 @@ class: title-slide2
 
 # Step 2: Calculate your Z-statistic
 
-`$$Z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}$$`
+- If we know the population standard deviation:
+`$$z = \frac{\bar{x} - \mu_0}{\sqrt{\sigma/n}}$$`
+`$$z = \frac{\hat{p} - p_0}{\sqrt{p(1-p)/n}}$$`
+
+- If we're estimating the population standard deviation with the sample standard deviation:
+`$$t = \frac{\bar{x} - \mu_0}{\sqrt{s/n}}$$`
+.content-box-teal[
+.center[
+**"If the null hypothesis was true, this is how many standard deviations away from the null hypothesis mean our sample mean is"**
+]
+]
+
 
 ---
 
-# Step 3: Find `\(Z^*\)`
+# Step 3: Find Your Critical Value/Calculate Your P-value
 
-- For two-sided tests, we split our **error rate** into both the tails
-&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/twoSided-1.png" width="500" style="display: block; margin: auto;" /&gt;
+- Two ways to see if our sample mean is "too different" than the null hypothesis population mean
+
+.pull-left-33[   
+1. Find "critical value" to compare test statistic against
+
+   - If the test statistic is .alert2[**more extreme**] than this value, we know our sample mean is .alert2[**very different**] than our null mean
+   
+   - Determine before seeing data
+
+- For one-sided tests, we can determine critical value by the probability we would see sample means more extreme than it
+]
+
+.pull-right-66[
+&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/oneSided-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
-# Step 3: Find `\(Z^*\)`
+# Step 3: Find Your Critical Value/Calculate Your P-value
 
-- For one-sided tests, we can keep all of the error rate in the tail we're interested in
-&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/oneSided-1.png" width="450" style="display: block; margin: auto;" /&gt;
+1. Find "critical value" to compare test statistic against
+
+.pull-left[
+- For two-sided tests, we can determine critical value by the probability we would see sample means more extreme than it
+   
+   - Then split that probability between both the tails
+]
+
+.pull-right[
+&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/twoSided-1.png" width="90%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
-# Steps 4, 5, 6
+# Step 3: Find Your Critical Value/Calculate Your P-value
+
+2. Calculate probability we see sample mean .alert2[**as or more extreme**] as your sample mean, .alert2[**if the null hypothesis mean was true**]
+
+.pull-left-33[
+- Call this the .alert[**p-value**]
+
+   - For a one-sided test:
+]
+
+.pull-right-66[
+
+&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/pvalue oneSided-1.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+]
+
 
 ---
 
-# Step 5: Draw a conclusion
+# Step 3: Find Your Critical Value/Calculate Your P-value
 
+2. Calculate probability we see sample mean .alert2[**as or more extreme**] as your sample mean, .alert2[**if the null hypothesis mean was true**]
+
+.pull-left-33[
+- Call this the .alert[**p-value**]
+
+   - For a two-sided test, you need to look at the probability on .alert2[**both sides**] of the distribution
+   
+      - Since Normal/T distributions symmetric, can find the probability on one side and **double it**
+]
+
+.pull-right-66[
+&lt;img src="stats7-SS2-2020-oneSampleInference_files/figure-html/pvalue twosided-1.png" width="65%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# Step 4: Draw a conclusion
+
+.pull-left[
 - For two-sided test:
    - If |Z| &gt; `\(Z^*\)`, __reject__ the null
    - If |Z| &lt; `\(Z^*\)`, __fail to reject__ the null
@@ -130,14 +436,173 @@ class: title-slide2
    - Less-than test:
       - If Z &lt; `\(-Z^*\)`, reject the null
       - If Z &gt; `\(-Z^*\)`, fail to reject the null
+      
+]
+
+--
+
+.pull-right[
+
+.content-box-teal[
+
+**We never "accept" the null hypothesis!**
+
+- We are gathering evidence against the null hypothesis
+   - If we don't have evidence against, we just can't assume the null is false
+   
+- Like in an American legal trial, where defendant assumed innocent until proven guilty
+   - Judge gives verdict of "guilty" or "not guilty"
+   
+   - If found "not guilty", we aren't saying they are innocent - just that we don't have enough evidence to say they're guilty
+   
+]
+
+]
 
 ---
 
-# Step 6: Interpret your conclusion in context
+# Step 5: Interpret your conclusion in context
 
-- For a rejection:
+- For a rejection
 
-- For a fail-to-reject:
+   - Why are we rejecting?
+   - What strength of evidence do we have?
+   - What does a rejection of the null hypothesis mean for our knowledge about the population?
+
+- For a fail-to-reject
+
+   - Why are we not rejecting?
+   - Was our evidence not very strong?
+   - What does a failure to reject the null hypothesis mean for our knowledge about the population?
+
+---
+
+# Example: Mercury in Dolphins
+
+Say that mercury levels above 5.2 micrograms of mercury per wet gram of muscle in dolphins indicates that there may be pollution in the area. 
+
+As part of an ocean pollution watchdog group, we randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- What are our null and alternative hypotheses?
+
+---
+
+# Example: Mercury in Dolphins
+
+Say that mercury levels above 5.2 micrograms of mercury per wet gram of muscle in dolphins indicates that there may be pollution in the area. 
+
+We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- What is our test statistic? What is our critical value/p-value?
+
+---
+
+# Example: Mercury in Dolphins
+
+Say that mercury levels above 5.2 micrograms of mercury per wet gram of muscle in dolphins indicates that there may be pollution in the area. 
+
+We randomly sample 19 dolphins and test their muscle for mercury levels. We get a sample mean of 4.4, and a sample standard deviation of 2.3.
+
+- What's our conclusion? What does this mean?
+
+---
+
+# Testing Error
+
+- Type I errors happen when we .alert[**reject**] the null hypothesis when actully it is .alert2[**true**]
+
+- Type II errors happen when we .alert2[**fail to reject**] the null hypothesis when actully it is .alert[**false**]
+
+.center[
+&lt;img src="error.png" width="600"/&gt;
+]
+
+---
+
+# What Else Can We Do Inference On?
+
+- Much of the time we're focused on trying to make inference about the population mean, but that's not the only parameter we can work with!
+
+--
+
+- We saw that we can also perform one-sample inference on sample proportions
+
+--
+
+- We can also perform one-sample inference on the slope of regressions!
+
+   - Regression outputs will often give you both the estimated slope of a regression, `\(\hat{\beta}\)` , and the standard error of that slope
+   
+   - If we perform a hypothesis test on the regression slope, we often want to know if it is different from 0 -- many outputs will also calculate a t-statistic for you and calculate the two-sided p-value
+   
+.pull-left[
+   
+- 95% confidence interval for regression slope: `\(\text{slope}\pm t_{1-\frac{1}{2}\text{confidence, } df=\text{n - # of variables - 1}} \times SE\)`
+]
+
+.pull-right[
+- Hypothesis test for regression slope:
+
+   - `\(H_0\)`: True slope `\(=/\ge/\le\)` 0
+   - `\(H_A\)`: True slope `\(\ne/&gt;/&lt;\)` 0
+
+   - Test statistic for regression slope:
+   `\(t = \frac{slope - 0}{SE}\)`
+]
+
+---
+
+# Example: MLB  2011
+
+Is the number of times a team has a player go up to bat throughout a season (called .alert2[**"at-bats"**]) related to the number of .alert2[**runs**] that teams scores? There are 30 teams in the dataset (n=30).
+
+Runs = `\(\hat{\beta_0} + \hat{\beta_1}\)` (at-bats)
+
+Regression output:
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Std. Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; t value &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Pr(&amp;gt;|t|) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -2789.24289 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 853.6957215 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -3.267256 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0028706 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; at_bats &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.63055 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1545414 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.080136 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0003388 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+Runs = -2789.2429 + 0.6305(at-bats)
+
+.pull-left[
+- Hypotheses:
+   - `\(H_0\)`: slope = 0 (no association)
+   - `\(H_A:\)` slope `\(\ne\)` 0 (some kind of association)
+- Degrees of freedom: n - # of variables - 1 = 30 - 1 - 1 = 28
+]
+
+.pull-right[
+- p-value: 0.0003
+
+- Reject `\(H_0\)` : strong evidence to suggest the number of at-bats a team has is related to the number of runs the team scores
+]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
