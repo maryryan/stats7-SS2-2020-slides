@@ -2,7 +2,7 @@
 title: "One Sample Inference"
 subtitle: "Stats 7"
 author: "Mary Ryan"
-date: "Sept. XX, 2020"
+date: "Aug. 27, 2020"
 institute: "University of California, Irvine"
 output:
   xaringan::moon_reader:
