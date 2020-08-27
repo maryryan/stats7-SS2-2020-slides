@@ -335,6 +335,22 @@ $$\bar{x} \pm Z^*_{1-\frac{1}{2}\text{confidence}} \frac{\sigma}{\sqrt{n}}$$
    
 ---
 
+# Calculator: ZInterval
+
+To get to the calculator function on a TI-84:
+- STAT > TESTS > 7: ZInterval
+
+To calculate confidence interval:
+- input:
+   - population standard deviation ( $\sigma$ )
+   - sample mean ( $\bar{x}$ )
+   - sample size (n)
+   - confidence level (C-Level)
+- then arrow down to CALCULATE and press ENTER
+
+
+---
+
 # Example: SAT
 
 The Scholastic Assessment Test (SAT) is a standardized test that's (was?🤞) widely used by colleges and universities to help make admission decisions. Scores can range 400 to 1600. SAT scores have a population standard deviation of 200. We take a sample of 100 scores and get an average of 956.
@@ -377,6 +393,20 @@ A Pew Research poll found that 88.7% of a random sample of 1000 American adults 
    - Instead of using the Normal distribution to figur out how many standard deviations above and below the mean, .alert2[**we use the T distribution**]
    
 $$\bar{x} \pm T^*_{1-\frac{1}{2}\text{confidence, } df=n-1} \frac{s}{\sqrt{n}}$$
+---
+
+# Calculator: TInterval
+
+To get to the calculator function on a TI-84:
+- STAT > TESTS > 8: TInterval
+
+To calculate confidence interval:
+- input:
+   - sample mean ( $\bar{x}$ )
+   - sample standard deviation ( $S_x$ )
+   - sample size (n)
+   - confidence level (C-Level)
+- then arrow down to CALCULATE and press ENTER
 
 ---
 
@@ -686,6 +716,38 @@ text(0, -0.08, expression(H[A]: mu != mu[0]), xpd=NA, cex=1.2)
    - Why are we not rejecting?
    - Was our evidence not very strong?
    - What does a failure to reject the null hypothesis mean for our knowledge about the population?
+
+---
+
+# Calculator: Z-Test
+
+To get to the calculator function on a TI-84:
+- STAT > TESTS > 1: Z-Test
+
+To calculate hypothesis test statistic and p-value:
+- input:
+   - population mean under null hypothesis ( $\mu_0$ )
+   - population standard deviation ( $\sigma$ )
+   - sample mean ( $\bar{x}$ )
+   - sample size (n)
+   - direction of test: ( $\mu: \ne \mu_0 < \mu_0 < \mu_0$ )
+- then arrow down to CALCULATE and press ENTER
+
+---
+
+# Calculator: T-Test
+
+To get to the calculator function on a TI-84:
+- STAT > TESTS > 2: T-Test
+
+To calculate hypothesis test statistic and p-value:
+- input:
+   - population mean under null hypothesis ( $\mu_0$ )
+   - sample mean ( $\bar{x}$ )
+   - sample standard deviation ( $S_x$ )
+   - sample size (n)
+   - direction of test: ( $\mu: \ne \mu_0 < \mu_0 < \mu_0$ )
+- then arrow down to CALCULATE and press ENTER
 
 ---
 
