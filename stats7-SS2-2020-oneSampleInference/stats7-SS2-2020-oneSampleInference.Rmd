@@ -300,7 +300,7 @@ p99 | p80
 
 - Can write confidence interval formula generally as:
 
-$$\bar{x} \pm Z^*_{1-\frac{1}{2}\text{confidence}} \frac{\sigma}{\sqrt{n}}$$
+$$\bar{x} \pm Z^*_{\frac{1}{2}(1-\text{confidence})} \frac{\sigma}{\sqrt{n}}$$
 --
 
 - Width of confidence interval depends on:
@@ -392,7 +392,7 @@ A Pew Research poll found that 88.7% of a random sample of 1000 American adults 
 
    - Instead of using the Normal distribution to figur out how many standard deviations above and below the mean, .alert2[**we use the T distribution**]
    
-$$\bar{x} \pm T^*_{1-\frac{1}{2}\text{confidence, } df=n-1} \frac{s}{\sqrt{n}}$$
+$$\bar{x} \pm T^*_{\frac{1}{2}(1-\text{confidence), } df=n-1} \frac{s}{\sqrt{n}}$$
 ---
 
 # Calculator: TInterval
