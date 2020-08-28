@@ -476,7 +476,7 @@ $$z = \frac{\bar{x} - \mu_0}{\sqrt{\sigma/n}}$$
 $$z = \frac{\hat{p} - p_0}{\sqrt{p(1-p)/n}}$$
 
 - If we're estimating the population standard deviation with the sample standard deviation:
-$$t = \frac{\bar{x} - \mu_0}{\sqrt{s/n}}$$
+$$t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}$$
 .content-box-teal[
 .center[
 **"If the null hypothesis was true, this is how many standard deviations away from the null hypothesis mean our sample mean is"**
