@@ -1,0 +1,111 @@
+---
+title: "Two Sample Inference"
+subtitle: "Stats 7"
+author: "Mary Ryan"
+date: "Sept. 1, 2020"
+institute: "University of California, Irvine"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "chocolate-fonts", "headerPosition.css"]#like lucy
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+      slideNumberFormat: "%current%"
+    seal: false
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(cache=TRUE)
+knitr::opts_chunk$set(fig.align='center', out.width="53%", warning=FALSE, fig.retina = 3)
+```
+
+```{r load libraries, include=FALSE, comment='#'}
+#install.packages( 'tidyverse' )
+#install.packages( 'readxl' )
+
+library( tidyverse, quietly=T, warn.conflicts = F )
+library( knitr, quietly=T, warn.conflicts = F )
+library( readxl, quietly=T, warn.conflicts = F )
+#library( tufte, quietly=T, warn.conflicts = F )
+#library( quantmod, quietly=T, warn.conflicts = F )
+library( WVPlots, quietly=T, warn.conflicts = F )
+library(patchwork)
+
+```
+
+```{r reduce code spacing, include = FALSE}
+hook1 <- function(x){ gsub("```\n*```r*\n*", "", x) }
+hook2 <- function(x){ gsub("```\n+```\n", "", x) }
+knit_hooks$set(document = hook2)
+```
+
+layout: true
+class: 
+
+<!-- Old footer font color: #00A895 -->
+<!-- old footer background color: #383838 -->
+
+<!-- footer -->
+ <div style="position:fixed; bottom:10px; left:4px; font-size: 12pt; color: #2DD8A5; background-color: #545454; width:93.5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mary Ryan</div> <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<div style="position:fixed; bottom:10px; left:500px; font-size: 12pt; color: #2DD8A5">Inference for Categorical Data</div> <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<div style="position:fixed; bottom:10px; right:92px; font-size: 12pt; color: #2DD8A5">Stats 7</div>
+
+---
+
+<div style="position:fixed; left:50px; right:50px; top:125px; padding:30px; margin:auto; background-color:#C0F3E4; border-radius:15px">
+<p>This class is being conducted over Zoom. As the instructor, I will be .alert[recording] this session. I have disabled the recording feature for others so that no one else will be able to record this session. I will be posting this session to the course’s website.</p>
+
+<p>If you have privacy concerns and .alert[do not wish to appear in the recording], you may turn video off (click .alert[“stop video”]) so that Zoom does not record you.</p>
+
+<p>The chat box is always open for discussion and questions to the entire class. You may also send messages privately to the instructor or the TAs. Please note that Zoom saves all chat transcripts.</p>
+
+<p>I create a live transcription of each session using <a href="https://otter.ai/">Otter.ai</a>. This means that Otter.ai will transcribe anything spoken over the Zoom audio. The transcript will be posted with the session video on the course website.</p>
+</div>
+
+---
+
+class: title-slide2
+
+# <center> Inference for Categorical Data </center>
+## <center> Stats 7 </center>
+### <center> Mary Ryan </center>
+### .center[Sept. 3, 2020]
+
+<!-- social media info -->
+<div style="position:fixed; bottom:40px; left:70px;">
+<p><img src="https://du11hjcvx0uqb.cloudfront.net/br/dist/images/favicon-e10d657a73.ico" width="35"/> Course website:</p>
+<p><a href="https://canvas.eee.uci.edu/courses/28451"> https://canvas.eee.uci.edu/courses/28451 </a></p>
+
+<p><img src="https://svgsilh.com/svg/1873373.svg" width="35"/> Slides can be found at:</p>
+</p><a href="https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-chiSquared/stats7-SS2-2020-chiSquared"> https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-chiSquared/stats7-SS2-2020-chiSquared </a></p>
+</div>
+
+
+
+---
+
+# Learning Objectives
+
+By the end of today's lecture, you should be able to:
+
+- bloop
+
+---
+
+# Hypothesis Testing with Categorical Variables
+
+- In the last few lecture we've talked about how to perform hypothesis tests on means or porportions
+
+   - Usually means we're dealing with continuous quantitative data, or binary count data
+
+- What if we wanted to suss out the relationship between two .alert2[**categorical**] variables, though?
+
+   - Does being category 1 of a variable X affect if you’ll be category 2 of a variable Y?
+
+   - Are variable X and variable Y independent?
+   
+- We determine this relationship through a .alert[**Chi-Squared Test for Independence**]

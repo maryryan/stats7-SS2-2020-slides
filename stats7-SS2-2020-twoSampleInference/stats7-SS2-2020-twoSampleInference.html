@@ -48,7 +48,7 @@ class: title-slide2
 # &lt;center&gt; Two Sample Inference &lt;/center&gt;
 ## &lt;center&gt; Stats 7 &lt;/center&gt;
 ### &lt;center&gt; Mary Ryan &lt;/center&gt;
-### .center[Aug. 27, 2020]
+### .center[Sept. 1, 2020]
 
 &lt;!-- social media info --&gt;
 &lt;div style="position:fixed; bottom:40px; left:70px;"&gt;
@@ -67,9 +67,492 @@ class: title-slide2
 
 By the end of today's lecture, you should be able to:
 
-- bloop
+- calculate and interpret confidence intervals for the true difference of means/proportions
+
+- perform two-sample difference-of-means/proportions hypothesis tests
+
+- draw appropriate conclusions for two-sample hypothesis tests in the context of the problem
 
 ---
+
+# Comparing Two Populations
+
+- Last lecture, we worked with how we can infer information about a .alert2[**single**] population
+   - What is a plausible range of values that the population mean might be, based on our sample data?
+   - If we previously had an idea of what the population mean was equal to, is our sample data confirming or challenging that idea?
+   
+- But what if we have .alert2[**two**] populations and we want to compare them?
+   - Difference in heights of males and females?
+   - Difference in diabetes cases of Northern and Southern U.S.?
+   - Difference in proportion of deaths in placebo and experimental groups?
+   
+- We might take a sample from one population, `\(X^{(1)}\)`, with a sample size of `\(n_1\)`, distributed with mean `\(\mu_1\)` and standard deviation `\(\sigma_1\)`
+
+- Then take a sample from another population, `\(X^{(2)}\)`, with sample size `\(n_2\)`, distributed with mean `\(\mu_2\)` and standard deviation `\(\sigma_2\)`
+
+- Generally, we .alert2[**want to compare the means**] of these populations: `\(\mu_1 - \mu_2\)`
+
+---
+
+# Central Limit Theorem for Differences of Means
+
+- The sample mean of population `\(X^{(1)}\)` is: `\(\bar{x}_1 = \frac{1}{n_1}\sum_{i=1}^{n_1}x^{(1)}_i\)`
+
+- The sample mean of population `\(X^{(2)}\)` is: `\(\bar{x}_2 = \frac{1}{n_2}\sum_{i=1}^{n_2}x^{(2)}_i\)`
+
+- We can estimate the difference in population means as: `\(\bar{x}_1 - \bar{x}_2\)`
+
+- Because we are taking samples, there is going to be some variability around what what this difference actually is
+   - The variance of the difference is: `\(\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}\)`
+   - The standard deviation of the difference is: `\(\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}\)`
+   
+---
+
+# Central Limit Theorem for Differences of Means
+
+- Just like how we could use .alert[**Central Limit Theorem**] to approximate the sampling distribution of a single sample mean, we can use the same theorem to approximate the sampling distribution of the .alert2[**difference between sample means**]:
+
+.center[
+.content-box-teal[
+
+`$$(\bar{x}_1 - \bar{x}_2) \sim \text{Normal}\left(\text{mean = }\mu_1 - \mu_2, \text{variance = }\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} \right)$$`
+
+or 
+
+`$$Z = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim \text{Normal}\left(\text{mean = }0, \text{variance = }1 \right)$$`
+]
+]
+
+---
+
+# 95% Confidence Intervals for Differences of Means
+
+- This means we can get a .alert2[**plausible range of values**] for the difference between the two population means
+
+- Remember from one-sample inference, we thought a plausible range of values might be the .alert2[**middle 95% of the sampling distribution**] of the sample mean `\(\bar{x}\)`:
+`$$\bar{x} \sim \text{Normal}(\text{mean}=\mu, \text{variance}=\frac{\sigma^2}{n}) \Rightarrow P(a &lt; \bar{x} &lt; b) = 0.95$$`
+
+- We'll use the same logic here
+
+- A plausible range of values might be the middle 95% of the .alert2[**sampling distribution of the difference of the sample means**] ( `\(\bar{x}_1 - \bar{x}_2\)` ):
+`$$(\bar{x}_1 - \bar{x}_2) \sim \text{Normal}\left(\text{mean = }\mu_1 - \mu_2, \text{variance = }\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2} \right)$$`
+`$$P(a &lt; \bar{x}_1 - \bar{x}_2 &lt; b) = 0.95$$`
+
+- What were *a* and *b* for a one-sample 95% confidence interval? 1.96 standard errors above and below the sample mean
+
+---
+
+# Two-Sample 95% Confidence Intervals
+
+- *a* and *b* for a two-sample 95% confidence interval will also be 1.96 .alert[**standard errors**] above and below the difference of the sample means:
+
+`$$P \left(-1.96\color{red}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} &lt; \bar{x}_1 - \bar{x}_2 &lt; 1.96\color{red}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \right) = 0.95$$`
+
+- So you can calculate the .alert[**95% confidence interval for the difference of means**] to be:
+.center[
+.content-box-teal[
+`$$\left( [\bar{x}_1 - \bar{x}_2] - 1.96 \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}, [\bar{x}_1 - \bar{x}_2] + 1.96 \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \right)$$`
+]
+]
+
+
+- The .alert[**margin of error**] is now: `\(1.96 \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}\)`
+
+
+---
+
+# Two-Sample 95% Confidence Intervals
+
+.content-box-teal[
+.center[
+**"We are 95% confident that the interval**
+
+`$$\left( [\bar{x}_1 - \bar{x}_2] - 1.96 \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}, [\bar{x}_1 - \bar{x}_2] + 1.96 \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \right)$$`
+
+**captures/contains the true difference in population means."**
+]
+]
+
+- We can shorthand this to:
+
+`$$(\bar{x}_1 - \bar{x}_2) \pm 1.96 \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}$$`
+
+---
+
+# Calculator: 2-SampZInterval
+
+To get to the calculator function on a TI-84:
+- STAT &gt; TESTS &gt; 9: 2-SampZInterval
+
+To calculate confidence interval:
+- input:
+   - population 1 standard deviation ( `\(\sigma_1\)` )
+   - population 2 standard deviation ( `\(\sigma_2\)` )
+   - sample mean for population 1 ( `\(\bar{x}_1\)` )
+   - sample size for population 1 ( `\(n_1\)` )
+   - sample mean for population 2 ( `\(\bar{x}_2\)` )
+   - sample size for population 2 ( `\(n_2\)` )
+   - confidence level (C-Level)
+- then arrow down to CALCULATE and press ENTER
+
+---
+
+# Example: Calculus Exam
+
+Suppose in random sample of 40 college juniors and 30 college seniors, the mean score on a calculus exam is 75.3 for the juniors and 80.1 for the seniors. Suppose we also know that the population standard deviation for juniors is 10, and 11 for seniors.
+
+- Calculate a 95% confidence interval for the true difference in mean exam scores.
+
+---
+
+# General Two-Sample Confidence Intervals
+
+- Can write confidence interval formula generally as:
+
+`$$(\bar{x}_1 - \bar{x}_2) \pm Z^*_{\frac{1}{2}(1-\text{confidence})} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}$$`
+
+---
+
+---
+
+# Example: Calculus Exam
+
+Suppose in random sample of 40 college juniors and 30 college seniors, the mean score on a calculus exam is 75.3 for the juniors and 80.1 for the seniors. Suppose we also know that the population standard deviation for juniors is 10, and 11 for seniors.
+
+- Calculate a 99% confidence interval for the true difference in mean exam scores.
+
+---
+
+# Two-Sample Confidence Intervals with Sample Variances
+
+- What if we don’t know the true population variances or standard deviations?
+   - We substitute in `\(s^2_1\)` for `\(\sigma^2_1\)`, and `\(s^2_2\)` for `\(\sigma^2_2\)`
+   
+- Then we know:
+
+`$$T = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \sim T(\text{degrees of freedom} = n_1 + n_2 - 2)$$`
+
+- Then we can write a confidence interval as:
+`$$(\bar{x}_1 - \bar{x}_2) \pm T^*_{\frac{1}{2}(1-\text{confidence}),  df=(n_1+n_2 - 2)} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}$$`
+---
+
+# Calculator: 2-SampTInterval
+
+To get to the calculator function on a TI-84:
+- STAT &gt; TESTS &gt; 0: 2-SampZInterval
+
+To calculate confidence interval:
+- input:
+   - sample mean for population 1 ( `\(\bar{x}_1\)` )
+   - population 1 standard deviation ( `\(S_{x1}\)` )
+   - sample size for population 1 ( `\(n_1\)` )
+   - sample mean for population 2 ( `\(\bar{x}_2\)` )
+   - population 2 standard deviation ( `\(S_{x2}\)` )
+   - sample size for population 2 ( `\(n_2\)` )
+   - confidence level (C-Level)
+- then arrow down to CALCULATE and press ENTER
+
+---
+
+# Example: Framingham Heart Study
+
+3,539 descendents from the &lt;a href="https://www.framinghamheartstudy.org/"&gt;original Framingham Heart Study&lt;/a&gt; became part of a secondary cohort.
+
+In their 7th examination, the 1,911 women were found to have a sample mean systolic blood pressure of 126.5 with a sample standard deviation of 20.1. The 1,623 men were found to have a sample mean systolic blood pressure of 128.2 with a sample standard deviation of 17.5.
+
+- What is a 95% confidence interval for the difference in mean systolic blood pressure between men and women?
+
+---
+
+# Two-Sample Confidence Intervals with Proportions
+
+- We can extend this to comparing two populations where the data comes from a survey
+   - Asking men and women the same yes/no survey question
+
+- The sample proportion `\(\hat{p}_1\)` is used to estimate the proportion in the first population that has a sample size of `\(n_1\)`
+
+- The sample proportion `\(\hat{p}_2\)` is used to estimate the proportion in the second population that has a sample size of `\(n_2\)`
+
+- We can then say:
+`$$(\hat{p}_1 - \hat{p}_2) \sim \text{Normal} \left(\text{mean} = (p_1 - p_2), \text{variance} = \frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}\right)$$`
+
+or
+
+`$$Z = \frac{(\hat{p}_1 - \hat{p}_2) - (p_1 - p_2)}{\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}} \sim \text{Normal}(\text{mean} = 0, \text{variance} = 1)$$`
+
+---
+
+# Two-Sample Confidence Intervals with Proportions
+
+- Then we can write a confidence interval as:
+`$$(\hat{p}_1 - \hat{p}_2) \pm Z^*_{\frac{1}{2}(1-\text{confidence})} \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}$$`
+
+   - Notice that we're using `\(\hat{p}_1\)` and `\(\hat{p}_2\)` in the standard error
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+**"We are X% confident that the interval**
+
+`$$\left( (\hat{p}_1 - \hat{p}_2) - Z^*_{\frac{1}{2}(1-\text{confidence})} \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}, (\hat{p}_1 - \hat{p}_2) + Z^*_{\frac{1}{2}(1-\text{confidence})} \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}} \right)$$`
+
+**captures/contains the true difference in population proportions."**
+
+]
+
+
+---
+
+# Calculator: 2-PropZInt
+
+To get to the calculator function on a TI-84:
+- STAT &gt; TESTS &gt; B: 2-PropZInterval
+
+To calculate confidence interval:
+- input:
+   - number of observations with trait from sample 1 ( `\(x_1\)` )
+   - sample size for population 1 ( `\(n_1\)` )
+   - number of observations with trait from sample 2 ( `\(x_2\)` )
+   - sample size for population 2 ( `\(n_2\)` )
+   - confidence level (C-Level)
+- then arrow down to CALCULATE and press ENTER
+
+
+---
+
+# Example: Hip Dysplasia
+
+Studies have shown that hip dysplasia, a semi-genetic disorder where the femur doesn’t correctly fit into the hip socket, is more common in larger dog breeds. To investigate this, we test 27 Great Danes (large), 34 Shih Tzus (small), 41 Shiba Inus (medium) for the disorder. We find that 4 Great Danes, 7 Shih Tzus, and 2 Shiba Inus are dysplastic.
+
+- What are the proportions of each breed that have hip dysplasia?
+
+&lt;br&gt;
+
+- What is a 90% confidence interval for the difference in dysplasia rates between Great Danes and Shih Tzus?
+
+
+---
+
+# Hypothesis Test for Difference in Means
+
+- In last lecture where we tested our preconceived notions about what the mean of a single population was
+
+- We can do the same thing with testing our ideas about the relationship between the means of 2 populations
+
+
+---
+
+# Step 1: State your Hypotheses
+
+.pull-left[
+**For Means**
+
+- Are the population means different?
+   - `\(H_0: \mu_1 - \mu_2 = 0\)` (or `\(\mu_1 = \mu_2\)` )
+   - `\(H_A: \mu_1 - \mu_2 \ne 0\)` (or `\(\mu_1 \ne \mu_2\)` )
+   
+- Is the difference between the population means .alert2[**greater than**] some value `\(\mu_0\)`?
+   - `\(H_0: \mu_1 - \mu_2 \le \mu_0\)`
+   - `\(H_A: \mu_1 - \mu_2 &gt; \mu_0\)`
+   
+- Is the difference between the population means .alert2[**less than**] some value `\(\mu_0\)`?
+   - `\(H_0: \mu_1 - \mu_2 \ge \mu_0\)`
+   - `\(H_A: \mu_1 - \mu_2 &lt; \mu_0\)`
+   
+]
+
+.pull-right[
+**For Proportions**
+
+- Are the population proportions different?
+   - `\(H_0: p_1 - p_2 = 0\)` (or `\(p_1 = p_2\)` )
+   - `\(H_A: p_1 - p_2 \ne 0\)` (or `\(p_1 \ne p_2\)` )
+   
+- Is the difference between the population proportions .alert2[**greater than**] some value `\(p_0\)`?
+   - `\(H_0: p_1 - p_2 \le p_0\)`
+   - `\(H_A: p_1 - p_2 &gt; p_0\)`
+   
+- Is the difference between the population proportions .alert2[**less than**] some value `\(p_0\)`?
+   - `\(H_0: p_1 - p_2 \ge p_0\)`
+   - `\(H_A: p_1 - p_2 &lt; p_0\)`
+
+]
+
+---
+
+# Step 2: Calculate your Test Statistic
+
+- If we know the population standard deviations:
+
+.center[
+`\(z = \frac{(\bar{x}_1 - \bar{x}_2) - \mu_0}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}},\)`     `\(z = \frac{(\hat{p}_1 - \hat{p}_2) - p_0}{\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}}\)`
+]
+
+
+- If we're estimating the population standard deviations with the sample standard deviations:
+`$$t = \frac{(\bar{x}_1 - \bar{x}_2) - \mu_0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$$`
+.content-box-teal[
+.center[
+**"If the null hypothesis was true, this is how many standard deviations away from the null hypothesis difference the differnce in our sample means is"**
+]
+]
+
+---
+
+# Step 2: Calculate your Test Statistic
+
+- If `\(H_0: p_1 - p_2 = 0\)`, we need to "average" the two proportions together to get the standard error:
+
+`$$z = \frac{(\hat{p_1} - \hat{p}_2) - 0}{\sqrt{\frac{\hat{p}(1-\hat{p})}{n_1} + \frac{\hat{p}(1-\hat{p})}{n_2}}}$$`
+`$$\hat{p} = \frac{\hat{p}_1n_1 + \hat{p}_2n_2}{n_1 + n_2}$$`
+
+---
+
+# Step 3: Find Your Critical Value/Calculate Your P-value
+
+- A critical value is the value your test statistic would have to surpass in order for you to reject `\(H_0\)`
+
+   - If alternative is "two-sided" ( `\(\ne\)` ), use the Z- or T-table to find a critical value that has some small probability (usually **0.025**) to the .alert2[**right**] (i.e., P(Z&gt;z) = 0.025 )
+   
+   - If alternative is "one-sided" and less than, use the Z- or T-table to find a critical value that has some small probability (usually **0.05**) to the .alert2[**left**] (i.e., P(Z&lt;z) = 0.05 )
+   
+   - If alternative is "one-sided" and greater than, use the Z- or T-table to find a critical value that has some small probability (usually **0.05**) to the .alert2[**right**] (i.e., P(Z&gt;z) = 0.05 )
+
+
+---
+
+# Step 4: Draw a conclusion
+
+- For two-sided test:
+   - If |test-statistic| &gt; critical value, __reject__ the null
+   - If |test-statistic| &lt; critical value, __fail to reject__ the null
+   
+- For one-sided test:
+   - Greater-than test:
+      - If test-statistic &gt; critical value, **reject** the null
+      - If test-statistic &lt; critical value, **fail to reject** the null
+      
+   - Less-than test:
+      - If test-statistic &lt; critical value, **reject** the null
+      - If test-statistic &gt; critical value, **fail to reject** the null
+      
+- For any test:
+   - If p-value is "small" (&lt;0.05), **reject** the null
+   - If p-value is "not small" (&gt;0.05), **fail to reject** the null
+
+
+---
+
+# Step 5: Interpret your conclusion in context
+
+- For a rejection
+
+   - Why are we rejecting?
+   - What strength of evidence do we have?
+   - What does a rejection of the null hypothesis mean for our knowledge about the populations?
+
+- For a fail-to-reject
+
+   - Why are we not rejecting?
+   - Was our evidence not very strong?
+   - What does a failure to reject the null hypothesis mean for our knowledge about the populations?
+
+---
+
+# Calculator: 2-SampZTest
+
+To get to the calculator function on a TI-84:
+- STAT &gt; TESTS &gt; 3: 2-SampZTest
+
+To calculate hypothesis test statistic and p-value:
+- input:
+   - population 1 standard deviation ( `\(\sigma_1\)` )
+   - population 2 standard deviation ( `\(\sigma_2\)` )
+   - sample mean from population 1( `\(\bar{x}_1\)` )
+   - sample size from population 1 ( `\(n_1\)` )
+   - sample mean from population 2( `\(\bar{x}_2\)` )
+   - sample size from population 2 ( `\(n_2\)` )
+   - direction of test: ( `\(\mu_1: \ne \mu_2, &lt; \mu_2, &gt; \mu_2\)` )
+- then arrow down to CALCULATE and press ENTER
+
+---
+
+# Calculator: 2-SampTTest
+
+To get to the calculator function on a TI-84:
+- STAT &gt; TESTS &gt; 4: 2-SampTTest
+
+To calculate hypothesis test statistic and p-value:
+- input:
+   - sample mean from population 1( `\(\bar{x}_1\)` )
+   - sample 1 standard deviation ( `\(S_{x1}\)` )
+   - sample size from population 1 ( `\(n_1\)` )
+   - sample mean from population 2( `\(\bar{x}_2\)` )
+   - sample 2 standard deviation ( `\(S_{x2}\)` )
+   - sample size from population 2 ( `\(n_2\)` )
+   - direction of test: ( `\(\mu_1: \ne \mu_2, &lt; \mu_2, &gt; \mu_2\)` )
+   - Polled: always select "No"
+- then arrow down to CALCULATE and press ENTER
+
+---
+
+# Example: Smoking &amp; Birth Weight
+
+We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 150 mothers in North Carolina. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+
+- State your null and alternative hypotheses.
+
+--
+
+`$$H_0:  \mu_{NS} - \mu_{S} = 0\text{ (no difference in mean birth weights)}$$`
+`$$H_0:  \mu_{NS} - \mu_{S} \ne 0\text{ (some difference in mean birth weights)}$$`
+
+---
+
+# Example: Smoking &amp; Birth Weight
+
+We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 150 mothers in North Carolina. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+
+- Find your test statistic. Find a critical value or calculate the p-value.
+
+---
+
+# Example: Smoking &amp; Birth Weight
+
+We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 150 mothers in North Carolina. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+
+- Conclusion?
+
+
+---
+
+# Example: Car Repairs
+
+A consumer advocacy group wants to find out if there's a difference between the proportions of two leading car models that need more the $500 worth of repairs within 2 years of their purchase. A sample of 400 owners of model A were contacted, and we find that 53 needed these major repairs. A sample of 500 owners of model B were also contacted, and we find that 78 needed these major repairs.
+
+- State your null and alternative hypotheses.
+
+--
+
+`$$H_0: p_A - p_B = 0\text{ (no difference in repair rates of 2 models)}$$`
+`$$H_A: p_A - p_B \ne 0\text{ (the repair rate is different)}$$`
+
+---
+
+# Example: Car Repairs
+
+A consumer advocacy group wants to find out if there's a difference between the proportions of two leading car models that need more the $500 worth of repairs within 2 years of their purchase. A sample of 400 owners of model A were contacted, and we find that 53 needed these major repairs. A sample of 500 owners of model B were also contacted, and we find that 78 needed these major repairs.
+
+- Find your test statistic. Find a critical value or calculate the p-value.
+
+
+---
+
+# Example: Car Repairs
+
+A consumer advocacy group wants to find out if there's a difference between the proportions of two leading car models that need more the $500 worth of repairs within 2 years of their purchase. A sample of 400 owners of model A were contacted, and we find that 53 needed these major repairs. A sample of 500 owners of model B were also contacted, and we find that 78 needed these major repairs.
+
+- Conclusion?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
