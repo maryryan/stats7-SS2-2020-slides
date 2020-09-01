@@ -43,6 +43,30 @@ class:
 
 ---
 
+# Some Notes About Week 5 &amp; Finals Week
+
+- Final exam is next .alert[**Tuesday, Sept. 8 @ 1 p.m. PST**]
+   - If you've arranged with me to take the exam at an alternate time, you should've heard from me within the last 72 hours
+   - If you .alert[**have not**] heard from me and cannot make the original time, .alert[**email me as soon as possible**]
+   
+- Discussion Lab 5 this Friday will be a review. The discussion section will be recorded.
+
+- Deadline to change grade option to pass/no pass is Friday, Sept. 4
+
+- All extra credit work due by Tuesday, Sept. 8 @ 1 p.m. PST
+   
+- Finals week OH:
+   - Mary
+      - Sat., Sept. 5 @ 6 - 8 p.m. PST
+   - Kyle
+      - Sun., Sept. 6 @ 7:30 - 8:30 p.m. PST
+      - Mon., Sept. 7 @ 7 - 9 p.m. PST
+   - Jenifer
+      - Fri., Sept. 5 @ 2 - 4 p.m. PST
+      - Mon., Sept. 7 @ 2 - 4 p.m. PST
+
+---
+
 class: title-slide2
 
 # &lt;center&gt; Two Sample Inference &lt;/center&gt;
@@ -58,8 +82,6 @@ class: title-slide2
 &lt;p&gt;&lt;img src="https://svgsilh.com/svg/1873373.svg" width="35"/&gt; Slides can be found at:&lt;/p&gt;
 &lt;/p&gt;&lt;a href="https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-twoSampleInference/stats7-SS2-2020-twoSampleInference"&gt; https://maryryan.github.io/stats7-SS2-2020-slides/stats7-SS2-2020-twoSampleInference/stats7-SS2-2020-twoSampleInference &lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-
-
 
 ---
 
@@ -100,7 +122,7 @@ By the end of today's lecture, you should be able to:
 
 - The sample mean of population `\(X^{(2)}\)` is: `\(\bar{x}_2 = \frac{1}{n_2}\sum_{i=1}^{n_2}x^{(2)}_i\)`
 
-- We can estimate the difference in population means as: `\(\bar{x}_1 - \bar{x}_2\)`
+- We can .alert2[**estimate the difference**] in population means as: `\(\bar{x}_1 - \bar{x}_2\)`
 
 - Because we are taking samples, there is going to be some variability around what what this difference actually is
    - The variance of the difference is: `\(\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}\)`
@@ -122,6 +144,9 @@ or
 `$$Z = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}} \sim \text{Normal}\left(\text{mean = }0, \text{variance = }1 \right)$$`
 ]
 ]
+
+- Remember: we sometimes refer to the standard deviation of the sampling distribution as the .alert[**standard error**]
+   - Here, standard error is: `\(\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}\)`
 
 ---
 
@@ -210,8 +235,15 @@ Suppose in random sample of 40 college juniors and 30 college seniors, the mean 
 - Can write confidence interval formula generally as:
 
 `$$(\bar{x}_1 - \bar{x}_2) \pm Z^*_{\frac{1}{2}(1-\text{confidence})} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}$$`
+.center[
+**"We are XX% confident that the interval**
 
----
+`$$\left( [\bar{x}_1 - \bar{x}_2] - Z^*_{\frac{1}{2}(1-\text{confidence})} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}, [\bar{x}_1 - \bar{x}_2] + Z^*_{\frac{1}{2}(1-\text{confidence})} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \right)$$`
+
+**captures/contains the true difference in population means."**
+]
+
+- Margin of error is now: `\(Z^*_{\frac{1}{2}(1-\text{confidence})} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}\)`
 
 ---
 
@@ -233,7 +265,7 @@ Suppose in random sample of 40 college juniors and 30 college seniors, the mean 
 `$$T = \frac{(\bar{x}_1 - \bar{x}_2) - (\mu_1 - \mu_2)}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \sim T(\text{degrees of freedom} = n_1 + n_2 - 2)$$`
 
 - Then we can write a confidence interval as:
-`$$(\bar{x}_1 - \bar{x}_2) \pm T^*_{\frac{1}{2}(1-\text{confidence}),  df=(n_1+n_2 - 2)} \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}$$`
+`$$(\bar{x}_1 - \bar{x}_2) \pm T^*_{\frac{1}{2}(1-\text{confidence}),  df=(n_1+n_2 - 2)} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}$$`
 ---
 
 # Calculator: 2-SampTInterval
@@ -254,13 +286,11 @@ To calculate confidence interval:
 
 ---
 
-# Example: Framingham Heart Study
+# Example: Diabetes &amp; White Blood Cells
 
-3,539 descendents from the &lt;a href="https://www.framinghamheartstudy.org/"&gt;original Framingham Heart Study&lt;/a&gt; became part of a secondary cohort.
+We would like to know if there is a difference in the amount of white blood cell counts in type 1 and type 2 diabetics. We draw blood from 40 type 1 diabetics and 42 type 2 diabetics. Type 1 diabetics had a mean count of 8,548 per mcL of blood, with a sample standard deviation of 306. Type 2 diabetics had a mean count of 13,257 per mcL of blood, with sample standard deviation of 253.
 
-In their 7th examination, the 1,911 women were found to have a sample mean systolic blood pressure of 126.5 with a sample standard deviation of 20.1. The 1,623 men were found to have a sample mean systolic blood pressure of 128.2 with a sample standard deviation of 17.5.
-
-- What is a 95% confidence interval for the difference in mean systolic blood pressure between men and women?
+- What is a 95% confidence interval for the difference in mean cell counts between type 2 and type 2 diabetics?
 
 ---
 
@@ -347,9 +377,9 @@ Studies have shown that hip dysplasia, a semi-genetic disorder where the femur d
 .pull-left[
 **For Means**
 
-- Are the population means different?
-   - `\(H_0: \mu_1 - \mu_2 = 0\)` (or `\(\mu_1 = \mu_2\)` )
-   - `\(H_A: \mu_1 - \mu_2 \ne 0\)` (or `\(\mu_1 \ne \mu_2\)` )
+- Is the difference between the population means .alert2[**not equal**] to some value `\(\mu_0\)`?
+   - `\(H_0: \mu_1 - \mu_2 = \mu_0\)`
+   - `\(H_A: \mu_1 - \mu_2 \ne \mu_0\)`
    
 - Is the difference between the population means .alert2[**greater than**] some value `\(\mu_0\)`?
    - `\(H_0: \mu_1 - \mu_2 \le \mu_0\)`
@@ -364,9 +394,9 @@ Studies have shown that hip dysplasia, a semi-genetic disorder where the femur d
 .pull-right[
 **For Proportions**
 
-- Are the population proportions different?
-   - `\(H_0: p_1 - p_2 = 0\)` (or `\(p_1 = p_2\)` )
-   - `\(H_A: p_1 - p_2 \ne 0\)` (or `\(p_1 \ne p_2\)` )
+- Is the difference between the population means .alert2[**not equal**] to some value `\(p_0\)`?
+   - `\(H_0: p_1 - p_2 = p_0\)`
+   - `\(H_A: p_1 - p_2 \ne p_0\)`
    
 - Is the difference between the population proportions .alert2[**greater than**] some value `\(p_0\)`?
    - `\(H_0: p_1 - p_2 \le p_0\)`
@@ -382,18 +412,18 @@ Studies have shown that hip dysplasia, a semi-genetic disorder where the femur d
 
 # Step 2: Calculate your Test Statistic
 
-- If we know the population standard deviations:
+- If we know the .alert2[**population**] standard deviations:
 
 .center[
 `\(z = \frac{(\bar{x}_1 - \bar{x}_2) - \mu_0}{\sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}},\)`     `\(z = \frac{(\hat{p}_1 - \hat{p}_2) - p_0}{\sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}}\)`
 ]
 
 
-- If we're estimating the population standard deviations with the sample standard deviations:
+- If we're estimating the population standard deviations with the .alert2[**sample**] standard deviations:
 `$$t = \frac{(\bar{x}_1 - \bar{x}_2) - \mu_0}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}}$$`
 .content-box-teal[
 .center[
-**"If the null hypothesis was true, this is how many standard deviations away from the null hypothesis difference the differnce in our sample means is"**
+**"If the null hypothesis was true, this is how many standard deviations away from the null hypothesis difference the difference between our sample means is"**
 ]
 ]
 
@@ -410,29 +440,59 @@ Studies have shown that hip dysplasia, a semi-genetic disorder where the femur d
 
 # Step 3: Find Your Critical Value/Calculate Your P-value
 
-- A critical value is the value your test statistic would have to surpass in order for you to reject `\(H_0\)`
+A critical value ( `\(Z^*\)` or `\(T^*\)` ) is the value your test statistic would have to surpass in order for you to reject `\(H_0\)`
 
-   - If alternative is "two-sided" ( `\(\ne\)` ), use the Z- or T-table to find a critical value that has some small probability (usually **0.025**) to the .alert2[**right**] (i.e., P(Z&gt;z) = 0.025 )
+- If `\(H_A: \ne\)` (two-sided), use the Z- or T-table to find a critical value that has some small probability (usually **0.025**) to the .alert2[**right**] (i.e., P(Z&gt;z^*) = 0.025 )
    
-   - If alternative is "one-sided" and less than, use the Z- or T-table to find a critical value that has some small probability (usually **0.05**) to the .alert2[**left**] (i.e., P(Z&lt;z) = 0.05 )
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
    
-   - If alternative is "one-sided" and greater than, use the Z- or T-table to find a critical value that has some small probability (usually **0.05**) to the .alert2[**right**] (i.e., P(Z&gt;z) = 0.05 )
+   - If `\(H_A: &lt;\)` (one-sided), use the Z- or T-table to find a critical value that has some small probability (usually **0.05**) to the .alert2[**left**] (i.e., P(Z&lt;z^*) = 0.05 )
+   
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+   
+   - If `\(H_A: &gt;\)` (one-sided), use the Z- or T-table to find a critical value that has some small probability (usually **0.05**) to the .alert2[**right**] (i.e., P(Z&gt;z^*) = 0.05 )
+
+---
+
+# Step 3: Find Your Critical Value/Calculate Your P-value
+
+To calculate p-value:
+
+- If `\(H_A: \ne\)` (two-sided):
+`$$\text{p-value} = 2\times P(Z&gt;|\text{test-statistic}|)$$`
+`$$\text{p-value} = 2\times P(T&gt;|\text{test-statistic}|)$$`
+
+   
+- If `\(H_A: &lt;\)` (one-sided):
+`$$\text{p-value} = P(Z&lt;\text{test-statistic})$$`
+`$$\text{p-value} = P(T&lt;\text{test-statistic})$$`
+
+   
+- If `\(H_A: &gt;\)` (one-sided):
+`$$\text{p-value} = P(Z&gt;\text{test-statistic})$$`
+`$$\text{p-value} = P(T&gt;\text{test-statistic})$$`
+
 
 
 ---
 
 # Step 4: Draw a conclusion
 
-- For two-sided test:
+
+- For `\(H_A: \ne\)` (two-sided) test:
    - If |test-statistic| &gt; critical value, __reject__ the null
    - If |test-statistic| &lt; critical value, __fail to reject__ the null
    
 - For one-sided test:
-   - Greater-than test:
+   - `\(H_A: &gt;\)`
       - If test-statistic &gt; critical value, **reject** the null
       - If test-statistic &lt; critical value, **fail to reject** the null
       
-   - Less-than test:
+   - `\(H_A: &lt;\)`
       - If test-statistic &lt; critical value, **reject** the null
       - If test-statistic &gt; critical value, **fail to reject** the null
       
@@ -491,14 +551,16 @@ To calculate hypothesis test statistic and p-value:
    - sample 2 standard deviation ( `\(S_{x2}\)` )
    - sample size from population 2 ( `\(n_2\)` )
    - direction of test: ( `\(\mu_1: \ne \mu_2, &lt; \mu_2, &gt; \mu_2\)` )
-   - Polled: always select "No"
+   - Pooled: always select "No"
 - then arrow down to CALCULATE and press ENTER
 
 ---
 
 # Example: Smoking &amp; Birth Weight
 
-We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 150 mothers in North Carolina. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 52 smoking mothers in North Carolina, and 100 non-smoking mothers. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+
+The babies from the smoking mothers had a mean birth weight of 6.78 lbs and a sample standard deviation of 1.43. The babies from non-smoking mothers had a mean birth weight of 7.18 lbs and a sample standard deviation of 160.
 
 - State your null and alternative hypotheses.
 
@@ -511,7 +573,9 @@ We are researchers looking into the effects of pre-natal smoking (birth mother s
 
 # Example: Smoking &amp; Birth Weight
 
-We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 150 mothers in North Carolina. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 52 smoking mothers in North Carolina, and 100 non-smoking mothers. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+
+The babies from the smoking mothers had a mean birth weight of 6.78 lbs and a sample standard deviation of 1.43. The babies from non-smoking mothers had a mean birth weight of 7.18 lbs and a sample standard deviation of 1.60.
 
 - Find your test statistic. Find a critical value or calculate the p-value.
 
@@ -519,7 +583,9 @@ We are researchers looking into the effects of pre-natal smoking (birth mother s
 
 # Example: Smoking &amp; Birth Weight
 
-We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 150 mothers in North Carolina. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+We are researchers looking into the effects of pre-natal smoking (birth mother smoking during pregnancy) on birth weight of the baby. We gather data from 52 smoking mothers in North Carolina, and 100 non-smoking mothers. We want to know if babies whose moms smoked during pregnancy have different average birth weights than babies whose moms didn't smoke during pregnancy.
+
+The babies from the smoking mothers had a mean birth weight of 6.78 lbs and a sample standard deviation of 1.43. The babies from non-smoking mothers had a mean birth weight of 7.18 lbs and a sample standard deviation of 160.
 
 - Conclusion?
 
