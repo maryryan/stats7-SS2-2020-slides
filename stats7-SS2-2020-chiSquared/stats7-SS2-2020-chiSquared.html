@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Two Sample Inference</title>
+    <title>Inference for Categorical Data</title>
     <meta charset="utf-8" />
     <meta name="author" content="Mary Ryan" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
@@ -67,23 +67,332 @@ class: title-slide2
 
 By the end of today's lecture, you should be able to:
 
-- bloop
+- organize data from two categorical variables into a two-way table
+
+- understand how to find expected counts under the assumption of independence between variables
+
+- perform chi-squared hypothesis tests for indepdence
+
+- draw appropriate conclusions for chi-squared tests in the context of the problem
 
 ---
 
-# Hypothesis Testing with Categorical Variables
+# Organizing Categorical Data for Comparison
 
-- In the last few lecture we've talked about how to perform hypothesis tests on means or porportions
+- In the last few lecture we've talked about how draw inference about populations using continuous quantitative data or a single binary variable
 
-   - Usually means we're dealing with continuous quantitative data, or binary count data
+- What if we wanted to compare .alert2[**categorical**] variables, though?
 
-- What if we wanted to suss out the relationship between two .alert2[**categorical**] variables, though?
-
-   - Does being category 1 of a variable X affect if you’ll be category 2 of a variable Y?
-
-   - Are variable X and variable Y independent?
+   - For each variable, we can look at the number of observations (.alert[**counts**]) in each category
    
+   - If we want to look at two variables at once, we can look at the number of observations that belong to one category of the first variabe and another category of the second variable
+   
+   - Can arrange counts into a .alert[**two-way table**] (AKA, .alert[**contingency table**])
+   
+.center[
+&lt;img src="twoWayTable.png" width="400"/&gt;
+]
+
+---
+
+# Comparing Two Categorical Variables
+
+- When we compare categorical variables, we often want to study the .alert2[**relationship**] between them
+
+   - Does being in one category of one variable influence what category from the second variable you're in?
+   
+   - Are the variables .alert[**independent**] or .alert[**dependent**]?
+   
+- How do we tell if variables are independent?
+
+- Recall basic probability:
+
+   - Events *A* and *B* are independent if:
+   `$$P(A\cap C) = P(A)\times P(C)$$`
+   
+---
+
+# Independence of Two Categorical Variables
+
+**Events *A* and *B* are independent if `\(P(A\cap C) = P(A)\times P(C)\)`**
+
+.pull-left-66[
+- **P(category A of variable X)?**
+
+`\(\begin{align}P(A) &amp;= \frac{\text{(# in C AND # in A)} + \text{(# in D AND # in A)}}{\text{Total # observed in all categories}}\\&amp;=\frac{\text{Total in A}}{\text{Total observed}}\end{align}\)`
+
+&lt;br&gt;
+
+- **P(category C of variable Y)?**
+
+`\(\begin{align}P(C) &amp;= \frac{\text{(# in C AND # in A)} + \text{(# in C AND # in B)}}{\text{Total # observed in all categories}}\\&amp;=\frac{\text{Total in C}}{\text{Total observed}}\end{align}\)`
+]
+
+.pull-right-33[
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;img src="twoWayTable.png" width="700"/&gt;
+
+]
+
+---
+
+# Independence of Two Categorical Variables
+
+**Events *A* and *B* are independent if `\(P(A\cap C) = P(A)\times P(C)\)`**
+
+**P(category A AND category C) if independent?**
+
+`\(\begin{align}P(A \cap C) &amp;= P(A) \times P(C)\\&amp;= \frac{\text{(Total in A)}}{\text{Total # observed in all categories}} \times \frac{\text{(Total in C)}}{\text{Total # observed in all categories}}\\&amp;= \frac{\text{(Total in A)}\times \text{(Total in C)}}{\text{(Total observed)}^2}\end{align}\)`
+   
+&lt;br&gt;
+
+**Number of observations in A and C if independent?**
+
+`\(\begin{align}P(A \cap C)\times \text{(Total observed)} &amp;= \frac{\text{(Total in A)}\times \text{(Total in C)}}{\text{(Total observed)}^2}\times \text{(Total observed)}\\&amp;= \frac{\text{(Total in A)}\times \text{(Total in C)}}{\text{(Total observed)}}\end{align}\)`
+
+
+&lt;div style="position:fixed; right:25px; top:50px"&gt;
+&lt;img src="twoWayTable.png" width="350"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position:fixed; right:125px; top:275px"&gt;
+&lt;img src="arrowDown.png" width="75"/&gt;
+&lt;/div&gt;
+
+&lt;div style="position:fixed; right:25px; bottom:50px"&gt;
+&lt;img src="twoWayExpected.png" width="300"/&gt;
+&lt;/div&gt;
+
+
+---
+
+# Independence of Two Categorical Variables
+
+- So if your table of data matches the table of counts we would expect to get if two variables are independent, then can conclude variables are independent!
+
+
+.center[
+&lt;img src="twoWayTable.png" width="300"/&gt;&lt;img src="twoWayExpected.png" width="300"/&gt;
+]
+
+- But we're sampling, and we rarely get *exactly* our expected values. And what if some counts match but others don't?
+
+--
+
+- How do we know when counts are close enough to expected for the variables to be considered .alert2[**independent**]?
+
+- How do we when counts are far away enough from expected for the variables to be considered .alert2[**not independent**]?
+
+--
+
 - We determine this relationship through a .alert[**Chi-Squared Test for Independence**]
+
+---
+
+# Chi-Squared Test for Independence: Hypotheses
+
+- We are looking to see if there is a .alert2[**non-independent relationship**] between the two variables
+
+   - For .alert[**null hypothesis**] ( `\(H_0\)` ), we will assume there is no relationship, or the variables are .alert2[**independent**]
+
+   - For .alert[**alternative hypothesis**] ( `\(H_A\)` ), we will find evidence that there is some kind of relationship, or the variables are .alert2[**not independent**]
+
+`$$H_0: \text{ variable X and variable Y are independent}$$`
+`$$H_A: \text{ variable X and variable Y are not independent}$$`
+
+---
+
+# Chi-Squared Test for Independence: Test Statistic
+
+- In other hypothesis testing scenarios, we used a .alert[**test statistic**] to help us determine whether our data would be too weird to see if `\(H_0\)` was true
+
+   - Z-statistics, T-statistics
+   
+- Here we use a .alert[**chi-squared statistic**] ( `\(\chi^2\)` )
+
+`$$\begin{align}
+\chi^2 &amp;= \frac{\left[(\text{observed counts for being in category A and category C}) - (\text{expected counts for category A and C})\right]^2}{(\text{observed counts for category A and  C})}\\
+&amp;+ ... +\\
+&amp; + \frac{\left[(\text{observed counts for category B and D}) - (\text{expected counts for category B and  D})\right]^2}{(\text{observed counts for category B and D})}\\
+\end{align}$$`
+
+- If `\(\chi^2 = 0\)`, variables X and Y are perfectly .alert2[**independent**]
+
+- As `\(\chi^2\)` gets bigger, we are accruing more and more evidence that X and Y are .alert2[**not independent**]
+
+- `\(\chi^2\)` will also be bigger if we have more categories to compare
+
+---
+
+# Chi-Squared Test for Independence: Chi-Squared Distribution
+
+.pull-left-66[
+
+- `\(\chi^2\)` follows a Chi-squared distribution
+
+   - Shape of the distribution controlled by .alert2[**degrees of freedom**]
+   
+]
+
+.pull-right-33[
+&lt;img src="chi2Dist.png" width="700"/&gt;
+]
+
+.center[
+`\(\begin{align}\text{degrees of freedom} &amp;= (\text{# rows in two-way table} - 1)\times (\text{# columns in two-way table} - 1)\\&amp;=(\text{# categories in variable X} - 1)\times (\text{# categories in variable Y} - 1)\end{align}\)`
+]
+
+---
+
+# Chi-Squared Test for Independence: Critical Value
+
+.pull-left[
+- How do we know when `\(\chi^2\)` is big enough to reject `\(H_0\)` ?
+
+   - Look up critical value, `\(\chi^{2*}\)` , in chi-squared table
+
+1. Find row with correct degrees of freedom
+
+2. Find column with desired probability of statistics being more extreme
+   - Want this to be small, so usually choose 0.05
+   
+]
+   
+.pull-right[
+
+&lt;img src="chi2Table.png" width="500" /&gt;
+
+]
+
+---
+
+# Chi-Squared Test for Independence: Decision
+
+- If your test statistic `\(\chi^2\)` &gt; critical value `\(\chi^{2*}\)`, .alert[**reject the null hypothesis**]
+
+   - We have sufficient evidence to conclude that variables X and Y are .alert2[**not independent**]
+   
+   - The category you are in for variable X will influence what category you're in for variable Y
+
+- If your test statistic `\(\chi^2\)` &lt; critical value `\(\chi^{2*}\)`, .alert[**fail-to-reject the null hypothesis**]
+
+   - We .alert2[**do not**] have sufficient evidence to conclude that variables X and Y are .alert2[**not independent**]
+   
+   - The category you are in for variable X will likely not influence what category you're in for variable Y
+   
+---
+
+# Example: Alcohol &amp; Smoking
+
+.pull-left-66[
+A social study was conducted to see if hard alcohol consumption (yes or no) and cigarette (traditional or electronic) smoking (yes or no) were linked. 400 subjects were sampled.
+]
+
+.pull-right-33[
+&lt;img src="alcoholSmoking.png" width="300"/&gt;
+]
+
+- What are our hypotheses?
+
+---
+
+# Example: Alcohol &amp; Smoking
+
+.pull-left-66[
+A social study was conducted to see if hard alcohol consumption (yes or no) and cigarette (traditional or electronic) smoking (yes or no) were linked. 400 subjects were sampled.
+]
+
+.pull-right-33[
+&lt;img src="alcoholSmoking.png" width="300"/&gt;
+]
+
+- Find the expected count table.
+
+---
+
+# Example: Alcohol &amp; Smoking
+
+.pull-left-66[
+A social study was conducted to see if hard alcohol consumption (yes or no) and cigarette (traditional or electronic) smoking (yes or no) were linked. 400 subjects were sampled.
+]
+
+.pull-right-33[
+&lt;img src="alcoholSmoking.png" width="300"/&gt;
+]
+
+- Calculate the test statistic. Find the critical value.
+
+---
+
+# Example: Alcohol &amp; Smoking
+
+.pull-left-66[
+A social study was conducted to see if hard alcohol consumption (yes or no) and cigarette (traditional or electronic) smoking (yes or no) were linked. 400 subjects were sampled.
+]
+
+.pull-right-33[
+&lt;img src="alcoholSmoking.png" width="300"/&gt;
+]
+
+- Decision?
+
+---
+
+# Example: Party Confidence
+
+.pull-left-66[
+In a nationwide telephone poll of 1,000 adults representing Democrats, Republicans, and Independents, respondents were asked 2 questions: their party affiliation and if their confidence in the U.S. banking system had been shaken by the 2008 financial crisis.
+]
+
+.pull-right-33[
+&lt;img src="partyConfidence.png" width="350"/&gt;
+]
+
+- What are our hypotheses?
+
+---
+
+# Example: Party Confidence
+
+.pull-left-66[
+In a nationwide telephone poll of 1,000 adults representing Democrats, Republicans, and Independents, respondents were asked 2 questions: their party affiliation and if their confidence in the U.S. banking system had been shaken by the 2008 financial crisis.
+]
+
+.pull-right-33[
+&lt;img src="partyConfidence.png" width="350"/&gt;
+]
+
+- Find the expected count table.
+
+---
+
+# Example: Party Confidence
+
+.pull-left-66[
+In a nationwide telephone poll of 1,000 adults representing Democrats, Republicans, and Independents, respondents were asked 2 questions: their party affiliation and if their confidence in the U.S. banking system had been shaken by the 2008 financial crisis.
+]
+
+.pull-right-33[
+&lt;img src="partyConfidence.png" width="350"/&gt;
+]
+
+- Calculate the test statistic. Find the critical value.
+
+---
+
+# Example: Party Confidence
+
+.pull-left-66[
+In a nationwide telephone poll of 1,000 adults representing Democrats, Republicans, and Independents, respondents were asked 2 questions: their party affiliation and if their confidence in the U.S. banking system had been shaken by the 2008 financial crisis.
+]
+
+.pull-right-33[
+&lt;img src="partyConfidence.png" width="350"/&gt;
+]
+
+- Decision?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
