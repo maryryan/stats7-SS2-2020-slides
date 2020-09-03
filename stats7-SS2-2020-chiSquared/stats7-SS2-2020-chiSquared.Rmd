@@ -267,9 +267,9 @@ $$H_A: \text{ variable X and variable Y are not independent}$$
 - Here we use a .alert[**chi-squared statistic**] ( $\chi^2$ )
 
 $$\begin{align}
-\chi^2 &= \frac{\left[(\text{observed counts for being in category A and category C}) - (\text{expected counts for category A and C})\right]^2}{(\text{observed counts for category A and  C})}\\
+\chi^2 &= \frac{\left[(\text{observed counts for being in category A and category C}) - (\text{expected counts for category A and C})\right]^2}{(\text{expected counts for category A and  C})}\\
 &+ ... +\\
-& + \frac{\left[(\text{observed counts for category B and D}) - (\text{expected counts for category B and  D})\right]^2}{(\text{observed counts for category B and D})}\\
+& + \frac{\left[(\text{observed counts for category B and D}) - (\text{expected counts for category B and  D})\right]^2}{(\text{expected counts for category B and D})}\\
 \end{align}$$
 
 - If $\chi^2 = 0$, variables X and Y are perfectly .alert2[**independent**]
