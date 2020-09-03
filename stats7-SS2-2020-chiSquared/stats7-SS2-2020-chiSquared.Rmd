@@ -89,7 +89,7 @@ class:
       - Fri., Sept. 5 @ 2 - 4 p.m. PST
       - Mon., Sept. 7 @ 2 - 4 p.m. PST
 
-- Please fill out class evals!
+- Please fill out class evals! (They close tonight at 11:45 p.m. PST)
 
 ---
 
@@ -198,7 +198,7 @@ $\begin{align}P(A \cap C) &= P(A) \times P(C)\\&= \frac{\text{(Total in A)}}{\te
    
 <br>
 
-**Number of observations in A and C if independent?**
+**.alert2[Number of observations] in A and C if independent?**
 
 $\begin{align}P(A \cap C)\times \text{(Total observed)} &= \frac{\text{(Total in A)}\times \text{(Total in C)}}{\text{(Total observed)}^2}\times \text{(Total observed)}\\&= \frac{\text{(Total in A)}\times \text{(Total in C)}}{\text{(Total observed)}}\end{align}$
 
@@ -231,13 +231,13 @@ $\begin{align}P(A \cap C)\times \text{(Total observed)} &= \frac{\text{(Total in
 
 --
 
-- How do we know when counts are close enough to expected for the variables to be considered .alert2[**independent**]?
+- How do we know when counts are .alert2[**close enough**] to expected for the variables to be considered .alert2[**independent**]?
 
-- How do we when counts are far away enough from expected for the variables to be considered .alert2[**not independent**]?
+- How do we when counts are .alert2[**far away enough**] from expected for the variables to be considered .alert2[**not independent**]?
 
 --
 
-- We determine this relationship through a .alert[**Chi-Squared Test for Independence**]
+- We formally test this relationship through a .alert[**Chi-Squared Test for Independence**]
 
 ---
 
@@ -303,14 +303,16 @@ $\begin{align}\text{degrees of freedom} &= (\text{# rows in two-way table} - 1)\
 # Chi-Squared Test for Independence: Critical Value
 
 .pull-left[
-- How do we know when $\chi^2$ is big enough to reject $H_0$ ?
+How do we know when $\chi^2$ is big enough to reject $H_0$ ?
 
-   - Look up critical value, $\chi^{2*}$ , in chi-squared table
+- Look up .alert[**critical value**], $\chi^{2*}_{df}$ , in chi-squared table
 
-1. Find row with correct degrees of freedom
+1. Find row with correct degrees of freedom (df)
 
 2. Find column with desired probability of statistics being more extreme
    - Want this to be small, so usually choose 0.05
+   
+- Can also use .alert[**p-value**] as justification, if using calculator function (more on this in a few slides)
    
 ]
    
@@ -324,18 +326,38 @@ $\begin{align}\text{degrees of freedom} &= (\text{# rows in two-way table} - 1)\
 
 # Chi-Squared Test for Independence: Decision
 
-- If your test statistic $\chi^2$ > critical value $\chi^{2*}$, .alert[**reject the null hypothesis**]
+- If your test statistic $\chi^2$ > critical value $\chi^{2*}_{df}$, .alert[**reject the null hypothesis**]
 
    - We have sufficient evidence to conclude that variables X and Y are .alert2[**not independent**]
    
    - The category you are in for variable X will influence what category you're in for variable Y
 
-- If your test statistic $\chi^2$ < critical value $\chi^{2*}$, .alert[**fail-to-reject the null hypothesis**]
+- If your test statistic $\chi^2$ < critical value $\chi^{2*}_{df}$, .alert[**fail-to-reject the null hypothesis**]
 
    - We .alert2[**do not**] have sufficient evidence to conclude that variables X and Y are .alert2[**not independent**]
    
    - The category you are in for variable X will likely not influence what category you're in for variable Y
-   
+
+- Unlike other hypothesis tests we went over, chi-squared tests don't have "sided" tests so we are always rejecting if our test statistic is .alert2[**greater than**] our critical value
+
+---
+
+# Calculator: $\chi^2$ -Test
+
+Before finding the function:
+- 2nd MATRIX > EDIT > [A]
+- Change number of rows and columns to matrix to match your two-way table
+- Copy values from your two-way table into the cells of the matrix
+
+To get to the calculator function on a TI-84:
+- STAT > TESTS > C: $\chi^2$ -Test
+
+To calculate perform a $\chi^2$ test for independence:
+- input:
+   - Observed: [A]
+   - Expected: [B] (this is where the calculator will save the expected counts table)
+- then arrow down to CALCULATE and press ENTER
+
 ---
 
 # Example: Alcohol & Smoking
